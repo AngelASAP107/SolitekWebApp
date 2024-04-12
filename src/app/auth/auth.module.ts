@@ -14,6 +14,9 @@ import { RegisterComputerComponent } from './register-computer/register-computer
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    RegisterUserComponent
   ]
 })
 export class AuthModule { }
