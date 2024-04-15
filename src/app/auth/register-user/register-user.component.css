@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+body {
+    background-image: url('/assets/images/26800 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        display: flex;
+        justify-content: center; /* Centra los elementos horizontalmente */
+    }
+    
+    .login-section, .register-section {   
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .login-section {
+        background: linear-gradient(45deg ,#010304, #121A2F);
+        width: 400px;
+        height: 500px;
+        display: flex; /* Usa flexbox para centrar verticalmente */
+        flex-direction: column; /* Alinea los elementos verticalmente */
+        justify-content: center; /* Centra verticalmente */
+        align-items: center; /* Centra horizontalmente */
+        color: white;
+    }
+    
+    .register-section {
+        background-color: white;
+        width: 400px;
+        height: 500px;
+        padding: 20px; /* Añadido un poco de espacio alrededor del formulario */
+        display: flex; /* Usa flexbox para centrar vertical y horizontalmente */
+        flex-direction: column; /* Coloca los elementos en una columna */
+        justify-content: center; /* Centra verticalmente */
+        align-items: center; /* Centra horizontalmente */
+    }
+
+    
+    .login-content {
+        margin-bottom: 20px; 
+    }
+    
+    .login-button {
+        background: linear-gradient(to right, #FFFFFF, #D1E4FF);
+        color: #0B365C;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px; 
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px; 
+        font-family: "Outfit", sans-serif; 
+        text-transform: uppercase;
+    }
+    
+    .form-group {
+        display: flex; /* Usa flexbox para alinear los elementos verticalmente */
+        align-items: center; /* Centra verticalmente los elementos */
+        margin-bottom: 15px; /* Ajusta el espaciado entre grupos de formulario */
+      }
+      
+      .form-group label {
+        margin-right: 10px; /* Añade un margen a la derecha del ícono para separarlo del campo de texto */
+        width: 40px; /* Ajusta el ancho del label para que todos tengan el mismo ancho */
+        display: inline-block; /* Permite ajustar el ancho del label */
+      }
+      
+      .form-group input {
+        border: none; /* Quita el borde */
+        border-bottom: 1px solid #ccc; /* Agrega un borde inferior */
+        outline: none; /* Quita el contorno al enfocar */
+        background-color: transparent; /* Hace el fondo transparente */
+        font-family: "Outfit", sans-serif; /* Aplica la fuente Outfit */
+        font-size: 16px; /* Tamaño de fuente */
+        padding: 8px 0; /* Añade un poco de relleno superior e inferior */
+        width: 100%; /* Ajusta el ancho al 100% */
+        box-sizing: border-box; /* Hace que el tamaño incluya el borde y el relleno */
+    }
+
+    .register-button {
+        background: linear-gradient(to right ,#010304, #121A2F);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px; 
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px; 
+        font-family: "Outfit", sans-serif; 
+        text-transform: uppercase;
+    }

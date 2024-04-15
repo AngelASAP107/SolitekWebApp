@@ -1,39 +1,47 @@
-<div class="container">
-    <div class="logo-section">
-      <!-- Aquí puedes colocar el logo de la empresa -->
-      <img src="assets/images/LOGO-SOLITEK-2-PNG.png" width="400" height="200">
-      <!-- Texto descriptivo -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="register-user.component.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="login-section">
+      <img src="assets/images/LOGO-SOLITEK-2-PNG.png" width="303" height="110">
       <p>¿Ya tienes cuenta?</p>
-      <!-- Botón para volver al inicio de sesión -->
-      <button type="button">Volver al inicio de sesión</button>
+      <button type="button" class="login-button" (click)="navigateToLogin()">Iniciar Sesión</button>
     </div>
-    <div class="form-section">
-      <!-- Formulario de creación de nueva cuenta -->
+    <div class="register-section">
       <form>
-        <h2>Crear Nueva Cuenta</h2>
+        <h2>CREAR CUENTA</h2>
         <div class="form-group">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required>
+          <label for="nombre"><img src="assets/images/usuario 1.png" alt="Ícono Usuario"></label>
+          <input type="text" id="nombre" name="nombre" placeholder="Usuario" required>
         </div>
         <div class="form-group">
-          <label for="correo">Correo electrónico:</label>
-          <input type="email" id="correo" name="correo" required>
+          <label for="correo"><img src="assets/images/buzon 1.png" alt="Ícono Buzón"></label>
+          <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
         </div>
         <div class="form-group">
-          <label for="contrasena">Contraseña:</label>
-          <input type="password" id="contrasena" name="contrasena" required>
+          <label for="contrasena"><img src="assets/images/cerrar-con-llave 1.png" alt="Ícono Cerrar con Llave"></label>
+          <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
         </div>
         <div class="form-group">
-          <label for="confirmar-contrasena">Repetir Contraseña:</label>
-          <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
+          <label for="confirmar-contrasena"></label>
+          <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" placeholder="Confirmar Contraseña" required class="confirmar-contrasena">
         </div>
         <div class="form-group">
-          <label for="telefono">Teléfono:</label>
-          <input type="tel" id="telefono" name="telefono">
+          <label for="telefono"><img src="assets/images/telefono 1.png" alt="Ícono Teléfono"></label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
         </div>
         <!-- Botón para enviar el formulario -->
-        <button type="submit">Crear Cuenta</button>
+        <button type="submit" class="register-button">Crear Cuenta</button>
       </form>
     </div>
   </div>
-  
+
+</body>
+</html>

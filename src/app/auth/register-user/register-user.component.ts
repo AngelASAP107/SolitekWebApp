@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register-user',
+  selector: 'app-register',
   templateUrl: './register-user.component.html',
-  styleUrl: './register-user.component.css'
+  styleUrls: ['./register-user.component.css']
 })
-export class RegisterUserComponent {
+export class RegisterComponent {
+
+  constructor(private router: Router) { }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']); // Navegar a la página de login
+  }
 
 }
