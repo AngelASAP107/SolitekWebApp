@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { BackgroundService } from '../../background.service'; // Importar el servicio de fondo
 
 @Component({
   selector: 'app-register',
@@ -9,14 +8,9 @@ import { BackgroundService } from '../../background.service'; // Importar el ser
 })
 export class RegisterComponent {
 
-  constructor(private router: Router, private backgroundService: BackgroundService) { }
-
-  ngOnInit() {
-    // Actualizar la imagen de fondo al inicializar el componente
-    this.backgroundService.updateBackground('/assets/images/your_custom_image.png');
-  }
+  constructor(private router: Router) { }
 
   navigateToLogin() {
-    this.router.navigate(['/login']); // Navegar a la página de login
+    this.router.navigate(['/login']);
   }
 }

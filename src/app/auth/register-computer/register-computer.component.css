@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+
+   h3 {
+      /* Estilos para el título "REGISTRAR EQUIPO" */
+      text-align: center; /* Para centrar el texto */
+      position: absolute; /* Para posicionar el título encima del fondo */
+      top: 10%; /* Ajusta la distancia desde la parte superior */
+      left: 50%; /* Centra horizontalmente */
+      transform: translateX(-50%); /* Centra horizontalmente */
+      color: #000000;
+      font-family: "Outfit", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 40px;
+    }
+   .contenedor{
+    background-image: url('/assets/images/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+   }
+
+   .fondo_tuerca {
+      background-color: white;
+      width: 1150px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Agregar este estilo para centrar verticalmente */
+      color: white;
+      position: relative;
+  }   
+.foto{
+   margin-top: -30%; /* Mueve la imagen hacia abajo */
+   margin-left: -63%; /* Mueve la imagen hacia la derecha */
+}
+
+   .bt-foto{
+    background: linear-gradient(to right ,#010304, #121A2F);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; 
+    text-transform: uppercase;
+    margin-top: 5%; /* Mueve la imagen hacia abajo */
+    margin-left: 5%; /* Mueve la imagen hacia la derecha */
+   }
+
+   .bt-register{
+    background: linear-gradient(to right ,#010304, #121A2F);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; 
+    text-transform: uppercase;
+    margin-top: 10px; /* Añadido un margen superior */
+   }
+   .contenedor3{
+      margin-top: -28%; /* Mueve la imagen hacia arriba */
+      margin-left: 5%; /* Mueve la imagen hacia izquierda*/
+     }
+
+   .form-group {
+      display: flex; /* Usa flexbox para alinear los elementos verticalmente */
+      align-items: flex-end; /* Centra verticalmente los elementos */
+
+    }
+
+
+    .form-group label {
+      width: 7%; /* Ajusta el ancho del label para que todos tengan el mismo ancho */
+      flex-shrink: 0; /* Evitamos que el label se contraiga */
+      border-bottom: 1px solid #000000; /* Agrega un borde inferior */
+      margin-bottom: 1%; /* Corrige el desplazamiento hacia abajo causado por el borde inferior */
+
+    }
+    
+    .form-group input {
+      border: none; /* Quita el borde */
+      border-bottom: 1px solid #000000; /* Agrega un borde inferior */
+      outline: none; /* Quita el contorno al enfocar */
+      background-color: transparent; /* Hace el fondo transparente */
+      font-family: "Outfit", sans-serif; /* Aplica la fuente Outfit */
+      font-size: 16px; /* Tamaño de fuente */
+      padding: 8px 0; /* Añade un poco de relleno superior e inferior */
+      width: 60%; /* Ajusta el ancho */
+      margin-bottom: 1%; /* Corrige el desplazamiento hacia abajo causado por el borde inferior */
+      margin-right: 3%;
+    }
+    
+    
+  .contenedor4{
+   margin-top: 10%; /* Mueve la imagen hacia arriba */
+   margin-left: -15%; /* Mueve la imagen hacia arriba */
+  }
+
+  .contenedor5{
+   margin-top: 1%; /* Mueve la imagen hacia arriba */
+   margin-left: -15%; /* Mueve la imagen hacia arriba */
+  }
