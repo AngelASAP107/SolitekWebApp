@@ -7,37 +7,28 @@
     <link rel="stylesheet" href="./login.component.css">
 </head>
 <body>
-   <div class ="fondo-imagen">
-        <div class="cuadrado-azul">
-            <div class="logo-section">
-                <img src="assets/images/LOGO-SOLITEK-PNG.png" alt="user-img">
-            </div>
-            <label for="">¿No tienes cuenta?</label>
-                <button type="submit" (click)="navigateToRegister()">CREAR CUENTA</button>
-        </div>
-
-        <div class="contenedor_todo">
-            
+   <div class ="contenedor">
+        <div class="register-section">
         <form>
-            <div class="form-header">
                 <h3>INICIAR SESION</h3>
-            </div>
-            <div class="form-section">
-                <div class="input-with-icon">
+            <div class="form-group">
                     <img src="assets/images/buzon 1.png" alt="user-img">
                     <input type="text" id="username" placeholder="Nombre de usuario" required>
                 </div>
-                <div class="input-with-icon">
+                <div class="form-group">
                     <img src="assets/images/cerrar-con-llave 1.png" alt="user-img">
                     <input type="password" id="password" placeholder="Contraseña" required>
                 </div>
-                <div class="box-recordar">
+                <div class="form-group">
                     <input type="checkbox" id="recordar">
                     <label for="recordar">Recordarme</label>
-                </div>
-                <button type="submit">Iniciar Sesión</button>
-            </div>
+                    <a href="#" class="recuperar-contraseña">Recuperar contraseña</a>
+                    </div>
         </form>
+        <button type="submit" class="bt">Ingresar</button>
+    </div>
+    <div class="logo-section">
+        <img src="assets/images/LOGO-SOLITEK-PNG.png" width="250" height="250" alt="user-img">
     </div>
 </div>
 </body>

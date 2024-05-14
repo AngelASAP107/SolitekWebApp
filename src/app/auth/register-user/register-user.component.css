@@ -80,7 +80,8 @@
     .form-group {
         display: flex; /* Usa flexbox para alinear los elementos verticalmente */
         align-items: center; /* Centra verticalmente los elementos */
-        margin-bottom: 15px; /* Ajusta el espaciado entre grupos de formulario */
+        margin-bottom: 3%; /* Ajusta el espaciado entre grupos de formulario */
+        margin-top: 2%;
       }
       
       .form-group label {
@@ -113,3 +114,22 @@
         font-family: "Outfit", sans-serif; 
         text-transform: uppercase;
     }
+
+    button {
+        background: linear-gradient(to right, #FFFFFF, #D1E4FF);
+        color: #0B365C;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px; 
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px; 
+        font-family: "Outfit", sans-serif; 
+        text-transform: uppercase;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8); /* Efecto de sombra similar al contenedor */
+      }
+      
+      button:hover {
+        background: linear-gradient(to right, #D1E4FF, #FFFFFF); /* Cambio de gradiente al pasar el cursor */
+      }
+      

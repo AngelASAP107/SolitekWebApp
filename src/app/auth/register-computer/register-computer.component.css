@@ -34,6 +34,7 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    position: relative;
    }
 
    .fondo_tuerca {
@@ -46,6 +47,8 @@
       justify-content: center; /* Agregar este estilo para centrar verticalmente */
       color: white;
       position: relative;
+      inset: 0;
+      margin: auto;
   }   
 .foto{
    margin-top: -30%; /* Mueve la imagen hacia abajo */
