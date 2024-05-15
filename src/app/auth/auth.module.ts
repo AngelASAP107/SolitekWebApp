@@ -37,7 +37,8 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     RegisterComponent,
     LoginComponent,
     RegisterComputerComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    MenuClientComponent
   ]
   
 })
