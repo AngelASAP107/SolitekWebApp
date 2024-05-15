@@ -1,1 +1,98 @@
-<p>manage-tickets-ad works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tickets</title>
+    <link rel="stylesheet" href="manage-tickets-ad.component.css">
+</head>
+<body>
+    <header>
+        <button class="logo-button">
+            <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
+        </button>
+        <div class="header-right">
+            <span>ALEX FRANCO</span>
+            <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+        </div>
+    </header>
+    <div class="title-section">
+        <h1>Gestor de Tickets.</h1>
+    </div>
+    <div class="search-section">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Buscar un Cliente...">
+            <button class="search-button"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
+            <div class="add-button-group">
+                <button class="add-icon-button"><img src="assets/images/mas 1.png" alt="Agregar"></button>
+                <button class="add-text-button">Agregar un nuevo ticket.</button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre(s)</th>
+                    <th>Apellido(s)</th>
+                    <th>N° de Documento</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Teléfono</th>
+                    <th>Número de orden</th>
+                    <th>Servicio</th>
+                    <th>Especificaciones equipo</th>
+                    <th>Estado Equipo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Andres Julian</td>
+                    <td>Gonzalez Barrera</td>
+                    <td>1007461203</td>
+                    <td>28/02/2023</td>
+                    <td>3008234881</td>
+                    <td>161</td>
+                    <td>Mantenimiento</td>
+                    <td>torre ryzen 3 8ram ssd 512</td>
+                    <td>No da imagen</td>
+                    <td>
+                        <button class="edit-button">Editar</button>
+                        <button class="finish-button">Finalizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Natalia Andrea</td>
+                    <td>Giraldo Erazo</td>
+                    <td>1007461203</td>
+                    <td>08/08/2022</td>
+                    <td>3008234881</td>
+                    <td>163</td>
+                    <td>Formateo</td>
+                    <td>Acer aspire 315 ryzen 5 8 ram ssd 512</td>
+                    <td>Virus</td>
+                    <td>
+                        <button class="edit-button">Editar</button>
+                        <button class="finish-button">Finalizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mauricio</td>
+                    <td>Rodriguez Ramirez</td>
+                    <td>1006891302</td>
+                    <td>18/06/2021</td>
+                    <td>3182331150</td>
+                    <td>167</td>
+                    <td>Diagnostico</td>
+                    <td>Impresora epson l3210</td>
+                    <td>Cabezal</td>
+                    <td>
+                        <button class="edit-button">Editar</button>
+                        <button class="finish-button">Finalizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
