@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageTicketsAdComponent } from './manage-tickets-ad.component';
+import { ManageTicketsAdComponent } from './ManageTicketsAdComponent';
 
 describe('ManageTicketsAdComponent', () => {
   let component: ManageTicketsAdComponent;
