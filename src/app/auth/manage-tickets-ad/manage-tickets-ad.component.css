@@ -51,6 +51,7 @@ header {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .title-section h1 {
@@ -60,6 +61,23 @@ header {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+.menuback{
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    background-color: #D1E4FF;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
 .search-section {

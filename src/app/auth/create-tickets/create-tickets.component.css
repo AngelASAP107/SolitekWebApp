@@ -1,0 +1,165 @@
+/* Estilos para el modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 880px;
+  max-width: 90%; /* Ancho máximo del contenido */
+}
+
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  color: #9DCAFF; /* Color de la X */
+  margin-right: 10px; 
+  margin-top: -10px; 
+  float: right; 
+}
+
+/* Estilos para el título del modal */
+.modal-title {
+  margin-top: 0;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to right, #00B2FF, #368DD9);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  position: relative; /* Para que la línea se posicione correctamente */
+}
+
+.modal-title::after {
+  content: ""; /* Agrega un elemento pseudo después del texto */
+  position: absolute; /* Posición absoluta relativa al elemento padre */
+  bottom: -5px; /* Ajusta la posición de la línea */
+  left: 10%; /* La línea comienza desde el borde izquierdo */
+  width: 80%; /* Ancho completo del texto */
+  height: 2px; /* Grosor de la línea */
+  background: linear-gradient(to right, #00B2FF, #368DD9); /* Degradado lineal */
+}
+
+
+/* Estilos para el formulario dentro del modal */
+.ticket-form {
+  margin-top: 20px;
+}
+
+/* Estilos para las etiquetas y campos de entrada del formulario */
+.form-group {
+  display: inline-block;
+  margin-left: 40px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.form-group input {
+  background-color: #F1F0F4;
+  border: none;
+}
+
+/* Ajustes de ancho para cada campo */
+#nombres,
+#apellidos{
+  width: 280px;
+  margin-right: -20px;
+}
+
+#documento{
+  width: 200px;
+}
+
+
+#fechaIngreso,
+#telefono,
+#numeroOrden,
+#servicio{
+  width: 170px; /* Porcentaje de ancho para cada campo */
+}
+
+#estadoEquipo{
+  width: 260px;
+}
+#especificaciones {
+  width: 500px; /* El campo de servicio, estadoEquipo y especificaciones ocuparán todo el ancho */
+}
+
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.form-input {
+  width: calc(100% - 8px); /* Ajusta el ancho para compensar el padding */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.submit-button {
+  font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    background-color: #D1E4FF;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+    display: block; /* Convertir el botón en un bloque para centrarlo */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para las filas del formulario */
+.form-row {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+/* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
+@media screen and (max-width: 600px) {
+  .form-group {
+      width: 100%;
+      margin-right: 0;
+  }
+}

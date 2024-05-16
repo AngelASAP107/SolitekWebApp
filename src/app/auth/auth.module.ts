@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register-user/register-user.component';
 import { RegisterComputerComponent } from './register-computer/register-computer.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
-import { Route } from '@angular/router';
 import { ManageTicketsAdComponent } from './manage-tickets-ad/manage-tickets-ad.component';
 import { CreateTicketsComponent } from './create-tickets/create-tickets.component';
 import { TicketsHistoryComponent } from './tickets-history/tickets-history.component';
@@ -31,7 +31,8 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     ManageTicketsTeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     RegisterComponent,
@@ -39,7 +40,8 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     RegisterComputerComponent,
     MenuAdminComponent,
     MenuClientComponent,
-    MenuTechnicalComponent
+   MenuTechnicalComponent,
+  CreateTicketsComponent,
   ]
   
 })

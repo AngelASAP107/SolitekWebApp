@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
+import { TicketService, Ticket } from '../../ticket.service';
 
 @Component({
   selector: 'app-manage-tickets-ad',
   templateUrl: './manage-tickets-ad.component.html',
-  styleUrl: './manage-tickets-ad.component.css'
+  styleUrls: ['./manage-tickets-ad.component.css']
 })
 export class ManageTicketsAdComponent {
+  tickets: Ticket[] = [];
+  showModal: boolean = false;
 
+  constructor(private ticketService: TicketService) {
+    this.ticketService.tickets$.subscribe(tickets => this.tickets = tickets);
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
 }
