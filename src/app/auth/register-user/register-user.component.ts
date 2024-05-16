@@ -13,4 +13,8 @@ export class RegisterComponent {
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
+
+  navigateToRegisterComputer() {
+    this.router.navigate(['/register-computer']);
+  }
 }

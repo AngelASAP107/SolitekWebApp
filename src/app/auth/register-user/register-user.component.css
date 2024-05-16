@@ -126,7 +126,6 @@
         font-size: 16px; 
         font-family: "Outfit", sans-serif; 
         text-transform: uppercase;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8); /* Efecto de sombra similar al contenedor */
       }
       
       button:hover {
