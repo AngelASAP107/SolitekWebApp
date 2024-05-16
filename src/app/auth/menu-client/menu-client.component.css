@@ -16,7 +16,7 @@ body{
     height: 100%;
     margin: auto;
     position: relative;
-    flex-direction: column;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -53,10 +53,9 @@ header{
     position: relative;
     flex-direction: column;
     float: left;
-    height: auto;
-    width: 820px;
-    margin-top: 4%;
-    margin-left: 5%;
+    height: 650px;
+    width: 600px;
+    margin: 4%;
     border-radius: 8px; /* Redondeamos los bordes */
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5); /* Aplicamos un efecto de sombra difuminada */
 }
@@ -67,11 +66,9 @@ header{
     position: relative;
     flex-direction: column;
     float: right;
-    height: auto;
-    width: 820px;
-    margin-top: 4%;
-    margin-right: 5%;
-
+    height: 650px;
+    width: 600px;
+    margin: 4%;
     }
 
 .contenedor-resumen h3:nth-child(1) {
@@ -133,8 +130,7 @@ header{
         font-family: "Outfit", sans-serif; 
         text-transform: uppercase;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8); /* Efecto de sombra similar al contenedor */
-        align-items: center;
-        
+        align-items: flex-end;
       }
       
       .custom-button:hover {
@@ -145,3 +141,8 @@ header{
       .custom-button img {
         margin-right: 2%; /* Espacio entre la imagen y el texto */
     }
+
+    .form-group2 {
+        margin-bottom: 12%; /* Espacio entre los grupos de botones */
+      
+      }

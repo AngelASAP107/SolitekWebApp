@@ -37,8 +37,8 @@ body{
     
     .logo-section {
         background: linear-gradient(45deg ,#010304, #121A2F);
-        width: 27%;
-        height: 63.5%;
+        width: 400px;
+        height: 500px;;
         display: flex; /* Usa flexbox para centrar verticalmente */
         flex-direction: column; /* Alinea los elementos verticalmente */
         justify-content: center; /* Centra verticalmente */
@@ -48,8 +48,8 @@ body{
     
     .register-section {
         background-color: white;
-        width: 27%;
-        height: 63.5%;
+        width: 400px;
+        height: 500px;
         display: flex; /* Usa flexbox para centrar vertical y horizontalmente */
         flex-direction: column; /* Coloca los elementos en una columna */
         justify-content: center; /* Centra verticalmente */

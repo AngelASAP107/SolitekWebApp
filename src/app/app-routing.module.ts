@@ -5,6 +5,7 @@ import { RegisterComponent } from './auth/register-user/register-user.component'
 import { RegisterComputerComponent } from './auth/register-computer/register-computer.component';
 import { MenuAdminComponent } from './auth/menu-admin/menu-admin.component';
 import { MenuClientComponent } from './auth/menu-client/menu-client.component';
+import { MenuTechnicalComponent } from './auth/menu-technical/menu-technical.component';
 import { ManageTicketsAdComponent } from './auth/manage-tickets-ad/manage-tickets-ad.component';
 
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'register-computer', component: RegisterComputerComponent },
   { path: 'menu-admin', component: MenuAdminComponent },
   { path: 'menu-cliente', component: MenuClientComponent },
+  { path: 'menu-tecnico', component: MenuTechnicalComponent },
   { path: 'manage-tickets-ad', component: ManageTicketsAdComponent }
 ];
 
