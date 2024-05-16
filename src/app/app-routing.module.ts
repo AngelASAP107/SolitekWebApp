@@ -8,6 +8,7 @@ import { MenuClientComponent } from './auth/menu-client/menu-client.component';
 import { MenuTechnicalComponent } from './auth/menu-technical/menu-technical.component';
 import { ManageTicketsAdComponent } from './auth/manage-tickets-ad/manage-tickets-ad.component';
 import { TicketsHistoryComponent } from './auth/tickets-history/tickets-history.component';
+import { UserEditComponent } from './auth/user-edit/user-edit.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'menu-cliente', component: MenuClientComponent },
   { path: 'menu-tecnico', component: MenuTechnicalComponent },
   { path: 'manage-tickets-ad', component: ManageTicketsAdComponent},
-  {path: 'tickets-history', component: TicketsHistoryComponent}
+  { path: 'tickets-history', component: TicketsHistoryComponent},
+  { path: 'user-edit', component: UserEditComponent}
 ];
 
 @NgModule({
