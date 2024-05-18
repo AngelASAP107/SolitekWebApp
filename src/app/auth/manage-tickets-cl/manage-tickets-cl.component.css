@@ -101,19 +101,28 @@ header {
     margin-left: -9px;
 }
 
-.contenedor2{
+.contenedor{
     display: flex;
-    justify-content: baseline;
     align-items: flex-start;
     width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.contenedor2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .fotos{
     display: flex;
-    width: 550px;
+    width: 530px;
     height: 510px;
     background-color: #F1F0F4;
-
+    margin-right: 1%;
+    border-radius: 20px;
 }
 .details-section {
     display: flex;
@@ -126,10 +135,11 @@ header {
 
 .comment-section textarea {
     height: 488px;
-    width: 550px;
+    width: 530px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
+    margin-left: 1%;
 }
 
 .contenedor-panel {
@@ -138,7 +148,7 @@ header {
     width: auto;
     flex: 1; /* Para que ocupe el espacio restante */
     margin-left: 2px; /* Espacio entre la tabla y los elementos adicionales */
-    margin-top: 88px;
+    margin-top: 60px;
 }
 .search-section {
     display: flex;
@@ -184,8 +194,6 @@ header {
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
     margin-right: 5px;
 }
-
-ma
 
 table {
     padding: 20px;

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="manage-tickets-te.component.css">
 </head>
 <body>
-    <div class="container">
         <header>
             <button class="logo-button">
                 <img src="assets/images/img-gestion-ticket/LOGO-SOLITEK-2-PNG.png" alt="Logo Solitek">
@@ -20,21 +19,15 @@
         <div class="title-section">
             <button (click)="navigateToMenu()" class="menuback">Menú</button>
         </div>
-        <div class="whatsapp-button">
-            <button>
-            <a href="https://wa.me/3165455210" target="_blank">Enviar mensaje al 3165455210</a>
-            <img src="assets/images/img-gestion-ticket/whatsapp" alt="img-src">
-        </button>
-        </div>
+        <div class="contenedor">
+            <div class="contenedor2">
         <div class="search-section">
             <div class="search-bar">
                 <input type="text" class="search-input" placeholder="Buscar un Cliente...">
-                <button class="search-button"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
-                <img src="" alt="">
+                <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
             </div>
         </div>
         <main>
-            <div class="ticket-list">
                 <table>
                     <thead>
                         <tr>
@@ -53,16 +46,18 @@
                         </tr>
                     </tbody>
                 </table>
+        </main>
+    </div>
+        <div class="contenedor-panel">
+            <div class="fotos">
+                <button class="bt-foto">SUBIR FOTO</button>
             </div>
             <div class="details-section">
-                <div class="image-upload">
-                    <button class="upload-btn">SUBIR FOTO</button>
-                </div>
                 <div class="comment-section">
                     <textarea placeholder="Escribe un comentario personalizado..."></textarea>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 </body>
 </html>
