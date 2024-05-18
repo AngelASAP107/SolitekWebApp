@@ -1,1 +1,69 @@
-<p>manage-tickets-cl works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solitek</title>
+    <link rel="stylesheet" href="manage-tickets-cl.component.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="logo-button">
+                <img src="assets/images/img-gestion-ticket/LOGO-SOLITEK-2-PNG.png" alt="Logo Solitek">
+            </button>
+            <div class="user-info">
+                <span>LINA ACOSTA</span>
+                <img src="assets/images/img-gestion-ticket/usuario.png" alt="User Icon" class="user-icon">
+            </div>
+        </header>
+        <div class="title-section">
+            <button (click)="navigateToMenu()" class="menuback">Menú</button>
+        </div>
+        <div class="whatsapp-button">
+            <a href="https://wa.me/3165455210" target="_blank">
+                <div class="icon-wpp">
+                    <img src="assets/images/img-gestion-ticket/whatsapp.png" alt="WhatsApp">
+                </div>
+                Enviar mensaje al 3165455210
+            </a>
+        </div>
+        <div class="contenedor2">
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Buscar un Cliente...">
+                <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
+            </div>
+        </div>
+            <div class="contenedor-panel">
+                <div class="fotos"></div>
+                <div class="details-section">
+                    <div class="comment-section">
+                        <textarea placeholder="Escribe un comentario personalizado..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre(s)</th>
+                            <th>Apellido(s)</th>
+                            <th>Numero de orden</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lina</td>
+                            <td>Acosta</td>
+                            <td>4023</td>
+                            <td><button class="select-btn">Seleccionar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </main>
+    </div>
+</body>
+</html>

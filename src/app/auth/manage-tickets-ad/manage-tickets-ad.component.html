@@ -24,13 +24,6 @@
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Buscar un Cliente...">
             <button class="search-button"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
-            <div class="add-button-group">
-                <button (click)="openModal()" class="add-icon-button"><img src="assets/images/mas 1.png" alt="Agregar"></button>
-                <button (click)="openModal()" class="add-text-button">Agregar un nuevo ticket.</button>
-                <div *ngIf="showModal">
-                    <app-create-tickets (formClose)="closeModal()"></app-create-tickets>
-                  </div>
-            </div>
         </div>
     </div>
     <main>

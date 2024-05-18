@@ -9,7 +9,8 @@ import { MenuTechnicalComponent } from './auth/menu-technical/menu-technical.com
 import { ManageTicketsAdComponent } from './auth/manage-tickets-ad/manage-tickets-ad.component';
 import { TicketsHistoryComponent } from './auth/tickets-history/tickets-history.component';
 import { UserEditComponent } from './auth/user-edit/user-edit.component';
-
+import { ManageTicketsTeComponent } from './auth/manage-tickets-te/manage-tickets-te.component';
+import { ManageTicketsClComponent } from './auth/manage-tickets-cl/manage-tickets-cl.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'menu-tecnico', component: MenuTechnicalComponent },
   { path: 'manage-tickets-ad', component: ManageTicketsAdComponent},
   { path: 'tickets-history', component: TicketsHistoryComponent},
-  { path: 'user-edit', component: UserEditComponent}
+  { path: 'user-edit', component: UserEditComponent},
+  { path: 'gestion-tecnico', component: ManageTicketsTeComponent},
+  { path: 'gestion-cliente', component: ManageTicketsClComponent},
 ];
 
 @NgModule({

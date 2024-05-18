@@ -1,0 +1,233 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #050D21;
+    color: white;
+}
+.logo-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.logo-button img {
+    height: 40px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.user-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.title-section {
+    background: linear-gradient(45deg, #60B0FE, #9DCAFF);
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.menuback{
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    background-color: #D1E4FF;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.whatsapp-button {
+    margin-top: 70px;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    margin-right: 18px;
+}
+
+.whatsapp-button a {
+    display: inline-flex;
+    width: 300px;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-button a:hover {
+    background-color: #1ebe57;
+}
+
+.icon-wpp {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    margin-left: -9px;
+}
+
+.contenedor2{
+    display: flex;
+    justify-content: baseline;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.fotos{
+    display: flex;
+    width: 550px;
+    height: 510px;
+    background-color: #F1F0F4;
+
+}
+.details-section {
+    display: flex;
+    gap: 20px;
+}
+
+.comment-section {
+    flex: 1;
+}
+
+.comment-section textarea {
+    height: 488px;
+    width: 550px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contenedor-panel {
+    display: flex;
+    height: 100px;
+    width: auto;
+    flex: 1; /* Para que ocupe el espacio restante */
+    margin-left: 2px; /* Espacio entre la tabla y los elementos adicionales */
+    margin-top: 88px;
+}
+.search-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    margin-top: 3%;
+    position: relative;
+    margin-bottom: 20px;
+    width: 700px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;/* Distribuye los elementos a lo largo del contenedor */
+    background: transparent;
+    padding: 10px;
+    width: 800px;
+}
+
+.search-input {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    width: 620px;
+    background: transparent;
+    box-shadow: none;
+    margin-right: 10px; /* Agregado para separar el input del botón */
+    box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+}
+
+ma
+
+table {
+    padding: 20px;
+    width: 40%;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    overflow: hidden;
+    border-spacing: 0; /* Elimina el espacio entre celdas */
+}
+
+table thead {
+    background-color: #9DCAFF;
+    color: white;
+    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+}
+
+thead th:first-child {
+    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+}
+
+thead th:last-child {
+    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+}
+
+table th, table td {
+    padding: 30px;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.select-btn {
+    background-color: #86F3FF;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

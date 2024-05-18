@@ -42,6 +42,8 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     MenuClientComponent,
    MenuTechnicalComponent,
   CreateTicketsComponent,
+  ManageTicketsTeComponent,
+  ManageTicketsClComponent,
   ]
   
 })
