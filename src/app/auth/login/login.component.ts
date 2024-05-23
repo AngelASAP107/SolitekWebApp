@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,16 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   nombre: string = '';
   contrasena: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  onSubmit(): void {
+  onSubmit(loginForm: NgForm): void {
+    if (!loginForm.form.valid) {
+      this.errorMessage = 'Por favor, complete todos los campos obligatorios.';
+      return;
+    }
+    
     this.authService.login(this.nombre, this.contrasena).subscribe(
       response => {
         console.log('Login successful', response); // Añadir log para verificar la respuesta
@@ -23,6 +30,7 @@ export class LoginComponent {
       },
       error => {
         console.error('Login failed', error); // Añadir log para verificar el error
+        this.errorMessage = 'Nombre de usuario o contraseña incorrectos';
       }
     );
   }

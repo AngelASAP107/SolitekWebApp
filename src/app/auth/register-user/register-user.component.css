@@ -132,3 +132,20 @@
         background: linear-gradient(to right, #D1E4FF, #FFFFFF); /* Cambio de gradiente al pasar el cursor */
       }
       
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+      .form-group input, .form-group select {
+        border: none; /* Quita el borde */
+        border-bottom: 1px solid #ccc; /* Agrega un borde inferior */
+        outline: none; /* Quita el contorno al enfocar */
+        background-color: transparent; /* Hace el fondo transparente */
+        font-family: "Outfit", sans-serif; /* Aplica la fuente Outfit */
+        font-size: 16px; /* Tamaño de fuente */
+        padding: 8px 0; /* Añade un poco de relleno superior e inferior */
+        width: 100%; /* Ajusta el ancho al 100% */
+        box-sizing: border-box; /* Hace que el tamaño incluya el borde y el relleno */
+    }

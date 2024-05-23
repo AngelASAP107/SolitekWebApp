@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importar ambos módulos aquí solo una vez
 
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register-user/register-user.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisterComputerComponent } from './register-computer/register-computer.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ManageTicketsAdComponent } from './manage-tickets-ad/manage-tickets-ad.component';
@@ -18,7 +18,7 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
+    RegisterUserComponent,
     RegisterComputerComponent,
     MenuAdminComponent,
     ManageTicketsAdComponent,
@@ -36,7 +36,7 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     ReactiveFormsModule // Importar ReactiveFormsModule aquí
   ],
   exports: [
-    RegisterComponent,
+    RegisterUserComponent,
     LoginComponent,
     RegisterComputerComponent,
     MenuAdminComponent,

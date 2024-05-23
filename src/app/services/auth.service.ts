@@ -7,11 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000/api/auth';
+  private usersApiUrl = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
   login(nombre: string, contrasena: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { nombre, contrasena });
+  }
+
+  register(usuario: any): Observable<any> {
+    return this.http.post<any>(`${this.usersApiUrl}/register`, usuario);
   }
 
   saveToken(token: string): void {

@@ -141,3 +141,10 @@ body{
         text-transform: uppercase;
         margin-top: 10%;
     }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        text-align: left; /* Para alinear el texto a la izquierda */
+      }

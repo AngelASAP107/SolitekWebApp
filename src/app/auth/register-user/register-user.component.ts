@@ -1,20 +1,48 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-register-user',
   templateUrl: './register-user.component.html',
   styleUrls: ['./register-user.component.css']
 })
-export class RegisterComponent {
+export class RegisterUserComponent {
+  usuario = {
+    nombre: '',
+    correo_electronico: '',
+    contrasena: '',
+    confirmar_contrasena: '',
+    telefono: '',
+    id_rol: '' // Valor por defecto: Técnico
+  };
 
-  constructor(private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  navigateToLogin() {
-    this.router.navigate(['/login']);
+  onSubmit(registerForm: NgForm): void {
+    if (!registerForm.form.valid) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
+    if (this.usuario.contrasena !== this.usuario.confirmar_contrasena) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+
+    this.authService.register(this.usuario).subscribe(
+      response => {
+        console.log('Registro exitoso', response);
+        this.router.navigate(['/register-computer']); // Redirige a la siguiente página de registro
+      },
+      error => {
+        console.error('Error en el registro', error);
+      }
+    );
   }
 
-  navigateToRegisterComputer() {
-    this.router.navigate(['/register-computer']);
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

@@ -9,7 +9,7 @@
 <body>
     <div class="contenedor">
         <div class="register-section">
-          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
             <h3>INICIAR SESION</h3>
             <div class="form-group">
               <img src="assets/images/buzon 1.png" alt="user-img">
@@ -19,6 +19,7 @@
               <img src="assets/images/cerrar-con-llave 1.png" alt="user-img">
               <input type="password" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" required>
             </div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
             <div class="form-group">
               <input type="checkbox" id="recordar">
               <label for="recordar">Recordarme</label>
@@ -31,6 +32,5 @@
           <img src="assets/images/LOGO-SOLITEK-PNG.png" width="250" height="250" alt="user-img">
         </div>
       </div>
-      
 </body>
 </html>
