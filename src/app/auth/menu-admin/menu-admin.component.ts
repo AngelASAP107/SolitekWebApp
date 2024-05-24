@@ -15,7 +15,7 @@ export class MenuAdminComponent {
   }
 
   navigateToEditUsers() {
-    this.router.navigate(['/user-edit']);
+    this.router.navigate(['/manage-users']);
   }
 
   navigateToCreateUser() {
