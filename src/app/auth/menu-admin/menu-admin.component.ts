@@ -22,6 +22,10 @@ export class MenuAdminComponent {
     this.router.navigate(['/register']);
   }
 
+  navigateToRegisterComuter() {
+    this.router.navigate(['/register-computer']);
+  }
+
   navigateToCreateTickets() {
     this.router.navigate(['/manage-tickets-ad']);
   }

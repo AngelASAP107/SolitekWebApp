@@ -5,21 +5,27 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
-.header {
+header {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #050D21;
-    color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #050D21;
+  color: white;
 }
 
-
-.header img {
-  height: 50px;
+.logo-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-.header .user-info {
+.logo-button img {
+  height: 40px;
+}
+
+.header-right {
   display: flex;
   align-items: center;
   font-family: "Outfit", sans-serif;
@@ -28,8 +34,13 @@ body {
   font-style: normal;
 }
 
-.header .user-info span {
-  margin-right: 10px;
+.header-right span {
+  margin-right: 20px;
+}
+
+.user-icon {
+  width: 40x;
+  height: 24px;
 }
 
 .container {
