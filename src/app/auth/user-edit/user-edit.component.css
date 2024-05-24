@@ -25,6 +25,8 @@ header {
   height: 40px;
 }
 
+
+
 .header-right {
   display: flex;
   align-items: center;
@@ -32,6 +34,7 @@ header {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  position: relative; /* Añadido para posicionar el menú */
 }
 
 .header-right span {
@@ -41,6 +44,41 @@ header {
 .user-icon {
   width: 40x;
   height: 24px;
+}
+
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px; /* Ajustar según sea necesario */
+  right: 0;
+  background-color: #e3f2fd;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1000;
+  margin-top: 10px; /* Ajusta la distancia desde el botón */
+  color: black;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
 }
 
 .container {

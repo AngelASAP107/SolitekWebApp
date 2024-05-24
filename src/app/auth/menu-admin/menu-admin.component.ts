@@ -7,8 +7,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu-admin.component.css']
 })
 export class MenuAdminComponent {
+  menuVisible: boolean = false;
   
   constructor(private router: Router) { }
+
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+    this.menuVisible = false; // Oculta el menú después de la navegación
+  }
+
+  logout(): void {
+    // Lógica para cerrar sesión
+    this.menuVisible = false; // Oculta el menú después de cerrar sesión
+  }
 
   navigateToManageTickets() {
     this.router.navigate(['/tickets-history']);
@@ -29,5 +44,4 @@ export class MenuAdminComponent {
   navigateToCreateTickets() {
     this.router.navigate(['/manage-tickets-ad']);
   }
-  
 }

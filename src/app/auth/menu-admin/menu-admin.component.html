@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -12,11 +13,19 @@
     </button>
     <div class="header-right">
         <span>ALEX FRANCO</span>
-        <button class="logo-button">
-            <img src="assets/images/usuario-de-perfil 1.png"alt="User Icon" class="user-icon">
-        </button>
+        <div class="menu-container">
+          <button class="logo-button" (click)="toggleMenu()">
+              <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+          </button>
+          <div class="dropdown-menu" *ngIf="menuVisible">
+              <ul>
+                  <li (click)="navigateTo('/user-edit')">Perfil</li>
+                  <li (click)="logout()">Cerrar Sesión</li>
+              </ul>
+          </div>
+        </div>
     </div>
-</header>
+  </header>
   <div class="container">
       <div class="contenedor-resumen">
         <h3>Tu resumen de actividad</h3>
@@ -40,7 +49,7 @@
         <div class="form-group1">
         <label for="num4" id="num4" name="num4">0.0</label>
         <label for="clientes_c" id="clientes_c" name="clientes_c">Clientes totales</label>
-        <label for="clientes_c2"  id="clientes_c2" name="clientes_c2"><img src="assets/images/img-menu-admin/perfil.png" width="60" height="80"alt="imag-src"></label>
+        <label for="clientes_c2"  id="clientes_c2" name="clientes_c2"><img src="assets/images/img-menu-admin/perfil.png" width="60" height="80" alt="imag-src"></label>
       </div>
     </div>
     </div>

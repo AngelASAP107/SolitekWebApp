@@ -1,68 +1,85 @@
-<header>
-  <button class="logo-button">
-      <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
-  </button>
-  <div class="header-right">
-      <span>ALEX FRANCO</span>
-      <button class="logo-button">
-          <img src="assets/images/usuario-de-perfil 1.png"alt="User Icon" class="user-icon">
-      </button>
-  </div>
-</header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edición de Usuario</title>
+  <link rel="stylesheet" href="user-edit.component.css">
+</head>
+<body>
+  <header>
+    <button class="logo-button">
+        <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
+    </button>
+    <div class="header-right">
+        <span>ALEX FRANCO</span>
+        <button class="logo-button" (click)="toggleMenu()">
+            <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+        </button>
+        <div class="dropdown-menu" *ngIf="menuVisible">
+          <ul>
+              <li (click)="navigateTo('/user-edit')">Perfil</li>
+              <li (click)="logout()">Cerrar Sesión</li>
+          </ul>
+        </div>
+    </div>
+  </header>
 
-<div class="container">
-    <div class="sidebar">
-      <img src="assets/images/perfil (1) 1.png" alt="Profile Picture" class="profile-picture">
-      <h2>Diego Andres Mejia Sanchez</h2>
-      <p>CC. 1148956515</p>
-      <div class="separator"></div>
-      <a href="#" class="logout">
-        <img src="assets/images/cerrar-sesion 1.png" class="close-sesion" alt="Cerrar Sesión Icon">
-        Cerrar Sesión
-      </a>
-    </div>
-    <div class="main">
-      <h2>Mi Cuenta.</h2>
-      <div class="form-group">
-        <label>Nombre de usuario:</label>
-        <div class="input-group">
-          <input type="text" value="Diego Andres" disabled>
-          <button>Editar</button>
+  <div class="container">
+      <div class="sidebar">
+        <img src="assets/images/perfil (1) 1.png" alt="Profile Picture" class="profile-picture">
+        <h2>Diego Andres Mejia Sanchez</h2>
+        <p>CC. 1148956515</p>
+        <div class="separator"></div>
+        <a href="#" class="logout">
+          <img src="assets/images/cerrar-sesion 1.png" class="close-sesion" alt="Cerrar Sesión Icon">
+          Cerrar Sesión
+        </a>
+      </div>
+      <div class="main">
+        <h2>Mi Cuenta.</h2>
+        <div class="form-group">
+          <label>Nombre de usuario:</label>
+          <div class="input-group">
+            <input type="text" value="Diego Andres" disabled>
+            <button>Editar</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Correo Electronico:</label>
+          <div class="input-group">
+            <input type="email" value="mejiasanchezdiegoandres@gmail.com" disabled>
+            <button>Editar</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Telefono:</label>
+          <div class="input-group">
+            <input type="text" value="3005262331" disabled>
+            <button>Editar</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dirección:</label>
+          <div class="input-group">
+            <input type="text" value="carrera 12 yumbo valle" disabled>
+            <button>Editar</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Usuario:</label>
+          <div>
+            <button class="user">Cambiar Usuario</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Contraseña:</label>
+          <div class="password-change">
+            <button class="password">Cambiar Contraseña</button>
+            <button class="save-btn">Guardar</button>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label>Correo Electronico:</label>
-        <div class="input-group">
-          <input type="email" value="mejiasanchezdiegoandres@gmail.com" disabled>
-          <button>Editar</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Telefono:</label>
-        <div class="input-group">
-          <input type="text" value="3005262331" disabled>
-          <button>Editar</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Dirección:</label>
-        <div class="input-group">
-          <input type="text" value="carrera 12 yumbo valle" disabled>
-          <button>Editar</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Usuario:</label>
-        <div>
-          <button class="user">Cambiar Usuario</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Contraseña:</label>
-        <div class="password-change">
-          <button class="password">Cambiar Contraseña</button>
-          <button class="save-btn">Guardar</button>
-        </div>
-      </div>
-    </div>
-</div>
+  </div>
+</body>
+</html>
