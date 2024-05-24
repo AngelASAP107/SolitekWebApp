@@ -14,6 +14,7 @@ import { MenuClientComponent } from './menu-client/menu-client.component';
 import { ManageTicketsClComponent } from './manage-tickets-cl/manage-tickets-cl.component';
 import { MenuTechnicalComponent } from './menu-technical/menu-technical.component';
 import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
     MenuClientComponent,
     ManageTicketsClComponent,
     MenuTechnicalComponent,
-    ManageTicketsTeComponent
+    ManageTicketsTeComponent,
+    ManageUsersComponent
   ],
   imports: [
     CommonModule,
