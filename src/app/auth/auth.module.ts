@@ -15,6 +15,7 @@ import { ManageTicketsClComponent } from './manage-tickets-cl/manage-tickets-cl.
 import { MenuTechnicalComponent } from './menu-technical/menu-technical.component';
 import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ManageComputersComponent } from './manage-computers/manage-computers.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     ManageTicketsClComponent,
     MenuTechnicalComponent,
     ManageTicketsTeComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    ManageComputersComponent
   ],
   imports: [
     CommonModule,
