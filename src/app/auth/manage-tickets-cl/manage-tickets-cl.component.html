@@ -7,18 +7,29 @@
     <link rel="stylesheet" href="manage-tickets-cl.component.css">
 </head>
 <body>
-        <header>
-            <button class="logo-button">
-                <img src="assets/images/img-gestion-ticket/LOGO-SOLITEK-2-PNG.png" alt="Logo Solitek">
-            </button>
-            <div class="user-info">
-                <span>LINA ACOSTA</span>
-                <img src="assets/images/img-gestion-ticket/usuario.png" alt="User Icon" class="user-icon">
+    <header>
+        <button class="logo-button">
+            <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
+        </button>
+        <div class="header-right">
+            <span>ALEX FRANCO</span>
+            <div class="menu-container">
+              <button class="logo-button" (click)="toggleMenu()">
+                  <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+              </button>
+              <div class="dropdown-menu" *ngIf="menuVisible">
+                  <ul>
+                      <li (click)="navigateTo('/user-edit')">Perfil</li>
+                      <li (click)="logout()">Cerrar Sesión</li>
+                  </ul>
+              </div>
             </div>
-        </header>
-        <div class="title-section">
-            <button (click)="navigateToMenu()" class="menuback">Menú</button>
         </div>
+      </header>
+      <div class="title-section">
+        <h1>Gestor de Clientes.</h1>
+        <button (click)="navigateToMenu()" class="menuback">Menú</button>
+    </div>
         <div class="whatsapp-button">
             <a href="https://wa.me/3165455210" target="_blank">
                 <div class="icon-wpp">
@@ -42,7 +53,7 @@
                             <th>Nombre(s)</th>
                             <th>Apellido(s)</th>
                             <th>Numero de orden</th>
-                            <th></th>
+                            <th class="small-column"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +61,7 @@
                             <td>Lina</td>
                             <td>Acosta</td>
                             <td>4023</td>
-                            <td><button class="select-btn">Seleccionar</button></td>
+                            <td class="small-column"><button class="select-btn">Seleccionar</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,11 +69,6 @@
     </div>
         <div class="contenedor-panel">
             <div class="fotos"></div>
-            <div class="details-section">
-                <div class="comment-section">
-                    <textarea placeholder="Escribe un comentario personalizado..."></textarea>
-                </div>
-            </div>
         </div>
     </div>
 </body>

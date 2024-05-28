@@ -13,6 +13,7 @@ header {
     background-color: #050D21;
     color: white;
 }
+
 .logo-button {
     background: none;
     border: none;
@@ -24,7 +25,7 @@ header {
     height: 40px;
 }
 
-.user-info {
+.header-right {
     display: flex;
     align-items: center;
     font-family: "Outfit", sans-serif;
@@ -33,13 +34,13 @@ header {
     font-style: normal;
 }
 
-.user-info span {
+.header-right span {
     margin-right: 20px;
 }
 
 .user-icon {
-    width: 80px;
-    height: 80px;
+    width: 40x;
+    height: 24px;
 }
 
 .title-section {
@@ -48,8 +49,55 @@ header {
     color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
+
+.title-section h1 {
+    margin: 0;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px; /* Ajustar según sea necesario */
+    right: 20px;
+    background-color: #e3f2fd;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 20px; /* Ajusta la distancia desde el botón */
+    color: black;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+#nombre {
+    width: 150px;
+    margin-right: 2%;
+    font-size: 16px; /* Cambia el tamaño de la fuente */
+    color: #FFFFFF; /* Cambia el color del texto */
+}
+    
 .menuback{
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
@@ -118,15 +166,11 @@ header {
 
 .fotos{
     display: flex;
-    width: 530px;
+    width: 100%;
     height: 510px;
     background-color: #F1F0F4;
     margin-right: 1%;
     border-radius: 20px;
-}
-.details-section {
-    display: flex;
-    gap: 20px;
 }
 
 .comment-section {
@@ -197,7 +241,7 @@ header {
 
 table {
     padding: 20px;
-    width: 40%;
+    width: auto; /* Ajusta el ancho de la tabla para que sea automático */
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     font-family: "Outfit", sans-serif;
@@ -222,9 +266,13 @@ thead th:last-child {
     border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
 }
 
-table th, table td {
-    padding: 30px;
+table td {
+    padding: 10px; /* Ajusta el padding para evitar que las celdas sean muy grandes */
     text-align: left;
+}
+
+table th{
+    padding: 20px;
 }
 
 table tbody tr:nth-child(even) {
@@ -238,4 +286,14 @@ table tbody tr:nth-child(even) {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.small-column {
+    width: 80px; /* Ajusta este valor según sea necesario */
+    white-space: nowrap; /* Evita que el contenido se expanda */
+    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
+}
+
+table th.small-column, table td.small-column {
+    width: 80px; /* Asegura que tanto los encabezados como las celdas del cuerpo tengan el mismo ancho */
 }
