@@ -132,8 +132,8 @@ body{
         background: linear-gradient(to right ,#010304, #121A2F);
         color: white;
         border-radius: 12px; 
-        height: 7%;
-        width: 35%;
+        height: 30px;
+        width: 120px;
         cursor: pointer;
         transition: background-color 0.3s;
         font-size: 14px; 

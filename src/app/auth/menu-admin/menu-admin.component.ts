@@ -33,6 +33,10 @@ export class MenuAdminComponent {
     this.router.navigate(['/manage-users']);
   }
 
+  navigateToManageComputers(){
+    this.router.navigate(['/manage-computers']);
+  }
+
   navigateToCreateUser() {
     this.router.navigate(['/register']);
   }

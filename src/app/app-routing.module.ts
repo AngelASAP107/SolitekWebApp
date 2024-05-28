@@ -12,6 +12,7 @@ import { UserEditComponent } from './auth/user-edit/user-edit.component';
 import { ManageTicketsTeComponent } from './auth/manage-tickets-te/manage-tickets-te.component';
 import { ManageTicketsClComponent } from './auth/manage-tickets-cl/manage-tickets-cl.component';
 import { ManageUsersComponent } from './auth/manage-users/manage-users.component';
+import { ManageComputersComponent } from './auth/manage-computers/manage-computers.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'gestion-tecnico', component: ManageTicketsTeComponent},
   { path: 'gestion-cliente', component: ManageTicketsClComponent},
   {path: 'manage-users', component: ManageUsersComponent},
+  { path: 'manage-computers', component: ManageComputersComponent},
 ];
 
 @NgModule({

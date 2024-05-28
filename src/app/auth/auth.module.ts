@@ -49,6 +49,7 @@ import { ManageComputersComponent } from './manage-computers/manage-computers.co
     CreateTicketsComponent,
     ManageTicketsTeComponent,
     ManageTicketsClComponent,
+    ManageComputersComponent,
   ]
 })
 export class AuthModule { }
