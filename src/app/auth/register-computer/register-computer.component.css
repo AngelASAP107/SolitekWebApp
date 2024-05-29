@@ -1,122 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-   }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-   h3 {
-      /* Estilos para el título "REGISTRAR EQUIPO" */
-      text-align: center; /* Para centrar el texto */
-      position: absolute; /* Para posicionar el título encima del fondo */
-      margin-top: 3%;
-      left: 50%; /* Centra horizontalmente */
-      transform: translateX(-50%); /* Centra horizontalmente */
-      color: #000000;
-      font-family: "Outfit", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 500;
-      font-style: normal;
-      font-size: 40px;
-    }
-   .contenedor{
-    background-image: url('/assets/images/Background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    position: relative;
-   }
+h3 {
+  text-align: center;
+  position: absolute;
+  margin-top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000000;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 40px;
+}
 
-   .fondo_tuerca {
-      background-color: white;
-      width: 1150px;
-      height: 700px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between; /* Agregar este estilo para centrar verticalmente */
-      color: white;
-      inset: 0;
-      margin: auto;
-      z-index: 0;
-  }   
+.contenedor {
+  background-image: url('/assets/images/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  position: relative;
+}
 
-  .imagen-fija {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Evita que la imagen interfiera con los eventos de los elementos subyacentes */
-  }
-  
-  .imagen-fija img {
-    position: absolute;
-    top: 50%; /* Ajusta la posición verticalmente al centro */
-    left: 50%; /* Ajusta la posición horizontalmente al centro */
-    transform: translate(-50%, -50%); /* Centra la imagen en la pantalla */
-  }
+.fondo_tuerca {
+  background-color: white;
+  width: 1150px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  inset: 0;
+  margin: auto;
+  z-index: 0;
+}
 
-   .bt-register{
-    background: linear-gradient(to right ,#010304, #121A2F);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 14px; 
-    text-transform: uppercase;
-    margin-bottom: 4%; /* Añadido un margen superior */
-    z-index: 2;
-   }
-   .contenedor3{
-      z-index: 2;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      position: absolute; /* Cambia la posición a absoluta */
-      margin-top: 10%; /* Ajusta la posición desde la parte superior */
-      margin-left: -12%; /* Ajusta la posición desde la izquierda */
-      transform: translate(-50%); /* Centra el elemento horizontal y verticalmente */
-      z-index: 2; /* Establece un valor de z-index más alto que el fondo_tuerca */
-     }
+.imagen-fija {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 
-   .form-group {
-      display: flex; /* Usa flexbox para alinear los elementos verticalmente */
-      align-items: flex-end; /* Centra verticalmente los elementos */
-      margin-bottom: 20px;
-    }
+.imagen-fija img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.bt-register {
+  background: linear-gradient(to right, #010304, #121A2F);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 4%;
+  z-index: 2;
+}
 
-    .form-group label {
-      width: 10%; /* Ajusta el ancho del label para que todos tengan el mismo ancho */
-      flex-shrink: 0; /* Evitamos que el label se contraiga */
-      border-bottom: 1px solid #000000; /* Agrega un borde inferior */
-      margin-bottom: 10px; /* Corrige el desplazamiento hacia abajo causado por el borde inferior */
-      margin-right: 0px; /* Añade espacio entre el icono y el campo de entrada */
-    }
-    
-    .form-group input {
-      border: none; /* Quita el borde */
-      border-bottom: 1px solid #000000; /* Agrega un borde inferior */
-      outline: none; /* Quita el contorno al enfocar */
-      background-color: transparent; /* Hace el fondo transparente */
-      font-family: "Outfit", sans-serif; /* Aplica la fuente Outfit */
-      font-size: 16px; /* Tamaño de fuente */
-      padding: 8px 0; /* Añade un poco de relleno superior e inferior */
-      width: 80%; /* Ajusta el ancho */
-      margin-bottom: 10px; /* Corrige el desplazamiento hacia abajo causado por el borde inferior */
-      margin-left: 0px;
-    }
-    
+.contenedor3 {
+  z-index: 2;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: -12%;
+  transform: translate(-50%);
+}
+
+.form-group {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  width: 10%;
+  flex-shrink: 0;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background-color: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  padding: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}

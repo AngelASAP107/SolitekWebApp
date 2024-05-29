@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -15,29 +16,37 @@
 <form>
     <div class="contenedor3">
       <div class="form-group">
-        <label for="fecha"><img src="assets/images/img-register-computer/fecha.png"  alt="img src"></label>
-        <input type="text" id="fecha" name="fecha" placeholder="Fecha de ingreso">
+        <label for="fecha"><img src="assets/images/img-register-computer/fecha.png"  alt="Fecha"></label>
+        <input type="date" id="fecha" name="fecha" placeholder="Fecha de ingreso">
       </div>
       <div class="form-group">
-        <label for="especificaciones"><img src="assets/images/img-register-computer/especificaciones.png" alt="img src"></label>
+        <label for="especificaciones"><img src="assets/images/img-register-computer/especificaciones.png" alt="Especificaciones"></label>
         <input type="text" id="especificaciones" name="especificaciones" placeholder="Especificaciones">
       </div>
       <div class="form-group">
-        <label for="estado"><img src="assets/images/img-register-computer/estado.png" alt="img src"></label>
-        <input type="text" id="estado" name="estado" placeholder="Estado del equipo">
+        <label for="estado"><img src="assets/images/img-register-computer/estado.png" alt="Estado"></label>
+        <select id="estado" name="estado">
+          <option value="nuevo">Nuevo</option>
+          <option value="usado">Usado</option>
+          <option value="reparado">Reparado</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="servicio"><img src="assets/images/img-register-computer/servicio.png" alt="img src"></label>
-        <input type="text" id="servicio" name="servicio" placeholder="Servicio">
+        <label for="servicio"><img src="assets/images/img-register-computer/servicio.png" alt="Servicio"></label>
+        <select id="servicio" name="servicio">
+          <option value="mantenimiento">Mantenimiento</option>
+          <option value="reparacion">Reparación</option>
+          <option value="actualizacion">Actualización</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="observaciones"><img src="assets/images/img-register-computer/observaciones.png" alt="img src"></label>
+        <label for="observaciones"><img src="assets/images/img-register-computer/observaciones.png" alt="Observaciones"></label>
         <input type="text" id="observaciones" name="observaciones" placeholder="Observaciones">
       </div>
-</div>
+    </div>
 </form>
 <button class="bt-register">Registrar</button>
 </div>
 </div>
 </body>
-</html> 
+</html>

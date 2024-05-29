@@ -2,35 +2,14 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Equipo = sequelize.define('Equipo', {
-  equipo_id: {
+  id_equipo: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  imagen_url: {
-    type: DataTypes.STRING
-  },
-  nombre_usuario: {
-    type: DataTypes.STRING
-  },
   fecha_ingreso: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
-  },
-  numero_orden: {
-    type: DataTypes.STRING
-  },
-  telefono: {
-    type: DataTypes.STRING
-  },
-  nombre_equipo: {
-    type: DataTypes.STRING
-  },
-  numero_serie: {
-    type: DataTypes.STRING
-  },
-  modelo: {
-    type: DataTypes.STRING
   },
   especificaciones: {
     type: DataTypes.TEXT
@@ -40,10 +19,12 @@ const Equipo = sequelize.define('Equipo', {
   },
   servicio: {
     type: DataTypes.STRING
-},
-observaciones: {
-  type: DataTypes.TEXT
-}
+  },
+  observaciones: {
+    type: DataTypes.TEXT
+  }
+}, {
+  tableName: 'Equipo'
 });
 
 module.exports = Equipo;
