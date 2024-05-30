@@ -13,6 +13,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const roleRoutes = require('./routes/roleRoutes');
 const testRoutes = require('./routes/testRoutes');
+const equipoRoutes = require('./routes/equipoRoutes');
 
 const app = express();
 const PORT = 3000;
@@ -35,6 +36,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api', roleRoutes);
 app.use('/api', testRoutes);
+app.use('/api/equipos', equipoRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

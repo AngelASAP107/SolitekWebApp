@@ -78,6 +78,8 @@ h3 {
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 4%;
+  width: 30%;
+  height: 20%;
   z-index: 2;
 }
 
