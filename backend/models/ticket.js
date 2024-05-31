@@ -1,5 +1,3 @@
-// models/ticket.js
-
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const Usuario = require('./usuario');
@@ -11,34 +9,18 @@ const Ticket = sequelize.define('Ticket', {
     autoIncrement: true,
     primaryKey: true
   },
-  titulo: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  descripcion: {
-    type: DataTypes.TEXT,
-    allowNull: false
-  },
-  fecha_creacion: {
+  fecha_ingreso: {
     type: DataTypes.DATE,
-    allowNull: true
+    defaultValue: DataTypes.NOW
   },
-  estado: {
-    type: DataTypes.ENUM('pendiente', 'activo', 'terminado', 'cancelado'),
-    defaultValue: 'pendiente'
-  },
-  prioridad: {
-    type: DataTypes.ENUM('baja', 'media', 'alta'),
-    defaultValue: 'media'
-  },
-  categoria: {
+  tipo_servicio: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: false
   },
   cliente_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Usuarios',
+      model: Usuario,
       key: 'usuario_id'
     },
     onDelete: 'CASCADE',
@@ -47,7 +29,7 @@ const Ticket = sequelize.define('Ticket', {
   tecnico_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Usuarios',
+      model: Usuario,
       key: 'usuario_id'
     },
     onDelete: 'CASCADE',
@@ -56,8 +38,8 @@ const Ticket = sequelize.define('Ticket', {
   equipo_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Equipos',
-      key: 'equipo_id'
+      model: Equipo,
+      key: 'id_equipo'
     },
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'

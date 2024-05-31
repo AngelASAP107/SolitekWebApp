@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, ElementRef, Renderer2, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketService } from '../../services/ticket.service';
+import { Ticket } from '../../models/ticket.model';
 
 @Component({
   selector: 'app-create-tickets',
@@ -67,11 +68,23 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
 
   onSubmit(): void {
     if (this.ticketForm.valid) {
-      this.ticketService.createTicket(this.ticketForm.value).subscribe(() => {
+      const ticket: Ticket = {
+        cliente: this.ticketForm.value.cliente,
+        equipo: this.ticketForm.value.equipo,
+        tecnico: this.ticketForm.value.tecnico,
+        fechaIngreso: this.ticketForm.value.fechaIngreso,
+        estado: this.ticketForm.value.estado,
+        prioridad: this.ticketForm.value.prioridad,
+        tipoServicio: this.ticketForm.value.tipoServicio
+      };
+      console.log('Submitting ticket:', ticket); // Agregar este log
+      this.ticketService.createTicket(ticket).subscribe(response => {
+        console.log('Ticket created:', response); // Agregar este log
         this.formClose.emit();
       });
     }
   }
+  
 
   onClose(): void {
     this.formClose.emit();
