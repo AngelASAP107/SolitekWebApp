@@ -8,6 +8,8 @@ import { Ticket } from '../models/ticket.model';
 })
 export class TicketService {
   private apiUrl = 'http://localhost:3000/api/tickets';
+  private userApiUrl = 'http://localhost:3000/api/users';
+  private equipoApiUrl = 'http://localhost:3000/api/equipos/equipos';
 
   constructor(private http: HttpClient) {}
 
@@ -30,5 +32,16 @@ export class TicketService {
   deleteTicket(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  getTechnicians(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.userApiUrl}/tecnicos`);
+  }
+
+  getClients(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.userApiUrl}/clientes`);
+  }
+
+  getEquipos(): Observable<any[]> {
+    return this.http.get<any[]>(this.equipoApiUrl);
+  }
 }
- 

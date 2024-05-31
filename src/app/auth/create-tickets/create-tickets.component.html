@@ -1,44 +1,62 @@
 <div class="modal">
   <div class="modal-content">
-      <div class="modal-header">
-          <span class="close" (click)="onClose()">X</span>
-          <h2 class="modal-title">Agregar nuevo ticket</h2>
+    <div class="modal-header">
+      <span class="close" (click)="onClose()">X</span>
+      <h2 class="modal-title">Agregar nuevo ticket</h2>
+    </div>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">
+      <div class="form-row">
+        <div class="form-group">
+          <select id="cliente" formControlName="cliente" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Seleccione el cliente</option>
+            <option *ngFor="let cliente of clientes" [value]="cliente.usuario_id">{{ cliente.nombre }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="equipo" formControlName="equipo" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Seleccione el equipo</option>
+            <option *ngFor="let equipo of equipos" [value]="equipo.id_equipo">{{ equipo.especificaciones }}</option>
+          </select>
+        </div>
       </div>
-      <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">
-          <div class="form-row">
-              <div class="form-group">
-                  <input id="nombres" formControlName="nombres" type="text" class="form-input" placeholder="Nombre(s)">
-              </div>
-              <div class="form-group">
-                  <input id="apellidos" formControlName="apellidos" type="text" class="form-input" placeholder="Apellido(s)">
-              </div>
-              <div class="form-group">
-                  <input id="documento" formControlName="documento" type="text" class="form-input" placeholder="N° de Documento">
-              </div>
-          </div>
-          <div class="form-row">
-              <div class="form-group">
-                  <input id="fechaIngreso" formControlName="fechaIngreso" type="date" class="form-input" placeholder="Fecha de ingreso">
-              </div>
-              <div class="form-group">
-                  <input id="telefono" formControlName="telefono" type="text" class="form-input" placeholder="Teléfono">
-              </div>
-              <div class="form-group">
-                  <input id="numeroOrden" formControlName="numeroOrden" type="text" class="form-input" placeholder="Número de orden">
-              </div>
-              <div class="form-group">
-                <input id="servicio" formControlName="servicio" type="text" class="form-input" placeholder="Servicio">
-            </div>
-          </div>
-          <div class="form-row">
-              <div class="form-group">
-                  <input id="estadoEquipo" formControlName="estadoEquipo" type="text" class="form-input" placeholder="Estado Equipo">
-              </div>
-              <div class="form-group">
-                  <input id="especificaciones" formControlName="especificaciones" type="text" class="form-input" placeholder="Especificaciones equipo">
-              </div>
-          </div>
-          <button type="submit" class="submit-button">Agregar</button>
-      </form>
+      <div class="form-row">
+        <div class="form-group">
+          <select id="tecnico" formControlName="tecnico" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Seleccione el técnico</option>
+            <option *ngFor="let tecnico of tecnicos" [value]="tecnico.usuario_id">{{ tecnico.nombre }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input id="fechaIngreso" formControlName="fechaIngreso" type="date" class="form-input" placeholder="Fecha de ingreso">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <select id="estado" formControlName="estado" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Estado</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en progreso">En Progreso</option>
+            <option value="completado">Completado</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="prioridad" formControlName="prioridad" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Prioridad</option>
+            <option value="baja">Baja</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="tipoServicio" formControlName="tipoServicio" class="form-input" appPlaceholderSelect>
+            <option value="" disabled selected hidden>Tipo de Servicio</option>
+            <option value="mantenimiento">Mantenimiento</option>
+            <option value="reparacion">Reparación</option>
+            <option value="actualizacion">Actualización</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="submit-button">Agregar</button>
+    </form>
   </div>
 </div>

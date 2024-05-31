@@ -22,7 +22,6 @@ exports.getEquipos = async (req, res) => {
     const equipos = await Equipo.findAll();
     res.status(200).json(equipos);
   } catch (error) {
-    console.error('Error al obtener los equipos:', error);
-    res.status(500).json({ error: 'Hubo un problema al obtener los equipos.' });
+    res.status(500).json({ error: 'Error al obtener equipos', details: error.message });
   }
 };

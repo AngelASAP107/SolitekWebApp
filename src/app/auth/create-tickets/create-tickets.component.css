@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 /* Estilos para el modal */
 .modal {
   display: flex;
@@ -19,7 +27,6 @@
   width: 880px;
   max-width: 90%; /* Ancho máximo del contenido */
 }
-
 
 .close {
   cursor: pointer;
@@ -54,7 +61,6 @@
   background: linear-gradient(to right, #00B2FF, #368DD9); /* Degradado lineal */
 }
 
-
 /* Estilos para el formulario dentro del modal */
 .ticket-form {
   margin-top: 20px;
@@ -63,87 +69,73 @@
 /* Estilos para las etiquetas y campos de entrada del formulario */
 .form-group {
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   background-color: #F1F0F4;
   border: none;
-}
-
-/* Ajustes de ancho para cada campo */
-#nombres,
-#apellidos{
-  width: 280px;
-  margin-right: -20px;
-}
-
-#documento{
-  width: 200px;
-}
-
-
-#fechaIngreso,
-#telefono,
-#numeroOrden,
-#servicio{
-  width: 170px; /* Porcentaje de ancho para cada campo */
-}
-
-#estadoEquipo{
-  width: 260px;
-}
-#especificaciones {
-  width: 500px; /* El campo de servicio, estadoEquipo y especificaciones ocuparán todo el ancho */
-}
-
-
-.form-group:last-child {
-  margin-right: 0;
-}
-
-.form-label {
-  margin-bottom: 5px;
-  display: block;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.form-input {
-  width: calc(100% - 8px); /* Ajusta el ancho para compensar el padding */
-  padding: 8px;
+  padding: 10px;
+  border-radius: 5px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-family: "Outfit", sans-serif;
+  font-family: "Outfit", sans-serif; /* Asegura que se use la misma fuente */
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  color: #000; /* Color del texto en el combobox */
+  box-sizing: border-box;
 }
 
+/* Estilos específicos para los tamaños de los elementos */
+#cliente {
+  width: 350px;
+}
+
+#equipo {
+  width: 350px;
+}
+
+#tecnico {
+  width: 400px;
+}
+
+#fechaIngreso {
+  width: 300px;
+}
+
+#estado {
+  width: 230px;
+}
+
+#prioridad {
+  width: 230px;
+}
+
+#tipoServicio {
+  width: 230px;
+}
 
 .submit-button {
   font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    background-color: #D1E4FF;
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100px;
-    margin-bottom: 10px;
-    display: block; /* Convertir el botón en un bloque para centrarlo */
-    margin: 0 auto; /* Centrar horizontalmente */
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 20px;
+  display: block; /* Convertir el botón en un bloque para centrarlo */
+  margin: 0 auto; /* Centrar horizontalmente */
 }
 
 .submit-button:hover {
@@ -153,13 +145,18 @@
 /* Estilos para las filas del formulario */
 .form-row {
   margin-bottom: 10px;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
 @media screen and (max-width: 600px) {
   .form-group {
-      width: 100%;
-      margin-right: 0;
+    width: 100%;
+    margin-right: 0;
+  }
+  .form-row {
+    flex-direction: column;
+    align-items: center;
   }
 }

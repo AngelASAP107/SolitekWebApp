@@ -31,12 +31,29 @@ exports.register = async (req, res) => {
   }
 };
 
-// Nueva función para obtener todos los usuarios
 exports.getUsers = async (req, res) => {
   try {
     const usuarios = await Usuario.findAll();
     res.status(200).json(usuarios);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getTechnicians = async (req, res) => {
+  try {
+    const tecnicos = await Usuario.findAll({ where: { id_rol: 2 } }); // Asumiendo que el rol 2 es de técnicos
+    res.status(200).json(tecnicos);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener técnicos', details: error.message });
+  }
+};
+
+exports.getClients = async (req, res) => {
+  try {
+    const clientes = await Usuario.findAll({ where: { id_rol: 3 } }); // Asumiendo que el rol 3 es de clientes
+    res.status(200).json(clientes);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener clientes', details: error.message });
   }
 };

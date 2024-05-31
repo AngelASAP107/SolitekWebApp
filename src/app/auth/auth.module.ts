@@ -32,7 +32,7 @@ import { ManageComputersComponent } from './manage-computers/manage-computers.co
     MenuTechnicalComponent,
     ManageTicketsTeComponent,
     ManageUsersComponent,
-    ManageComputersComponent
+    ManageComputersComponent,
   ],
   imports: [
     CommonModule,
