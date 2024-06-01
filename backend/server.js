@@ -14,7 +14,7 @@ const userRoutes = require('./routes/userRoutes');
 const roleRoutes = require('./routes/roleRoutes');
 const testRoutes = require('./routes/testRoutes');
 const equipoRoutes = require('./routes/equipoRoutes');
-const ticketRoutes = require('./routes/ticketRoutes'); // Importa las rutas de tickets
+const ticketRoutes = require('./routes/ticketRoutes');  // Asegúrate de que esta línea esté presente
 
 const app = express();
 const PORT = 3000;
@@ -57,7 +57,7 @@ app.use('/api/users', userRoutes);
 app.use('/api', roleRoutes);
 app.use('/api', testRoutes);
 app.use('/api/equipos', equipoRoutes);
-app.use('/api/tickets', ticketRoutes); // Añade las rutas de tickets
+app.use('/api/tickets', ticketRoutes);  // Asegúrate de que esta línea esté presente
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

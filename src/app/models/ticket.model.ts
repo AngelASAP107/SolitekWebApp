@@ -1,4 +1,5 @@
 export interface Ticket {
+  ticket_id?: number; 
   cliente: number;
   equipo: number;
   tecnico: number;

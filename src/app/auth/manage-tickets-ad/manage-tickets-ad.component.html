@@ -13,25 +13,33 @@
         </button>
         <div class="header-right">
             <span>ALEX FRANCO</span>
-            <button class="logo-button">
-                <img src="assets/images/usuario-de-perfil 1.png"alt="User Icon" class="user-icon">
-            </button>
+            <div class="menu-container">
+              <button class="logo-button" (click)="toggleMenu()">
+                  <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+              </button>
+              <div class="dropdown-menu" *ngIf="menuVisible">
+                  <ul>
+                      <li (click)="navigateTo('/user-edit')">Perfil</li>
+                      <li (click)="logout()">Cerrar Sesión</li>
+                  </ul>
+              </div>
+            </div>
         </div>
-    </header>
+      </header>
     <div class="title-section">
         <h1>Gestor de Tickets.</h1>
         <button (click)="navigateToMenu()" class="menuback">Menú</button>
     </div>
     <div class="search-section">
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Buscar un Cliente...">
-            <button class="search-button"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
+            <input type="text" class="search-input" placeholder="Buscar por Número de Orden..." [(ngModel)]="searchText" (keyup.enter)="searchTickets()">
+            <button class="search-button" (click)="searchTickets()"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
             <div class="add-button-group">
                 <button (click)="openModal()" class="add-icon-button"><img src="assets/images/mas 1.png" alt="Agregar"></button>
                 <button (click)="openModal()" class="add-text-button">Agregar un nuevo ticket.</button>
                 <div *ngIf="showModal">
                     <app-create-tickets (formClose)="closeModal()"></app-create-tickets>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
@@ -39,8 +47,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Nombre(s)</th>
-                    <th>Apellido(s)</th>
+                    <th>Nombre Completo</th>
                     <th>N° de Documento</th>
                     <th>Fecha de ingreso</th>
                     <th>Teléfono</th>
@@ -52,55 +59,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Andres Julian</td>
-                    <td>Gonzalez Barrera</td>
-                    <td>1007461203</td>
-                    <td>28/02/2023</td>
-                    <td>3008234881</td>
-                    <td>161</td>
-                    <td>Mantenimiento</td>
-                    <td>torre ryzen 3 8ram ssd 512</td>
-                    <td>No da imagen</td>
+                <tr *ngFor="let ticket of filteredTickets">
+                    <td>{{ ticket.cliente.nombre }}</td>
+                    <td>{{ ticket.cliente.correo_electronico }}</td>
+                    <td>{{ ticket.fecha_ingreso | date }}</td>
+                    <td>{{ ticket.cliente.telefono }}</td>
+                    <td>{{ ticket.ticket_id }}</td>
+                    <td>{{ ticket.tipo_servicio }}</td>
+                    <td>{{ ticket.equipo.especificaciones }}</td>
+                    <td>{{ ticket.estado }}</td>
                     <td>
-                        <button class="edit-button">Editar</button>
-                        <button class="finish-button">Finalizar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Natalia Andrea</td>
-                    <td>Giraldo Erazo</td>
-                    <td>1007461203</td>
-                    <td>08/08/2022</td>
-                    <td>3008234881</td>
-                    <td>163</td>
-                    <td>Formateo</td>
-                    <td>Acer aspire 315 ryzen 5 8 ram ssd 512</td>
-                    <td>Virus</td>
-                    <td>
-                        <button class="edit-button">Editar</button>
-                        <button class="finish-button">Finalizar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mauricio</td>
-                    <td>Rodriguez Ramirez</td>
-                    <td>1006891302</td>
-                    <td>18/06/2021</td>
-                    <td>3182331150</td>
-                    <td>167</td>
-                    <td>Diagnostico</td>
-                    <td>Impresora epson l3210</td>
-                    <td>Cabezal</td>
-                    <td>
-                        <button class="edit-button">Editar</button>
-                        <button class="finish-button">Finalizar</button>
+                        <button class="edit-button" (click)="editTicket(ticket)">Editar</button>
+                        <button class="finish-button" (click)="completarTicket(ticket.ticket_id)">Finalizar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </main>
+    <div *ngIf="showEditModal">
+        <app-edit-ticket [ticket]="selectedTicket" (formClose)="closeEditModal()"></app-edit-ticket>
+    </div>
 </body>
 </html>
-   
-    

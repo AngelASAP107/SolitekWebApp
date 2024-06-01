@@ -20,10 +20,19 @@ export class AuthService {
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('auth_token', token);
+    if (this.isBrowser()) {
+      localStorage.setItem('auth_token', token);
+    }
   }
 
   getToken(): string | null {
-    return localStorage.getItem('auth_token');
+    if (this.isBrowser()) {
+      return localStorage.getItem('auth_token');
+    }
+    return null;
+  }
+
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined';
   }
 }

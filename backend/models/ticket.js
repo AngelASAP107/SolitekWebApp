@@ -17,6 +17,14 @@ const Ticket = sequelize.define('Ticket', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  estado: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  prioridad: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   cliente_id: {
     type: DataTypes.INTEGER,
     references: {
@@ -47,5 +55,9 @@ const Ticket = sequelize.define('Ticket', {
 }, {
   timestamps: true
 });
+
+Ticket.belongsTo(Usuario, { as: 'cliente', foreignKey: 'cliente_id' });
+Ticket.belongsTo(Usuario, { as: 'tecnico', foreignKey: 'tecnico_id' });
+Ticket.belongsTo(Equipo, { as: 'equipo', foreignKey: 'equipo_id' });
 
 module.exports = Ticket;
