@@ -28,10 +28,10 @@
   <div class="container">
       <div class="sidebar">
         <img src="assets/images/perfil (1) 1.png" alt="Profile Picture" class="profile-picture">
-        <h2>Diego Andres Mejia Sanchez</h2>
-        <p>CC. 1148956515</p>
+        <h2>{{ user?.nombre }}</h2>
+        <p>{{ user?.usuario_id }}</p>
         <div class="separator"></div>
-        <a href="#" class="logout">
+        <a href="#" class="logout" (click)="logout()">
           <img src="assets/images/cerrar-sesion 1.png" class="close-sesion" alt="Cerrar Sesión Icon">
           Cerrar Sesión
         </a>
@@ -41,29 +41,29 @@
         <div class="form-group">
           <label>Nombre de usuario:</label>
           <div class="input-group">
-            <input type="text" value="Diego Andres" disabled>
-            <button>Editar</button>
+            <input type="text" [(ngModel)]="userForm.nombre" [disabled]="!editing.nombre">
+            <button (click)="toggleEdit('nombre')">{{ editing.nombre ? 'Guardar' : 'Editar' }}</button>
           </div>
         </div>
         <div class="form-group">
           <label>Correo Electronico:</label>
           <div class="input-group">
-            <input type="email" value="mejiasanchezdiegoandres@gmail.com" disabled>
-            <button>Editar</button>
+            <input type="email" [(ngModel)]="userForm.correo_electronico" [disabled]="!editing.correo_electronico">
+            <button (click)="toggleEdit('correo_electronico')">{{ editing.correo_electronico ? 'Guardar' : 'Editar' }}</button>
           </div>
         </div>
         <div class="form-group">
-          <label>Telefono:</label>
+          <label>Teléfono:</label>
           <div class="input-group">
-            <input type="text" value="3005262331" disabled>
-            <button>Editar</button>
+            <input type="text" [(ngModel)]="userForm.telefono" [disabled]="!editing.telefono">
+            <button (click)="toggleEdit('telefono')">{{ editing.telefono ? 'Guardar' : 'Editar' }}</button>
           </div>
         </div>
         <div class="form-group">
           <label>Dirección:</label>
           <div class="input-group">
-            <input type="text" value="carrera 12 yumbo valle" disabled>
-            <button>Editar</button>
+            <input type="text" [(ngModel)]="userForm.direccion" [disabled]="!editing.direccion">
+            <button (click)="toggleEdit('direccion')">{{ editing.direccion ? 'Guardar' : 'Editar' }}</button>
           </div>
         </div>
         <div class="form-group">
@@ -76,7 +76,7 @@
           <label>Contraseña:</label>
           <div class="password-change">
             <button class="password">Cambiar Contraseña</button>
-            <button class="save-btn">Guardar</button>
+            <button class="save-btn" (click)="saveChanges()">Guardar</button>
           </div>
         </div>
       </div>

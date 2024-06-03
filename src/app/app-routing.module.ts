@@ -21,13 +21,13 @@ const routes: Routes = [
   { path: 'menu-admin', component: MenuAdminComponent },
   { path: 'menu-cliente', component: MenuClientComponent },
   { path: 'menu-tecnico', component: MenuTechnicalComponent },
-  { path: 'manage-tickets-ad', component: ManageTicketsAdComponent},
-  { path: 'tickets-history', component: TicketsHistoryComponent},
-  { path: 'user-edit', component: UserEditComponent},
-  { path: 'gestion-tecnico', component: ManageTicketsTeComponent},
-  { path: 'gestion-cliente', component: ManageTicketsClComponent},
-  {path: 'manage-users', component: ManageUsersComponent},
-  { path: 'manage-computers', component: ManageComputersComponent},
+  { path: 'manage-tickets-ad', component: ManageTicketsAdComponent },
+  { path: 'tickets-history', component: TicketsHistoryComponent },
+  { path: 'user-edit/:id', component: UserEditComponent }, // Ruta para editar usuario
+  { path: 'gestion-tecnico', component: ManageTicketsTeComponent },
+  { path: 'gestion-cliente', component: ManageTicketsClComponent },
+  { path: 'manage-users', component: ManageUsersComponent },
+  { path: 'manage-computers', component: ManageComputersComponent },
 ];
 
 @NgModule({

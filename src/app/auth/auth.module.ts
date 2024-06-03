@@ -52,6 +52,7 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
     ManageTicketsTeComponent,
     ManageTicketsClComponent,
     ManageComputersComponent,
+    UserEditComponent,
   ]
 })
 export class AuthModule { }

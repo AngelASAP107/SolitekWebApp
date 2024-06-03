@@ -34,7 +34,7 @@ export class RegisterUserComponent {
     this.authService.register(this.usuario).subscribe(
       response => {
         console.log('Registro exitoso', response);
-        this.router.navigate(['/register-computer']); // Redirige a la siguiente página de registro
+        this.router.navigate(['/manage-users']); // Redirige a la página de gestión de usuarios
       },
       error => {
         console.error('Error en el registro', error);

@@ -57,3 +57,54 @@ exports.getClients = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener clientes', details: error.message });
   }
 };
+
+exports.getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await Usuario.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { nombre, correo_electronico, contrasena, telefono, id_rol } = req.body;
+    const user = await Usuario.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    const hashedPassword = contrasena ? await bcrypt.hash(contrasena, 10) : user.contrasena;
+
+    await user.update({
+      nombre,
+      correo_electronico,
+      contrasena: hashedPassword,
+      telefono,
+      id_rol
+    });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await Usuario.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    await user.destroy();
+    res.status(200).json({ message: 'Usuario eliminado' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
