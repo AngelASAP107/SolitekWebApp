@@ -36,7 +36,6 @@ sequelize.sync({ force: true })
 
     // Crear usuarios de prueba
     await Usuario.bulkCreate([
-      { nombre: 'Admin User', correo_electronico: 'admin@example.com', contrasena: 'admin123', telefono: '1234567890', id_rol: 1 },
       { nombre: 'Tech User 1', correo_electronico: 'tech1@example.com', contrasena: 'tech123', telefono: '1234567891', id_rol: 2 },
       { nombre: 'Tech User 2', correo_electronico: 'tech2@example.com', contrasena: 'tech123', telefono: '1234567892', id_rol: 2 },
       { nombre: 'Client User 1', correo_electronico: 'client1@example.com', contrasena: 'client123', telefono: '1234567893', id_rol: 3 },
