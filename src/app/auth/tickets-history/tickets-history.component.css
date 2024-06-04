@@ -51,7 +51,7 @@ header {
     color: white;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 .title-section h1 {

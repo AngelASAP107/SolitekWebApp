@@ -35,14 +35,17 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     this.ticketService.getTechnicians().subscribe(data => {
       this.tecnicos = data;
+      console.log('Técnicos:', this.tecnicos);
     });
 
     this.ticketService.getClients().subscribe(data => {
       this.clientes = data;
+      console.log('Clientes:', this.clientes);
     });
 
     this.ticketService.getEquipos().subscribe(data => {
       this.equipos = data;
+      console.log('Equipos:', this.equipos);
     });
   }
 
@@ -60,9 +63,9 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
 
   updateSelectColor(select: HTMLSelectElement): void {
     if (select.value === '') {
-      this.renderer.setStyle(select, 'color', '#9e9e9e'); // Color del placeholder
+      this.renderer.setStyle(select, 'color', '#9e9e9e');
     } else {
-      this.renderer.setStyle(select, 'color', '#000000'); // Color del texto seleccionado
+      this.renderer.setStyle(select, 'color', '#000000');
     }
   }
 
@@ -77,14 +80,13 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
         prioridad: this.ticketForm.value.prioridad,
         tipoServicio: this.ticketForm.value.tipoServicio
       };
-      console.log('Submitting ticket:', ticket); // Agregar este log
+      console.log('Submitting ticket:', ticket);
       this.ticketService.createTicket(ticket).subscribe(response => {
-        console.log('Ticket created:', response); // Agregar este log
+        console.log('Ticket created:', response);
         this.formClose.emit();
       });
     }
   }
-  
 
   onClose(): void {
     this.formClose.emit();

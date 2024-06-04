@@ -6,6 +6,6 @@ router.get('/', ticketController.getAllTickets);
 router.get('/:id', ticketController.getTicketById);
 router.post('/', ticketController.createTicket);
 router.put('/:id', ticketController.updateTicket);
-router.put('/:id/completar', ticketController.completarTicket);  // Ajustar la ruta aquí
+router.put('/:id/completar', ticketController.completarTicket);
 
 module.exports = router;
