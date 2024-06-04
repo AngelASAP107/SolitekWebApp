@@ -221,3 +221,20 @@ table tbody tr:nth-child(even) {
 .edit-button {
     margin-right: 5px;
 }
+
+/* Add your styles here */
+
+.edit-button, .delete-button {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    background-color: #D1E4FF;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+  }

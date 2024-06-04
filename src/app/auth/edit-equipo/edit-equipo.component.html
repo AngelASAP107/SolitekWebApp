@@ -1,0 +1,26 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>Editar Equipo</h2>
+      <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="especificaciones">Especificaciones</label>
+          <input type="text" id="especificaciones" formControlName="especificaciones" required>
+        </div>
+        <div class="form-group">
+          <label for="estado_equipo">Estado</label>
+          <input type="text" id="estado_equipo" formControlName="estado_equipo" required>
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio</label>
+          <input type="text" id="servicio" formControlName="servicio" required>
+        </div>
+        <div class="form-group">
+          <label for="observaciones">Observaciones</label>
+          <textarea id="observaciones" formControlName="observaciones"></textarea>
+        </div>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+  

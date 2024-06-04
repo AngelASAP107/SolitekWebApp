@@ -7,10 +7,6 @@ const Equipo = sequelize.define('Equipo', {
     primaryKey: true,
     autoIncrement: true
   },
-  fecha_ingreso: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
-  },
   especificaciones: {
     type: DataTypes.TEXT
   },

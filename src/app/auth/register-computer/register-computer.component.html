@@ -16,16 +16,12 @@
     <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
       <div class="contenedor3">
         <div class="form-group">
-          <label for="fecha"><img src="assets/images/img-register-computer/fecha.png" alt="Fecha"></label>
-          <input type="date" id="fecha" formControlName="fecha" placeholder="Fecha de ingreso">
-        </div>
-        <div class="form-group">
           <label for="especificaciones"><img src="assets/images/img-register-computer/especificaciones.png" alt="Especificaciones"></label>
           <input type="text" id="especificaciones" formControlName="especificaciones" placeholder="Especificaciones">
         </div>
         <div class="form-group">
-          <label for="estado"><img src="assets/images/img-register-computer/estado.png" alt="Estado"></label>
-          <select id="estado" formControlName="estado">
+          <label for="estado_equipo"><img src="assets/images/img-register-computer/estado.png" alt="Estado"></label>
+          <select id="estado_equipo" formControlName="estado_equipo">
             <option value="nuevo">Nuevo</option>
             <option value="usado">Usado</option>
             <option value="reparado">Reparado</option>

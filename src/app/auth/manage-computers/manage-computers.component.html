@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de equipo</title>
+    <title>Gestor de Equipos</title>
     <link rel="stylesheet" href="manage-computers.component.css">
 </head>
 <body>
@@ -14,21 +14,21 @@
         <div class="header-right">
             <span>ALEX FRANCO</span>
             <button class="logo-button">
-                <img src="assets/images/usuario-de-perfil 1.png"alt="User Icon" class="user-icon">
+                <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
             </button>
         </div>
     </header>
     <div class="title-section">
-        <h1>Gestor de equipo.</h1>
+        <h1>Gestor de Equipos</h1>
         <button (click)="navigateToMenu()" class="menuback">Menú</button>
     </div>
     <div class="search-section">
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Buscar un Cliente...">
-            <button class="search-button"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
+            <input type="text" class="search-input" placeholder="Buscar un Equipo..." [(ngModel)]="searchText" (keyup.enter)="searchEquipos()">
+            <button class="search-button" (click)="searchEquipos()"><img src="assets/images/lupa 1.png" alt="Buscar"></button>
             <div class="add-button-group">
-                <button  class="add-icon-button"><img src="assets/images/mas 1.png" alt="Agregar"></button>
-                <button (click)="(navigateToCreateUser())" class="add-text-button">Agregar un nuevo equipo.</button>
+                <button class="add-icon-button" (click)="navigateToRegister()"><img src="assets/images/mas 1.png" alt="Agregar"></button>
+                <button class="add-text-button" (click)="navigateToRegister()">Agregar un nuevo equipo</button>
             </div>
         </div>
     </div>
@@ -37,52 +37,28 @@
             <thead>
                 <tr>
                     <th>Identificador</th>
-                    <th>Fecha de ingreso</th>
                     <th>Especificaciones</th>
                     <th>Estado del equipo</th>
                     <th>Servicio</th>
                     <th>Observaciones</th>
-                    <th>Opcion</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>28/02/2023</td>
-                    <td>Torre ryzen 3 8ram ssd512</td>
-                    <td>No da imagen</td>
-                    <td>Mantenimiento</td>
-                    <td>Diego por favor arregla esta monda</td>
+                <tr *ngFor="let equipo of filteredEquipos">
+                    <td>{{ equipo.id_equipo }}</td>
+                    <td>{{ equipo.especificaciones }}</td>
+                    <td>{{ equipo.estado_equipo }}</td>
+                    <td>{{ equipo.servicio }}</td>
+                    <td>{{ equipo.observaciones }}</td>
                     <td>
-                        <button class="edit-button">Editar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>28/02/2023</td>
-                    <td>Torre ryzen 3 8ram ssd512</td>
-                    <td>No da imagen</td>
-                    <td>Mantenimiento</td>
-                    <td>Diego por favor arregla esta monda</td>
-                    <td>
-                        <button class="edit-button">Editar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>28/02/2023</td>
-                    <td>Torre ryzen 3 8ram ssd512</td>
-                    <td>No da imagen</td>
-                    <td>Mantenimiento</td>
-                    <td>Diego por favor arregla esta monda</td>
-                    <td>
-                        <button class="edit-button">Editar</button>
+                        <button class="edit-button" (click)="editEquipo(equipo)">Editar</button>
+                        <button class="delete-button" (click)="deleteEquipo(equipo.id_equipo!)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </main>
+    <app-edit-equipo *ngIf="showEditModal" [equipo]="selectedEquipo" (formClose)="closeEditModal()"></app-edit-equipo>
 </body>
 </html>
-   
-    

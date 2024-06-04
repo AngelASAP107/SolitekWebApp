@@ -17,6 +17,7 @@ import { ManageTicketsTeComponent } from './manage-tickets-te/manage-tickets-te.
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageComputersComponent } from './manage-computers/manage-computers.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
+import { EditEquipoComponent } from './edit-equipo/edit-equipo.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
     ManageUsersComponent,
     ManageComputersComponent,
     EditTicketComponent,
+    EditEquipoComponent,
   ],
   imports: [
     CommonModule,
