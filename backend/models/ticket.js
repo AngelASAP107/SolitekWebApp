@@ -1,7 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Usuario = require('./usuario');
-const Equipo = require('./equipo');
 
 const Ticket = sequelize.define('Ticket', {
   ticket_id: {
@@ -27,37 +25,19 @@ const Ticket = sequelize.define('Ticket', {
   },
   cliente_id: {
     type: DataTypes.INTEGER,
-    references: {
-      model: Usuario,
-      key: 'usuario_id'
-    },
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
+    allowNull: false
   },
   tecnico_id: {
     type: DataTypes.INTEGER,
-    references: {
-      model: Usuario,
-      key: 'usuario_id'
-    },
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
+    allowNull: false
   },
   equipo_id: {
     type: DataTypes.INTEGER,
-    references: {
-      model: Equipo,
-      key: 'id_equipo'
-    },
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
+    allowNull: false
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'Ticket'
 });
-
-Ticket.belongsTo(Usuario, { as: 'cliente', foreignKey: 'cliente_id' });
-Ticket.belongsTo(Usuario, { as: 'tecnico', foreignKey: 'tecnico_id' });
-Ticket.belongsTo(Equipo, { as: 'equipo', foreignKey: 'equipo_id' });
 
 module.exports = Ticket;

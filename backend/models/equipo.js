@@ -20,7 +20,7 @@ const Equipo = sequelize.define('Equipo', {
     type: DataTypes.TEXT
   }
 }, {
-  tableName: 'Equipo'
+  tableName: 'Equipos'
 });
 
 module.exports = Equipo;

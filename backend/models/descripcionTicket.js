@@ -1,19 +1,26 @@
-const { DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const DescripcionTicket = sequelize.define('DescripcionTicket', {
+class DescripcionTicket extends Model {}
+
+DescripcionTicket.init({
   descripcion_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
   mensaje: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
+    allowNull: false
   },
   fecha_notificacion: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
   }
+}, {
+  sequelize,
+  modelName: 'DescripcionTicket',
+  tableName: 'DescripcionTicket'
 });
 
 module.exports = DescripcionTicket;

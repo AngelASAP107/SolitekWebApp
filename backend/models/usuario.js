@@ -27,14 +27,15 @@ const Usuario = sequelize.define('Usuario', {
   id_rol: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Rols',
+      model: 'Rols',  // Nombre correcto de la tabla
       key: 'id_rol'
     },
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'Usuario'  // Nombre correcto de la tabla
 });
 
 module.exports = Usuario;

@@ -24,4 +24,8 @@ export class MenuClientComponent {
     // Lógica para cerrar sesión
     this.menuVisible = false; // Oculta el menú después de cerrar sesión
   }
+
+  navigateToManageTicketsClient() {
+    this.router.navigate(['/gestion-cliente']);
+  }
 }

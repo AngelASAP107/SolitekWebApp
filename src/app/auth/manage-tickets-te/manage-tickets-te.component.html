@@ -7,56 +7,99 @@
     <link rel="stylesheet" href="manage-tickets-te.component.css">
 </head>
 <body>
-        <header>
-            <button class="logo-button">
-                <img src="assets/images/img-gestion-ticket/LOGO-SOLITEK-2-PNG.png" alt="Logo Solitek">
-            </button>
-            <div class="user-info">
-                <span>LINA ACOSTA</span>
-                <img src="assets/images/img-gestion-ticket/usuario.png" alt="User Icon" class="user-icon">
-            </div>
-        </header>
-        <div class="title-section">
-            <button (click)="navigateToMenu()" class="menuback">Menú</button>
-        </div>
-        <div class="contenedor">
-            <div class="contenedor2">
-        <div class="search-section">
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Buscar un Cliente...">
-                <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
+    <header>
+        <button class="logo-button">
+            <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
+        </button>
+        <div class="header-right">
+            <span>DIEGO DE LA CRUZ</span>
+            <div class="menu-container">
+              <button class="logo-button" (click)="toggleMenu()">
+                  <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+              </button>
+              <div class="dropdown-menu" *ngIf="menuVisible">
+                  <ul>
+                      <li (click)="navigateTo('/user-edit')">Perfil</li>
+                      <li (click)="logout()">Cerrar Sesión</li>
+                  </ul>
+              </div>
             </div>
         </div>
-        <main>
+    </header>
+    <div class="title-section">
+        <button (click)="navigateToMenu()" class="menuback">Menú</button>
+    </div>
+    <div class="contenedor">
+        <div class="contenedor2">
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Buscar un Cliente...">
+                    <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
+                </div>
+            </div>
+            <main>
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre(s)</th>
-                            <th>Apellido(s)</th>
+                            <th>Especificaciones</th>
+                            <th>Estado</th>
                             <th>Numero de orden</th>
-                            <th></th>
+                            <th class="small-column"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ticket of tickets">
+                            <td>{{ ticket.equipo.especificaciones }}</td> <!-- Cambiado a especificaciones del equipo -->
+                            <td>{{ ticket.estado }}</td>
+                            <td>{{ ticket.ticket_id }}</td>
+                            <td class="small-column">
+                                <button class="select-btn" (click)="openModal(ticket.ticket_id!)">Seleccionar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+        <div class="contenedor-panel">
+            <button class="add-advance-btn" (click)="openModal(selectedTicketId!)">Agregar Avance</button>
+            <div class="fotos">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha/Hora</th>
+                            <th>Descripción</th>
+                            <th>Imagen</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Lina</td>
-                            <td>Acosta</td>
-                            <td>4023</td>
-                            <td><button class="select-btn">Seleccionar</button></td>
+                            <td>Jun 19, 2024</td>
+                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
+                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
+                        </tr>
+                        <tr>
+                            <td>Jun 19, 2024</td>
+                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
+                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
+                        </tr>
+                        <tr>
+                            <td>Jun 19, 2024</td>
+                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
+                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
                         </tr>
                     </tbody>
                 </table>
-        </main>
+            </div>
+        </div>
     </div>
-        <div class="contenedor-panel">
-            <div class="fotos">
-                <button class="bt-foto">SUBIR FOTO</button>
-            </div>
-            <div class="details-section">
-                <div class="comment-section">
-                    <textarea placeholder="Escribe un comentario personalizado..."></textarea>
-                </div>
-            </div>
+
+    <!-- Modal -->
+    <div class="modal" *ngIf="showModal">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>Agregar Avance</h2>
+            <textarea [(ngModel)]="newAdvanceMessage" placeholder="Escribe el avance aquí..."></textarea>
+            <button (click)="addAdvance()">Agregar</button>
         </div>
     </div>
 </body>

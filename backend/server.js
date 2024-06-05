@@ -1,20 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const sequelize = require('./config/database');
-const Rol = require('./models/rol');
-const Usuario = require('./models/usuario');
-const Equipo = require('./models/equipo');
-const Ticket = require('./models/ticket');
-const Notificacion = require('./models/notificacion');
-const HistorialTicket = require('./models/historialTicket');
-const DescripcionTicket = require('./models/descripcionTicket');
+const { sequelize, Rol, Usuario, Equipo, Ticket, Notificacion, HistorialTicket, DescripcionTicket } = require('./models');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const roleRoutes = require('./routes/roleRoutes');
 const testRoutes = require('./routes/testRoutes');
 const equipoRoutes = require('./routes/equipoRoutes');
-const ticketRoutes = require('./routes/ticketRoutes');  // Asegúrate de que esta línea esté presente
+const ticketRoutes = require('./routes/ticketRoutes');
+const historialTicketRoutes = require('./routes/historialTicketRoutes');
 
 const app = express();
 const PORT = 3000;
@@ -25,7 +19,7 @@ app.use(bodyParser.json());
 sequelize.sync({ force: true })
   .then(async () => {
     console.log('Database & tables created!');
-    
+
     // Crear roles
     await Rol.bulkCreate([
       { id_rol: 1, descripcion: 'Administrador' },
@@ -56,7 +50,8 @@ app.use('/api/users', userRoutes);
 app.use('/api', roleRoutes);
 app.use('/api', testRoutes);
 app.use('/api/equipos', equipoRoutes);
-app.use('/api/tickets', ticketRoutes);  // Asegúrate de que esta línea esté presente
+app.use('/api/tickets', ticketRoutes);
+app.use('/api/historial-tickets', historialTicketRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
