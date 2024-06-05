@@ -16,6 +16,10 @@ HistorialTicket.init({
   descripcion_id: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  imagen_url: {  // Añadir este campo para almacenar la URL de la imagen
+    type: DataTypes.STRING,
+    allowNull: true
   }
 }, {
   sequelize,

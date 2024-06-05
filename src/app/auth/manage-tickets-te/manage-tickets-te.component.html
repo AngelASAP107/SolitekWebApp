@@ -43,6 +43,7 @@
                         <tr>
                             <th>Especificaciones</th>
                             <th>Estado</th>
+                            <th>Prioridad</th>
                             <th>Numero de orden</th>
                             <th class="small-column"></th>
                         </tr>
@@ -51,6 +52,7 @@
                         <tr *ngFor="let ticket of tickets">
                             <td>{{ ticket.equipo.especificaciones }}</td> <!-- Cambiado a especificaciones del equipo -->
                             <td>{{ ticket.estado }}</td>
+                            <td>{{ ticket.prioridad }}</td>
                             <td>{{ ticket.ticket_id }}</td>
                             <td class="small-column">
                                 <button class="select-btn" (click)="openModal(ticket.ticket_id!)">Seleccionar</button>
