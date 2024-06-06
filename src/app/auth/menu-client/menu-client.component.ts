@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu-client',
   templateUrl: './menu-client.component.html',
-  styleUrl: './menu-client.component.css'
+  styleUrls: ['./menu-client.component.css']
 })
-export class MenuClientComponent {
+export class MenuClientComponent implements OnInit {
   menuVisible: boolean = false;
-  
-  constructor(private router: Router) { }
+  userName: string | null = null;
+
+  constructor(private router: Router, private authService: AuthService) { }
+
+  ngOnInit(): void {
+    const userInfo = this.authService.getUserInfo();
+    this.userName = userInfo ? userInfo.nombre : null;
+  }
 
   toggleMenu(): void {
     this.menuVisible = !this.menuVisible;
@@ -21,7 +28,8 @@ export class MenuClientComponent {
   }
 
   logout(): void {
-    // Lógica para cerrar sesión
+    this.authService.logout();
+    this.router.navigate(['/login']);
     this.menuVisible = false; // Oculta el menú después de cerrar sesión
   }
 
