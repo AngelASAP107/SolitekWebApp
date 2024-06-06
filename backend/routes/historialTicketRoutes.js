@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const historialTicketController = require('../controllers/historialTicketController');
-const { upload } = require('../services/firebaseService'); // Importar el middleware de carga
+const { upload } = require('../services/firebaseService');
 
 router.get('/tecnico/:id', historialTicketController.getTicketsByTechnician);
-router.post('/:id/avances', upload.single('file'), historialTicketController.addAdvance); // Añadir el middleware de carga
+router.get('/cliente/:id', historialTicketController.getTicketsByClient); // Asegúrate de que esta ruta está definida
+router.post('/:id/avances', upload.single('file'), historialTicketController.addAdvance);
 router.get('/:id/avances', historialTicketController.getAdvancesByTicket);
 
 module.exports = router;

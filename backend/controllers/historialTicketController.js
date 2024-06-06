@@ -2,6 +2,7 @@ const HistorialTicket = require('../models/historialTicket');
 const Ticket = require('../models/ticket');
 const DescripcionTicket = require('../models/descripcionTicket');
 const Equipo = require('../models/equipo'); // Importar el modelo de Equipo
+const Usuario = require('../models/usuario'); // Importar el modelo de Usuario
 const { uploadImage } = require('../services/firebaseService'); // Importar el servicio de Firebase
 
 exports.getTicketsByTechnician = async (req, res) => {
@@ -11,7 +12,8 @@ exports.getTicketsByTechnician = async (req, res) => {
       where: { tecnico_id: id },
       include: [
         {
-          model: HistorialTicket
+          model: HistorialTicket,
+          include: [DescripcionTicket] // Incluir DescripcionTicket en HistorialTicket
         },
         {
           model: Equipo,
@@ -47,7 +49,7 @@ exports.addAdvance = async (req, res) => {
     const historialTicket = await HistorialTicket.create({
       ticket_id: id,
       descripcion_id: descripcionTicket.descripcion_id,
-      imagen_url: imageUrl // Asegúrate de guardar la URL de la imagen en el historial
+      imagen_url: imageUrl // Añadir URL de la imagen al historial del ticket
     });
     res.status(201).json(historialTicket);
   } catch (error) {
@@ -64,6 +66,33 @@ exports.getAdvancesByTicket = async (req, res) => {
     });
     res.status(200).json(advances);
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los avances del ticket', details: error.message });
+    res.status (500).json({ error: 'Error al obtener los avances del ticket', details: error.message });
+  }
+};
+
+exports.getTicketsByClient = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const tickets = await Ticket.findAll({
+      where: { cliente_id: id },
+      include: [
+        {
+          model: HistorialTicket,
+          include: [DescripcionTicket]
+        },
+        {
+          model: Equipo,
+          as: 'equipo'
+        },
+        {
+          model: Usuario,
+          as: 'tecnico', // Incluir el técnico a cargo
+          attributes: ['nombre'] // Seleccionar solo el nombre del técnico
+        }
+      ]
+    });
+    res.status(200).json(tickets);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los tickets del cliente', details: error.message });
   }
 };

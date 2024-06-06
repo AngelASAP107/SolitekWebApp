@@ -48,4 +48,8 @@ export class TicketService {
   getEquipos(): Observable<any[]> {
     return this.http.get<any[]>(this.equipoApiUrl);
   }
+
+  getTicketsByClient(clientId: number): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`http://localhost:3000/api/historial-tickets/cliente/${clientId}`);
+  }
 }

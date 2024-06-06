@@ -1,3 +1,7 @@
+export interface Usuario {
+  nombre: string;
+}
+
 export interface Equipo {
   especificaciones: string;
   estado_equipo: string;
@@ -6,10 +10,10 @@ export interface Equipo {
 }
 
 export interface Ticket {
-  ticket_id?: number; 
+  ticket_id?: number;
   cliente: number;
-  equipo: Equipo; // Aquí aseguramos que 'equipo' es de tipo 'Equipo'
-  tecnico: number;
+  equipo: Equipo;
+  tecnico: Usuario; // Asegúrate de que tecnico es de tipo Usuario
   fechaIngreso: Date;
   estado: string;
   prioridad: string;

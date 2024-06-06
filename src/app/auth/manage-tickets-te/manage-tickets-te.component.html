@@ -33,9 +33,24 @@
         <div class="contenedor2">
             <div class="search-section">
                 <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="Buscar un Cliente...">
+                    <input type="text" class="search-input" placeholder="Buscar un Ticket..." [(ngModel)]="searchText" (input)="searchTickets()">
                     <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
                 </div>
+            </div>
+            <div class="filters-and-button">
+                <div class="priority-filters">
+                    <span>Filtrar por prioridad:</span>
+                    <label>
+                        <input type="checkbox" [(ngModel)]="filterHigh" (change)="filterTickets()"> Alta
+                    </label>
+                    <label>
+                        <input type="checkbox" [(ngModel)]="filterMedium" (change)="filterTickets()"> Media
+                    </label>
+                    <label>
+                        <input type="checkbox" [(ngModel)]="filterLow" (change)="filterTickets()"> Baja
+                    </label>
+                </div>
+                <button class="add-advance-btn" (click)="openModal(selectedTicketId!)">Agregar Avance</button>
             </div>
             <main>
                 <table>
@@ -49,13 +64,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let ticket of tickets">
-                            <td>{{ ticket.equipo.especificaciones }}</td> <!-- Cambiado a especificaciones del equipo -->
+                        <tr *ngFor="let ticket of filteredTickets">
+                            <td>{{ ticket.equipo.especificaciones }}</td>
                             <td>{{ ticket.estado }}</td>
                             <td>{{ ticket.prioridad }}</td>
                             <td>{{ ticket.ticket_id }}</td>
                             <td class="small-column">
-                                <button class="select-btn" (click)="openModal(ticket.ticket_id!)">Seleccionar</button>
+                                <button class="select-btn" (click)="selectTicket(ticket.ticket_id!)">Seleccionar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -63,7 +78,6 @@
             </main>
         </div>
         <div class="contenedor-panel">
-            <button class="add-advance-btn" (click)="openModal(selectedTicketId!)">Agregar Avance</button>
             <div class="fotos">
                 <table>
                     <thead>
@@ -74,20 +88,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Jun 19, 2024</td>
-                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
-                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
-                        </tr>
-                        <tr>
-                            <td>Jun 19, 2024</td>
-                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
-                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
-                        </tr>
-                        <tr>
-                            <td>Jun 19, 2024</td>
-                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione enim numquam tenetur non accusantium voluptas eveniet, voluptates praesentium neque qui tempora ducimus vitae! Vel, quis magnam. Sunt, eligendi illo?</td>
-                            <td><img src="assets/images/ejemp.jpg" width="300px" height="200px"></td>
+                        <tr *ngFor="let advance of advances">
+                            <td>{{ advance.DescripcionTicket.fecha_notificacion | date:'medium' }}</td>
+                            <td>{{ advance.DescripcionTicket.mensaje }}</td>
+                            <td *ngIf="advance.imagen_url">
+                                <img [src]="advance.imagen_url" width="300px" height="200px">
+                            </td>
+                            <td *ngIf="!advance.imagen_url">Sin imagen</td>
                         </tr>
                     </tbody>
                 </table>
@@ -101,6 +108,7 @@
             <span class="close" (click)="closeModal()">&times;</span>
             <h2>Agregar Avance</h2>
             <textarea [(ngModel)]="newAdvanceMessage" placeholder="Escribe el avance aquí..."></textarea>
+            <input type="file" (change)="onFileSelected($event)">
             <button (click)="addAdvance()">Agregar</button>
         </div>
     </div>

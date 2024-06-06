@@ -1,44 +1,84 @@
-import { Component } from '@angular/core';
-import { TicketService, Ticket } from '../../ticket.service';
+import { Component, OnInit } from '@angular/core';
+import { TicketService } from '../../services/ticket.service';
+import { HistorialTicketService } from '../../services/historial-ticket.service';
 import { Router } from '@angular/router';
+import { Ticket } from '../../models/ticket.model';
 
 @Component({
   selector: 'app-manage-tickets-cl',
   templateUrl: './manage-tickets-cl.component.html',
   styleUrls: ['./manage-tickets-cl.component.css']
 })
-export class ManageTicketsClComponent {
+export class ManageTicketsClComponent implements OnInit {
   tickets: Ticket[] = [];
+  filteredTickets: Ticket[] = [];
+  advances: any[] = [];
   showModal: boolean = false;
   menuVisible: boolean = false;
+  selectedTicketId: number | null = null;
+  searchText: string = '';
 
-  constructor(private ticketService: TicketService, private router: Router) {
-    this.ticketService.tickets$.subscribe(tickets => this.tickets = tickets);
+  constructor(
+    private ticketService: TicketService,
+    private historialTicketService: HistorialTicketService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loadTickets();
   }
 
-  openModal() {
-    this.showModal = true;
+  loadTickets(): void {
+    this.ticketService.getTicketsByClient(3).subscribe(
+      (tickets: Ticket[]) => {
+        this.tickets = tickets;
+        this.filteredTickets = tickets;
+      },
+      (error: any) => {
+        console.error('Error al cargar los tickets:', error);
+      }
+    );
   }
 
-  closeModal() {
-    this.showModal = false;
+  searchTickets(): void {
+    const search = this.searchText.toLowerCase();
+    this.filteredTickets = this.tickets.filter(ticket => 
+      ticket.ticket_id!.toString().toLowerCase().includes(search) ||
+      ticket.equipo.especificaciones.toLowerCase().includes(search) ||
+      ticket.tecnico.nombre.toLowerCase().includes(search)
+    );
+  }
+
+  selectTicket(ticketId: number): void {
+    this.selectedTicketId = ticketId;
+    this.loadAdvances(ticketId);
+  }
+
+  loadAdvances(ticketId: number): void {
+    this.historialTicketService.getAdvancesByTicket(ticketId).subscribe(
+      (advances: any[]) => {
+        this.advances = advances;
+      },
+      (error: any) => {
+        console.error('Error al cargar los avances:', error);
+      }
+    );
   }
 
   toggleMenu(): void {
     this.menuVisible = !this.menuVisible;
   }
 
-  navigateToMenu() {
+  navigateToMenu(): void {
     this.router.navigate(['/menu-cliente']);
   }
 
   navigateTo(route: string): void {
     this.router.navigate([route]);
-    this.menuVisible = false; // Oculta el menú después de la navegación
+    this.menuVisible = false;
   }
 
   logout(): void {
-    // Lógica para cerrar sesión
-    this.menuVisible = false; // Oculta el menú después de cerrar sesión
+    this.menuVisible = false;
   }
 }

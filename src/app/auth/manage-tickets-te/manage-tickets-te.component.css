@@ -104,7 +104,8 @@ header {
     align-items: center;
     justify-content: flex-end;
 }
-.menuback{
+
+.menuback {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -120,7 +121,8 @@ header {
     height: 50px;
     margin-bottom: 10px;
 }
-.contenedor{
+
+.contenedor {
     display: flex;
     align-items: flex-start;
     width: 100%;
@@ -128,18 +130,18 @@ header {
     position: relative;
 }
 
-.contenedor2{
+.contenedor2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.fotos{
+.fotos {
     display: flex;
     width: 100%;
     height: 510px;
-    background-color: #F1F0F4;
+    background-color: #ffffff; /* Eliminar fondo gris */
     margin-right: 1%;
     border-radius: 20px;
 }
@@ -225,6 +227,19 @@ header {
     margin-right: 5px;
 }
 
+table {
+    padding: 20px;
+    width: 100%; /* Ajustar el ancho de la tabla */
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    overflow: hidden;
+    border-spacing: 0; /* Elimina el espacio entre celdas */
+}
+
 table thead {
     background-color: #9DCAFF;
     color: white;
@@ -239,9 +254,13 @@ thead th:last-child {
     border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
 }
 
-table th, table td {
-    padding: 30px;
+table td {
+    padding: 10px; /* Ajusta el padding para evitar que las celdas sean muy grandes */
     text-align: left;
+}
+
+table th {
+    padding: 20px;
 }
 
 table tbody tr:nth-child(even) {
@@ -310,4 +329,32 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.filters-and-button {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between; /* Espaciado entre filtros y botón */
+}
+
+.priority-filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.priority-filters span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.add-advance-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }

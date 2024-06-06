@@ -10,11 +10,11 @@ export class HistorialTicketService {
 
   constructor(private http: HttpClient) {}
 
-  addAdvance(ticketId: number, avance: { mensaje: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${ticketId}/avances`, avance);
+  getAdvancesByTicket(ticketId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${ticketId}/avances`);
   }
 
-  getAdvances(ticketId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${ticketId}/avances`);
+  addAdvance(ticketId: number, formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${ticketId}/avances`, formData);
   }
 }
