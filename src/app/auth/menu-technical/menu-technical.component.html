@@ -11,11 +11,16 @@
         <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
     </button>
     <div class="header-right">
-        <span>ALEX FRANCO</span>
-        <button class="logo-button">
-            <img src="assets/images/usuario-de-perfil 1.png"alt="User Icon" class="user-icon">
+      <span>{{ userName }}</span>
+        <button class="logo-button" (click)="toggleMenu()">
+            <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
         </button>
-        
+        <div class="dropdown-menu" *ngIf="menuVisible">
+          <ul>
+              <li (click)="navigateTo('/user-edit')">Perfil</li>
+              <li (click)="logout()">Cerrar Sesión</li>
+          </ul>
+      </div>
     </div>
   </header>
   <div class="container">
@@ -47,7 +52,7 @@
     </div>
     <div class="panel">
         <div class="form-group2">
-          <button class="custom-button">
+          <button (click)="navigateToManageTicketsTecnico()" class="custom-button">
             <span>
               <img src="assets/images/img-menu-admin/gestion.png" alt="img-src">
               gestiona tus tickets

@@ -3,6 +3,7 @@ import { TicketService } from '../../services/ticket.service';
 import { HistorialTicketService } from '../../services/historial-ticket.service';
 import { Router } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-manage-tickets-te',
@@ -22,20 +23,33 @@ export class ManageTicketsTeComponent implements OnInit {
   filterHigh: boolean = false;
   filterMedium: boolean = false;
   filterLow: boolean = false;
+  userName: string | null = null;
+  technicianId: number | null = null;
 
   constructor(
     private ticketService: TicketService,
     private historialTicketService: HistorialTicketService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.loadTickets();
+    const userInfo = this.authService.getUserInfo();
+    console.log('User info:', userInfo); // Verificar que userInfo está presente y tiene los campos necesarios
+    if (userInfo) {
+      this.userName = userInfo.nombre;
+      this.technicianId = userInfo.usuario_id;
+      console.log('Technician ID:', this.technicianId); // Verificar que technicianId tiene un valor correcto
+      this.loadTickets(this.technicianId!);
+    } else {
+      console.error('User information not found');
+    }
   }
 
-  loadTickets(): void {
-    this.ticketService.getTicketsByTechnician(1).subscribe(
+  loadTickets(technicianId: number): void {
+    this.ticketService.getTicketsByTechnician(technicianId).subscribe(
       (tickets: Ticket[]) => {
+        console.log('Tickets received:', tickets); // Verificar que los tickets se están recibiendo correctamente
         this.tickets = tickets;
         this.filteredTickets = tickets;
       },

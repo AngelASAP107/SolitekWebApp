@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(nombre: string, contrasena: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { nombre, contrasena });
+    return this.http.post<any>(`${this.apiUrl}/login`, { nombre, contrasena }).pipe(
+      tap(response => {
+        if (response.token) {
+          this.saveToken(response.token);
+          this.saveUserInfo(response.user);
+        }
+      })
+    );
   }
 
   register(usuario: any): Observable<any> {
@@ -32,7 +40,28 @@ export class AuthService {
     return null;
   }
 
+  saveUserInfo(user: any): void {
+    if (this.isBrowser()) {
+      localStorage.setItem('user_info', JSON.stringify(user));
+    }
+  }
+
+  getUserInfo(): any {
+    if (this.isBrowser()) {
+      const userInfo = localStorage.getItem('user_info');
+      return userInfo ? JSON.parse(userInfo) : null;
+    }
+    return null;
+  }
+
   private isBrowser(): boolean {
     return typeof window !== 'undefined';
+  }
+
+  logout(): void {
+    if (this.isBrowser()) {
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('user_info');
+    }
   }
 }

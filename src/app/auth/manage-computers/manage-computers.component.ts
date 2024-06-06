@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EquipoService } from '../../services/equipo.service';
 import { Equipo } from '../../models/equipo.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-manage-computers',
@@ -14,11 +15,16 @@ export class ManageComputersComponent implements OnInit {
   searchText: string = '';
   showEditModal: boolean = false;
   selectedEquipo: Equipo | null = null;
+  userName: string | null = '';
 
-  constructor(private equipoService: EquipoService, private router: Router) { }
+  constructor(
+    private equipoService: EquipoService, 
+    private router: Router,
+    private authService: AuthService,) { }
 
   ngOnInit(): void {
     this.loadEquipos();
+    this.userName = this.authService.getUserInfo()?.nombre || '';
   }
 
   loadEquipos(): void {

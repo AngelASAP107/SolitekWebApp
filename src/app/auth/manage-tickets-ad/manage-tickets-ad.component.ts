@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
 
@@ -16,11 +17,17 @@ export class ManageTicketsAdComponent implements OnInit {
   menuVisible: boolean = false;
   selectedTicket: Ticket | null = null;
   searchText: string = '';
+  userName: string | null = '';
 
-  constructor(private ticketService: TicketService, private router: Router) {}
+  constructor(
+    private ticketService: TicketService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadTickets();
+    this.userName = this.authService.getUserInfo()?.nombre || ''; // Obtiene el nombre del usuario
   }
 
   loadTickets(): void {
@@ -67,34 +74,32 @@ export class ManageTicketsAdComponent implements OnInit {
     this.menuVisible = !this.menuVisible;
   }
 
-  navigateTo(route
-    : string): void {
-      this.router.navigate([route]);
-      this.menuVisible = false; // Oculta el menú después de la navegación
-    }
-  
-    logout(): void {
-      // Lógica para cerrar sesión
-      this.menuVisible = false; // Oculta el menú después de cerrar sesión
-    }
-  
-    openModal(): void {
-      this.selectedTicket = null;
-      this.showModal = true;
-    }
-  
-    closeModal(): void {
-      this.showModal = false;
-      this.loadTickets(); // Asegura que los tickets se recarguen al cerrar el modal
-    }
-  
-    closeEditModal(): void {
-      this.showEditModal = false;
-      this.loadTickets(); // Recargar los tickets después de cerrar el modal de edición
-    }
-  
-    navigateToMenu(): void {
-      this.router.navigate(['/menu-admin']);
-    }
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+    this.menuVisible = false; // Oculta el menú después de la navegación
   }
-  
+
+  logout(): void {
+    this.authService.logout(); // Lógica para cerrar sesión
+    this.router.navigate(['/login']); // Redirigir al login después de cerrar sesión
+  }
+
+  openModal(): void {
+    this.selectedTicket = null;
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.loadTickets(); // Asegura que los tickets se recarguen al cerrar el modal
+  }
+
+  closeEditModal(): void {
+    this.showEditModal = false;
+    this.loadTickets(); // Recargar los tickets después de cerrar el modal de edición
+  }
+
+  navigateToMenu(): void {
+    this.router.navigate(['/menu-admin']);
+  }
+}

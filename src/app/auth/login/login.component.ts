@@ -23,19 +23,19 @@ export class LoginComponent {
     
     this.authService.login(this.nombre, this.contrasena).subscribe(
       response => {
-        console.log('Login successful', response); // Añadir log para verificar la respuesta
+        console.log('Login successful', response);
         this.authService.saveToken(response.token);
-        const role = response.role; // Suponiendo que el rol se devuelve en la respuesta
-        this.redirectUser(role);
+        this.authService.saveUserInfo(response.user);
+        this.redirectUser(response.user.role);
       },
       error => {
-        console.error('Login failed', error); // Añadir log para verificar el error
+        console.error('Login failed', error);
         this.errorMessage = 'Nombre de usuario o contraseña incorrectos';
       }
-    );
+    ); 
   }
 
-  redirectUser(role: number) { // Cambiar tipo de role a number
+  redirectUser(role: number) {
     if (role === 1) {
       this.router.navigate(['/menu-admin']);
     } else if (role === 2) {
@@ -43,7 +43,7 @@ export class LoginComponent {
     } else if (role === 3) {
       this.router.navigate(['/menu-cliente']);
     } else {
-      console.error('Unknown role:', role); // Añadir log para roles desconocidos
+      console.error('Unknown role:', role);
     }
   }
 }

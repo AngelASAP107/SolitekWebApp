@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -14,11 +15,16 @@ export class ManageUsersComponent implements OnInit {
   searchText: string = '';
   menuVisible: boolean = false;
   filterRoles = { admin: false, tech: false, user: false };
+  userName: string | null = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService, 
+    private router: Router,
+    private authService: AuthService,) {}
 
   ngOnInit(): void {
     this.loadUsers();
+    this.userName = this.authService.getUserInfo()?.nombre || '';
   }
 
   loadUsers(): void {

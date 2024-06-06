@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
 import { Router } from '@angular/router';
-import { Ticket } from '../../models/ticket.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-tickets-history',
@@ -12,11 +12,16 @@ export class TicketsHistoryComponent implements OnInit {
   tickets: any[] = [];
   filteredTickets: any[] = [];
   searchText: string = '';
+  userName: string | null = '';
 
-  constructor(private ticketService: TicketService, private router: Router) {}
+  constructor(
+    private ticketService: TicketService, 
+    private router: Router,
+    private authService: AuthService,) {}
 
   ngOnInit(): void {
     this.loadTickets();
+    this.userName = this.authService.getUserInfo()?.nombre || '';
   }
 
   loadTickets(): void {
