@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InicioComponent } from './auth/inicio/inicio.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
 import { RegisterComputerComponent } from './auth/register-computer/register-computer.component';
@@ -16,6 +17,7 @@ import { ManageComputersComponent } from './auth/manage-computers/manage-compute
 import { EditEquipoComponent } from './auth/edit-equipo/edit-equipo.component';
 
 const routes: Routes = [
+  { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'menu-admin', component: MenuAdminComponent },

@@ -12,8 +12,8 @@ import { PlaceholderSelectDirective } from './auth/create-tickets/placeholder-se
 @NgModule({
   declarations: [
     AppComponent,
-    PlaceholderSelectDirective, // Declarar la directiva aquí
-    // otros componentes y directivas
+    PlaceholderSelectDirective,
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #031950;
+    padding: 10px 20px;
+}
+
+.logo_solitek {
+    margin-right: auto; /* Esto empujará el logo hacia la izquierda */
+    
+}
+
+nav {
+    margin-right: 100px; 
+}
+
+.logo-button2,.logo-button {
+    margin-left: 10px; /* Ajusta este valor según el espacio que desees entre los botones */
+    margin-right: 10px;
+    border: none; /* Eliminar el borde */
+    padding: 0; /* Eliminar el relleno */
+    background: none; /* Eliminar el fondo */
+    cursor: pointer;
+}
+
+.cta-button {
+    background-color: #D1E4FF;
+    color: #003458;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 7px;
+}
+
+
+.social-media {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 100%; /* Ajusta el alto al 100% del viewport (altura visible del navegador) */
+}
+
+.social-media img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: 100%; /* Ajusta el alto de la imagen al 100% del contenedor */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+
+.description {
+    display: flex;
+    flex-direction: row; /* Coloca los elementos en una fila */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.texto {
+    max-width: 30%; /* Limita el ancho del texto */
+    margin-right: 200px;
+}
+
+.texto p {
+    line-height: 2.5; /* Ajusta el espacio entre líneas */
+    text-align: left;
+    font-size: 20px;
+}
+
+.foto {
+    max-width: 50%; /* Limita el ancho de la imagen */
+}
+
+.foto img {
+    width: 100%; 
+    height: auto; 
+}
+
+.benefits {
+    background-color: #e2f4f8;
+    padding: 20px;
+}
+
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.benefits h2 {
+    text-align: center;
+}
+
+.benefit {
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    background-color: #121A2F;
+    color: white;
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajusta esta altura según sea necesario */
+    margin-top: 20px; /* Ajusta este valor según sea necesario */
+    background-color: #121A2F;
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer-section1 {
+    display: flex;
+    flex-direction: column; /* Establece la dirección como columna */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    margin-bottom: 10px;
+}
+
+.footer-section1 img {
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+.footer-section {
+    width: 20%;
+    
+}
+
+.social-media-icons {
+    text-align: center;
+    padding: 10px;
+    background-color: #031950;
+    color: white;
+}
+
+.social-media-icons img {
+    width: 30px;
+    margin: 0 10px;
+}

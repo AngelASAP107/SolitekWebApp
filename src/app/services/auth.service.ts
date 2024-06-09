@@ -34,10 +34,7 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    if (this.isBrowser()) {
-      return localStorage.getItem('auth_token');
-    }
-    return null;
+    return this.isBrowser() ? localStorage.getItem('auth_token') : null;
   }
 
   saveUserInfo(user: any): void {
@@ -63,5 +60,9 @@ export class AuthService {
       localStorage.removeItem('auth_token');
       localStorage.removeItem('user_info');
     }
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
   }
 }

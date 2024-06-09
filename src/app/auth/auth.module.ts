@@ -18,6 +18,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageComputersComponent } from './manage-computers/manage-computers.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 import { EditEquipoComponent } from './edit-equipo/edit-equipo.component';
+import { InicioComponent } from './inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { EditEquipoComponent } from './edit-equipo/edit-equipo.component';
     ManageComputersComponent,
     EditTicketComponent,
     EditEquipoComponent,
+    InicioComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ import { EditEquipoComponent } from './edit-equipo/edit-equipo.component';
     ManageTicketsClComponent,
     ManageComputersComponent,
     UserEditComponent,
+    InicioComponent,
   ]
 })
 export class AuthModule { }
