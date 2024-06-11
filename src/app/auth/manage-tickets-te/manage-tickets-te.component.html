@@ -8,21 +8,21 @@
 </head>
 <body>
     <header>
-        <button class="logo-button">
+        <button class="logo-button" (click)="navigateToMenu()">
             <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
         </button>
         <div class="header-right">
             <span>{{ userName }}</span>
             <div class="menu-container">
-              <button class="logo-button" (click)="toggleMenu()">
-                  <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
-              </button>
-              <div class="dropdown-menu" *ngIf="menuVisible">
-                  <ul>
-                      <li (click)="navigateTo('/user-edit')">Perfil</li>
-                      <li (click)="logout()">Cerrar Sesión</li>
-                  </ul>
-              </div>
+                <button class="logo-button" (click)="toggleMenu()">
+                    <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+                </button>
+                <div class="dropdown-menu" *ngIf="menuVisible">
+                    <ul>
+                        <li (click)="navigateToUserProfile()">Perfil</li>
+                        <li (click)="logout()">Cerrar Sesión</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -106,10 +106,12 @@
     <div class="modal" *ngIf="showModal">
         <div class="modal-content">
             <span class="close" (click)="closeModal()">&times;</span>
-            <h2>Agregar Avance</h2>
-            <textarea [(ngModel)]="newAdvanceMessage" placeholder="Escribe el avance aquí..."></textarea>
+            <h2 class="modal-title">Agregar Avance</h2>
+            <textarea [(ngModel)]="newAdvanceMessage" placeholder="Escribe el avance aquí..." (input)="countCharacters()"></textarea>
+            <div class="char-counter">{{ charCount }}/500</div>
             <input type="file" (change)="onFileSelected($event)">
-            <button (click)="addAdvance()">Agregar</button>
+            <button (click)="addAdvance()" class="submit-button">Agregar</button>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         </div>
     </div>
 </body>

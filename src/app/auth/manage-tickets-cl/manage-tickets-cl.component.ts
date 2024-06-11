@@ -92,6 +92,14 @@ export class ManageTicketsClComponent implements OnInit {
     this.menuVisible = false;
   }
 
+  navigateToUserProfile(): void {
+    const userInfo = this.authService.getUserInfo();
+    if (userInfo) {
+      this.router.navigate(['/user-edit', userInfo.usuario_id]);
+    }
+    this.menuVisible = false; // Oculta el menú después de la navegación
+  }
+
   logout(): void {
     this.menuVisible = false;
     this.authService.logout();

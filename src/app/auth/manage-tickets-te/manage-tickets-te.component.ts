@@ -25,6 +25,8 @@ export class ManageTicketsTeComponent implements OnInit {
   filterLow: boolean = false;
   userName: string | null = null;
   technicianId: number | null = null;
+  errorMessage: string = '';
+  charCount: number = 0;
 
   constructor(
     private ticketService: TicketService,
@@ -35,21 +37,16 @@ export class ManageTicketsTeComponent implements OnInit {
 
   ngOnInit(): void {
     const userInfo = this.authService.getUserInfo();
-    console.log('User info:', userInfo); // Verificar que userInfo está presente y tiene los campos necesarios
-    if (userInfo) {
-      this.userName = userInfo.nombre;
-      this.technicianId = userInfo.usuario_id;
-      console.log('Technician ID:', this.technicianId); // Verificar que technicianId tiene un valor correcto
-      this.loadTickets(this.technicianId!);
-    } else {
-      console.error('User information not found');
+    this.userName = userInfo ? userInfo.nombre : null;
+    this.technicianId = userInfo ? userInfo.usuario_id : null;
+    if (this.technicianId) {
+      this.loadTickets(this.technicianId);
     }
   }
 
   loadTickets(technicianId: number): void {
     this.ticketService.getTicketsByTechnician(technicianId).subscribe(
       (tickets: Ticket[]) => {
-        console.log('Tickets received:', tickets); // Verificar que los tickets se están recibiendo correctamente
         this.tickets = tickets;
         this.filteredTickets = tickets;
       },
@@ -103,19 +100,53 @@ export class ManageTicketsTeComponent implements OnInit {
   openModal(ticketId: number): void {
     this.selectedTicketId = ticketId;
     this.showModal = true;
+    this.resetForm();
   }
 
   closeModal(): void {
     this.showModal = false;
+    this.resetForm();
+  }
+
+  resetForm(): void {
     this.newAdvanceMessage = '';
     this.selectedFile = null;
+    this.errorMessage = '';
+    this.charCount = 0;
   }
 
   onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+    const file = event.target.files[0];
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    if (file && allowedExtensions.exec(file.name)) {
+      this.selectedFile = file;
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = 'Solo se permiten archivos JPG y PNG.';
+      this.selectedFile = null;
+    }
+  }
+
+  countCharacters(): void {
+    this.charCount = this.newAdvanceMessage.length;
+    if (this.charCount > 500) {
+      this.errorMessage = 'El mensaje no puede exceder los 500 caracteres.';
+    } else {
+      this.errorMessage = '';
+    }
   }
 
   addAdvance(): void {
+    if (!this.newAdvanceMessage.trim()) {
+      this.errorMessage = 'Debe escribir un mensaje de avance.';
+      return;
+    }
+
+    if (this.charCount > 500) {
+      this.errorMessage = 'El mensaje no puede exceder los 500 caracteres.';
+      return;
+    }
+
     if (this.selectedTicketId !== null && this.newAdvanceMessage) {
       const formData = new FormData();
       formData.append('mensaje', this.newAdvanceMessage);
@@ -130,6 +161,7 @@ export class ManageTicketsTeComponent implements OnInit {
         },
         (error: any) => {
           console.error('Error al agregar el avance:', error);
+          this.errorMessage = 'Error al agregar el avance.';
         }
       );
     }
@@ -148,7 +180,16 @@ export class ManageTicketsTeComponent implements OnInit {
     this.menuVisible = false;
   }
 
+  navigateToUserProfile(): void {
+    if (this.authService.getUserInfo()) {
+      this.router.navigate(['/user-edit', this.authService.getUserInfo().usuario_id]);
+    }
+    this.menuVisible = false;
+  }
+
   logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
     this.menuVisible = false;
   }
 }

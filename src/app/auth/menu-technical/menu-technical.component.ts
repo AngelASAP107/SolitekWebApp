@@ -29,12 +29,25 @@ export class MenuTechnicalComponent implements OnInit {
     this.menuVisible = false; // Oculta el menú después de la navegación
   }
 
+  navigateToMenu(): void {
+    this.router.navigate(['/menu-admin']);
+  }
+
+  navigateToUserProfile(): void {
+    const userInfo = this.authService.getUserInfo();
+    if (userInfo) {
+      this.router.navigate(['/user-edit', userInfo.usuario_id]);
+    }
+    this.menuVisible = false; // Oculta el menú después de la navegación
+  }
+
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+    this.menuVisible = false; // Oculta el menú después de la navegación
   }
 
-  navigateToManageTicketsTecnico() {
-      this.router.navigate(['/gestion-tecnico']);
+  navigateToManageTicketsTecnico(): void {
+    this.router.navigate(['/gestion-tecnico']);
   }
 }

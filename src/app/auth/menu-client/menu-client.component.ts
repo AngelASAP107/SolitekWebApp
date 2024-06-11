@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class MenuClientComponent implements OnInit {
   menuVisible: boolean = false;
   userName: string | null = null;
+  user: any;
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -35,5 +36,13 @@ export class MenuClientComponent implements OnInit {
 
   navigateToManageTicketsClient() {
     this.router.navigate(['/gestion-cliente']);
+  }
+
+  navigateToUserProfile(): void {
+    const userInfo = this.authService.getUserInfo();
+    if (userInfo) {
+      this.router.navigate(['/user-edit', userInfo.usuario_id]);
+    }
+    this.menuVisible = false; // Oculta el menú después de la navegación
   }
 }
