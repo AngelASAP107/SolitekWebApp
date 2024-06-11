@@ -44,38 +44,40 @@
         </div>
     </div>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre Completo</th>
-                    <th>N° de Documento</th>
-                    <th>Fecha de ingreso</th>
-                    <th>Teléfono</th>
-                    <th>Número de orden</th>
-                    <th>Servicio</th>
-                    <th>Especificaciones equipo</th>
-                    <th>Estado Equipo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let ticket of filteredTickets">
-                    <td>{{ ticket.cliente.nombre }}</td>
-                    <td>{{ ticket.cliente.correo_electronico }}</td>
-                    <td>{{ ticket.fecha_ingreso | date }}</td>
-                    <td>{{ ticket.cliente.telefono }}</td>
-                    <td>{{ ticket.ticket_id }}</td>
-                    <td>{{ ticket.tipo_servicio }}</td>
-                    <td>{{ ticket.equipo.especificaciones }}</td>
-                    <td>{{ ticket.estado }}</td>
-                    <td>
-                        <button class="edit-button" (click)="editTicket(ticket)">Editar</button>
-                        <button class="finish-button" (click)="completarTicket(ticket.ticket_id)">Finalizar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>N° de Documento</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Teléfono</th>
+                        <th>Número de orden</th>
+                        <th>Servicio</th>
+                        <th>Especificaciones equipo</th>
+                        <th>Estado Equipo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ticket of filteredTickets">
+                        <td>{{ ticket.cliente.nombre }}</td>
+                        <td>{{ ticket.cliente.correo_electronico }}</td>
+                        <td>{{ ticket.fecha_ingreso | date }}</td>
+                        <td>{{ ticket.cliente.telefono }}</td>
+                        <td>{{ ticket.ticket_id }}</td>
+                        <td>{{ ticket.tipo_servicio }}</td>
+                        <td>{{ ticket.equipo.especificaciones }}</td>
+                        <td>{{ ticket.estado }}</td>
+                        <td>
+                            <button class="edit-button" (click)="editTicket(ticket)">Editar</button>
+                            <button class="finish-button" (click)="completarTicket(ticket.ticket_id)">Finalizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>    
     <div *ngIf="showEditModal">
         <app-edit-ticket [ticket]="selectedTicket" (formClose)="closeEditModal()"></app-edit-ticket>
     </div>

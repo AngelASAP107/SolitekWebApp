@@ -41,31 +41,33 @@
         </div>
     </div>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Identificador</th>
-                    <th>Especificaciones</th>
-                    <th>Estado del equipo</th>
-                    <th>Servicio</th>
-                    <th>Observaciones</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let equipo of filteredEquipos">
-                    <td>{{ equipo.id_equipo }}</td>
-                    <td>{{ equipo.especificaciones }}</td>
-                    <td>{{ equipo.estado_equipo }}</td>
-                    <td>{{ equipo.servicio }}</td>
-                    <td>{{ equipo.observaciones }}</td>
-                    <td>
-                        <button class="edit-button" (click)="editEquipo(equipo)">Editar</button>
-                        <button class="delete-button" (click)="deleteEquipo(equipo.id_equipo!)">Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Identificador</th>
+                        <th>Especificaciones</th>
+                        <th>Estado del equipo</th>
+                        <th>Servicio</th>
+                        <th>Observaciones</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let equipo of filteredEquipos">
+                        <td>{{ equipo.id_equipo }}</td>
+                        <td>{{ equipo.especificaciones }}</td>
+                        <td>{{ equipo.estado_equipo }}</td>
+                        <td>{{ equipo.servicio }}</td>
+                        <td>{{ equipo.observaciones }}</td>
+                        <td>
+                            <button class="edit-button" (click)="editEquipo(equipo)">Editar</button>
+                            <button class="delete-button" (click)="deleteEquipo(equipo.id_equipo!)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <app-edit-equipo *ngIf="showEditModal" [equipo]="selectedEquipo" (formClose)="closeEditModal()"></app-edit-equipo>
 </body>

@@ -201,10 +201,14 @@ header {
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
+.table-container {
+    max-height: 420px; /* Ajusta este valor según desees */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
 table {
     padding: 20px;
     width: 100%;
-    margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
@@ -254,7 +258,6 @@ table tbody tr:nth-child(even) {
     margin-bottom: 10px;
 }
 
-
 .edit-button {
     margin-right: 5px;
 }
@@ -274,4 +277,27 @@ table tbody tr:nth-child(even) {
     border-radius: 5px;
     width: 100px;
     margin-bottom: 10px;
-  }
+}
+
+/* Personalización del scrollbar */
+/* Ancho y color del scrollbar */
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+/* Agrega un riel alrededor del scrollbar */
+.table-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Color de la manija del scrollbar */
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #9DCAFF;
+    border-radius: 10px;
+}
+
+/* Color del cursor al pasar sobre la manija del scrollbar */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #60B0FE;
+}

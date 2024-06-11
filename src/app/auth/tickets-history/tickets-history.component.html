@@ -37,34 +37,36 @@
         </div>
     </div>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre Completo (Usuario)</th>
-                    <th>Nombre Completo (Técnico)</th>
-                    <th>Número Orden</th>
-                    <th>Teléfono</th>
-                    <th>Fecha de Ingreso</th>
-                    <th>Estado</th>
-                    <th>Servicio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let ticket of filteredTickets">
-                    <td>{{ ticket.cliente.nombre }}</td>
-                    <td>{{ ticket.tecnico.nombre }}</td>
-                    <td>{{ ticket.ticket_id }}</td>
-                    <td>{{ ticket.cliente.telefono }}</td>
-                    <td>{{ ticket.fecha_ingreso | date }}</td>
-                    <td>{{ ticket.estado }}</td>
-                    <td>{{ ticket.tipo_servicio }}</td>
-                    <td>
-                        <button class="pdf-button" (click)="exportPDF(ticket)"><img src="assets/images/pdf 2.png"></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Completo (Usuario)</th>
+                        <th>Nombre Completo (Técnico)</th>
+                        <th>Número Orden</th>
+                        <th>Teléfono</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Estado</th>
+                        <th>Servicio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ticket of filteredTickets">
+                        <td>{{ ticket.cliente.nombre }}</td>
+                        <td>{{ ticket.tecnico.nombre }}</td>
+                        <td>{{ ticket.ticket_id }}</td>
+                        <td>{{ ticket.cliente.telefono }}</td>
+                        <td>{{ ticket.fecha_ingreso | date }}</td>
+                        <td>{{ ticket.estado }}</td>
+                        <td>{{ ticket.tipo_servicio }}</td>
+                        <td>
+                            <button class="pdf-button" (click)="exportPDF(ticket)"><img src="assets/images/pdf 2.png"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 </body>
 </html>

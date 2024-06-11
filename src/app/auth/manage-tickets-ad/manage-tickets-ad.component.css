@@ -207,7 +207,8 @@ table {
     font-style: normal;
     overflow: hidden;
     border-spacing: 0; /* Elimina el espacio entre celdas */
-    
+    max-height: 420px; /* Ajusta este valor según desees */
+    overflow-y: auto;
 }
 
 table thead {
@@ -252,3 +253,30 @@ table tbody tr:nth-child(even) {
 .edit-button {
     margin-right: 5px;
 }
+
+.table-container {
+    max-height: 420px; /* Ajusta este valor según desees */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.table-container::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento vertical */
+    height: 12px; /* Altura de la barra de desplazamiento horizontal */
+    border-radius: 10px; /* Redondea los bordes del scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #C6C6CA; /* Color de la pista */
+    border-radius: 10px; /* Redondea los bordes de la pista */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #60B0FE; /* Color del pulgar */
+    border-radius: 10px; /* Redondea los bordes del pulgar */
+    border: 3px solid #C6C6CA; /* Espacio alrededor del pulgar */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #368DD9; /* Color del pulgar al pasar el cursor */
+}
+

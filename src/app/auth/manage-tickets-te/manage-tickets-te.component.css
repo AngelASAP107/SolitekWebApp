@@ -503,4 +503,72 @@ textarea {
     align-items: center;
   }
 }
+
+/* Estilos para contenedor de tabla con scrollbar */
+.table-container {
+    max-height: 420px; /* Altura máxima deseada */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    position: relative;
+}
+
+/* Estilos de tabla */
+.fotos table {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    border-spacing: 0; /* Elimina el espacio entre celdas */
+    table-layout: fixed;
+    margin-top: 10px; /* Ajusta según sea necesario */
+}
+
+.fotos table thead {
+    background-color: #9DCAFF;
+    color: white;
+    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+}
+
+.fotos table thead th:first-child {
+    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+}
+
+.fotos table thead th:last-child {
+    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+}
+
+.fotos table th,
+.fotos table td {
+    padding: 20px;
+    text-align: left;
+}
+
+.fotos table tbody tr:nth-child(even) {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Personalización del scrollbar */
+/* Ancho y color del scrollbar */
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+/* Agrega un riel alrededor del scrollbar */
+.table-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Color de la manija del scrollbar */
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #9DCAFF;
+    border-radius: 10px;
+}
+
+/* Color del cursor al pasar sobre la manija del scrollbar */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #60B0FE;
+}
+
     

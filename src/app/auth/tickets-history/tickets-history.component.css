@@ -94,7 +94,7 @@ header {
     font-style: normal;
 }
 
-.menuback{
+.menuback {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -160,7 +160,7 @@ header {
     display: flex;
     align-items: center;
     margin-left: 10px;
-    width: 90%; 
+    width: 90%;
 }
 
 .add-icon-button, .add-text-button {
@@ -183,10 +183,12 @@ header {
     height: 20px;
     width: 20px;
 }
-.add-icon-button{
+
+.add-icon-button {
     border-radius: 50px 0px 0px 50px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
+
 .add-text-button {
     margin-left: 10px;
     border-radius: 0px 50px 50px 0px;
@@ -194,8 +196,13 @@ header {
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
+.table-container {
+    max-height: 500px; /* Ajusta esta altura según sea necesario */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    position: relative;
+}
+
 table {
-    padding: 20px;
     width: 100%;
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -205,25 +212,24 @@ table {
     font-style: normal;
     overflow: hidden;
     border-spacing: 0; /* Elimina el espacio entre celdas */
-    
+    border-collapse: collapse; /* Asegura que las celdas no tengan espacio entre ellas */
 }
 
 table thead {
     background-color: #9DCAFF;
     color: white;
     border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    position: sticky;
+    top: 0; /* Fija la cabecera en la parte superior */
+    z-index: 1; /* Asegura que la cabecera quede por encima del contenido */
 }
 
-thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
-}
-
-thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+thead th {
+    padding: 15px;
 }
 
 table th, table td {
-    padding: 30px;
+    padding: 15px; /* Ajusta el padding según sea necesario */
     text-align: left;
 }
 
@@ -246,12 +252,38 @@ table tbody tr:nth-child(even) {
     margin-bottom: 10px;
 }
 
-
 .edit-button {
     margin-right: 5px;
 }
 
-.pdf-button{
+.pdf-button {
     background-color: transparent;
     border: none;
+}
+
+.table-container {
+    max-height: 420px; /* Ajusta este valor según desees */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+
+.table-container::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento vertical */
+    height: 12px; /* Altura de la barra de desplazamiento horizontal */
+    border-radius: 10px; /* Redondea los bordes del scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #C6C6CA; /* Color de la pista */
+    border-radius: 10px; /* Redondea los bordes de la pista */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #60B0FE; /* Color del pulgar */
+    border-radius: 10px; /* Redondea los bordes del pulgar */
+    border: 3px solid #C6C6CA; /* Espacio alrededor del pulgar */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #368DD9; /* Color del pulgar al pasar el cursor */
 }
