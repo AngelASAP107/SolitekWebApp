@@ -16,11 +16,13 @@ export class ManageComputersComponent implements OnInit {
   showEditModal: boolean = false;
   selectedEquipo: Equipo | null = null;
   userName: string | null = '';
+  menuVisible: boolean = false;
 
   constructor(
-    private equipoService: EquipoService, 
+    private equipoService: EquipoService,
     private router: Router,
-    private authService: AuthService,) { }
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.loadEquipos();
@@ -67,5 +69,20 @@ export class ManageComputersComponent implements OnInit {
 
   navigateToMenu(): void {
     this.router.navigate(['/menu-admin']);
+  }
+
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  navigateToUserProfile(): void {
+    if (this.authService.getUserInfo()) {
+      this.router.navigate(['/user-edit', this.authService.getUserInfo().usuario_id]);
+    }
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

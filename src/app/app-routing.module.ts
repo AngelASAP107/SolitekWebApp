@@ -17,6 +17,7 @@ import { ManageComputersComponent } from './auth/manage-computers/manage-compute
 import { EditEquipoComponent } from './auth/edit-equipo/edit-equipo.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },  // Ruta predeterminada
   { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterUserComponent },
@@ -25,13 +26,13 @@ const routes: Routes = [
   { path: 'menu-tecnico', component: MenuTechnicalComponent },
   { path: 'manage-tickets-ad', component: ManageTicketsAdComponent },
   { path: 'tickets-history', component: TicketsHistoryComponent },
-  { path: 'user-edit/:id', component: UserEditComponent }, // Ruta para editar usuario
+  { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'gestion-tecnico', component: ManageTicketsTeComponent },
   { path: 'gestion-cliente', component: ManageTicketsClComponent },
   { path: 'manage-users', component: ManageUsersComponent },
   { path: 'manage-computers', component: ManageComputersComponent },
   { path: 'register-computer', component: RegisterComputerComponent },
-  { path: 'edit-equipo', component: EditEquipoComponent},
+  { path: 'edit-equipo', component: EditEquipoComponent },
 ];
 
 @NgModule({

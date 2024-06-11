@@ -149,6 +149,13 @@
   justify-content: space-between;
 }
 
+.error-message {
+  color: red; /* Estilo para el mensaje de error */
+  text-align: center;
+  margin-top: 10px;
+}
+
+
 /* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
 @media screen and (max-width: 600px) {
   .form-group {
@@ -160,3 +167,4 @@
     align-items: center;
   }
 }
+

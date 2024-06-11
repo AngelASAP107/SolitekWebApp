@@ -17,17 +17,23 @@ export class RegisterUserComponent {
     telefono: '',
     id_rol: '' // Valor por defecto: Técnico
   };
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(registerForm: NgForm): void {
     if (!registerForm.form.valid) {
-      alert('Por favor, complete todos los campos obligatorios.');
+      this.setFormErrors(registerForm);
       return;
     }
 
     if (this.usuario.contrasena !== this.usuario.confirmar_contrasena) {
-      alert('Las contraseñas no coinciden');
+      this.errorMessage = 'Las contraseñas no coinciden';
+      return;
+    }
+
+    if (this.usuario.contrasena.length < 6) {
+      this.errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
       return;
     }
 
@@ -38,11 +44,20 @@ export class RegisterUserComponent {
       },
       error => {
         console.error('Error en el registro', error);
+        if (error.message === 'El nombre de usuario ya existe.') {
+          this.errorMessage = 'El nombre de usuario ya está registrado. Por favor, use uno diferente.';
+        } else {
+          this.errorMessage = 'Error en el registro. Por favor, inténtelo de nuevo.';
+        }
       }
     );
   }
 
   navigateToLogin(): void {
     this.router.navigate(['/login']);
+  }
+
+  private setFormErrors(registerForm: NgForm): void {
+    this.errorMessage = 'Por favor, complete todos los campos obligatorios.';
   }
 }

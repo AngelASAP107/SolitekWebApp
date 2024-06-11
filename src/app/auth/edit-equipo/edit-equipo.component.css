@@ -1,43 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para el modal */
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    max-width: 90%;
-  }
-  
-  .close-button {
-    float: right;
-    font-size: 1.5em;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 1000;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%; /* Ajustado para un mejor control del ancho */
+  max-width: 880px; /* Ancho máximo del contenido */
+}
+
+.close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #9DCAFF; /* Color de la X */
+  margin-right: 10px;
+  margin-top: -10px;
+  float: right;
+  height: 40px;
+  width: 40px;
+}
+
+/* Estilos para el título del modal */
+.modal-title {
+  margin-top: 0;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to right, #00B2FF, #368DD9);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  position: relative; /* Para que la línea se posicione correctamente */
+}
+
+.modal-title::after {
+  content: ""; /* Agrega un elemento pseudo después del texto */
+  position: absolute; /* Posición absoluta relativa al elemento padre */
+  bottom: -5px; /* Ajusta la posición de la línea */
+  left: 10%; /* La línea comienza desde el borde izquierdo */
+  width: 80%; /* Ancho completo del texto */
+  height: 2px; /* Grosor de la línea */
+  background: linear-gradient(to right, #00B2FF, #368DD9); /* Degradado lineal */
+}
+
+/* Estilos para el formulario dentro del modal */
+.ticket-form {
+  margin-top: 20px;
+}
+
+/* Estilos para las etiquetas y campos de entrada del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background-color: #F1F0F4;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: "Outfit", sans-serif; /* Asegura que se use la misma fuente */
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #000; /* Color del texto en el combobox */
+  box-sizing: border-box;
+  width: 100%; /* Asegura que los campos ocupen el 100% del contenedor */
+}
+
+.form-group textarea {
+  height: 150px; /* Altura específica para el textarea */
+}
+
+/* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
+@media screen and (max-width: 600px) {
   .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input,
-  .form-group textarea {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    margin-right: 0;
   }
-  
+}

@@ -1,5 +1,3 @@
-// controllers/userController.js
-
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
 
@@ -12,6 +10,12 @@ exports.register = async (req, res) => {
 
   try {
     console.log('Datos recibidos:', req.body);
+
+    // Verificar si el usuario ya existe por nombre
+    const existingUser = await Usuario.findOne({ where: { nombre } });
+    if (existingUser) {
+      return res.status(400).json({ error: 'El nombre de usuario ya existe.' });
+    }
 
     const hashedPassword = await bcrypt.hash(contrasena, 10);
     console.log('Hash generado:', hashedPassword);
@@ -28,6 +32,21 @@ exports.register = async (req, res) => {
   } catch (error) {
     console.error('Error al crear el usuario:', error);
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.checkUserExistsByName = async (req, res) => {
+  const { nombre } = req.query;
+  if (!nombre) {
+    return res.status(400).json({ error: 'El nombre de usuario es requerido' });
+  }
+
+  try {
+    const user = await Usuario.findOne({ where: { nombre } });
+    res.status(200).json({ exists: !!user });
+  } catch (error) {
+    console.error('Error al verificar el nombre de usuario:', error);
+    res.status(500).json({ error: 'Error al verificar el nombre de usuario' });
   }
 };
 

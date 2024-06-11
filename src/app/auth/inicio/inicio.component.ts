@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent { 
   constructor(private router: Router) {}
+
   navigateToLogin(): void {
     this.router.navigate(['/login']);
   }
-  
 }

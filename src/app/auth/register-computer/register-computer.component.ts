@@ -10,17 +10,21 @@ import { EquipoService } from '../../services/equipo.service';
 })
 export class RegisterComputerComponent {
   equipoForm: FormGroup;
+  formErrors: string[] = [];
+  errorMessage: string = '';
 
   constructor(private fb: FormBuilder, private equipoService: EquipoService, private router: Router) {
     this.equipoForm = this.fb.group({
       especificaciones: ['', Validators.required],
       estado_equipo: ['', Validators.required],
       servicio: ['', Validators.required],
-      observaciones: ['']
+      observaciones: ['', Validators.required]
     });
   }
 
   onSubmit() {
+    this.formErrors = [];
+
     if (this.equipoForm.valid) {
       this.equipoService.addEquipo(this.equipoForm.value).subscribe(
         response => {
@@ -29,8 +33,51 @@ export class RegisterComputerComponent {
         },
         error => {
           console.error('Error al agregar el equipo', error);
+          if (error.error && error.error.error) {
+            this.errorMessage = error.error.error;
+          } else {
+            this.errorMessage = 'Hubo un problema al agregar el equipo.';
+          }
         }
       );
+    } else {
+      this.markAllFieldsAsTouched();
+      this.setFormErrors();
     }
+  }
+
+  markAllFieldsAsTouched() {
+    Object.values(this.equipoForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
+  }
+
+  setFormErrors() {
+    Object.keys(this.equipoForm.controls).forEach(key => {
+      const controlErrors = this.equipoForm.controls[key].errors;
+      if (controlErrors) {
+        Object.keys(controlErrors).forEach(errorKey => {
+          this.formErrors.push(this.getErrorMessage(key, errorKey));
+        });
+      }
+    });
+  }
+
+  getErrorMessage(controlName: string, errorKey: string): string {
+    const errorMessages: { [key: string]: { [key: string]: string } } = {
+      especificaciones: {
+        required: 'Especificaciones son requeridas.'
+      },
+      estado_equipo: {
+        required: 'Estado del equipo es requerido.'
+      },
+      servicio: {
+        required: 'Servicio es requerido.'
+      },
+      observaciones: {
+        required: 'Observaciones son requeridas.'
+      }
+    };
+    return errorMessages[controlName][errorKey];
   }
 }

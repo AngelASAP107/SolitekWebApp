@@ -19,7 +19,7 @@ import { ManageComputersComponent } from './manage-computers/manage-computers.co
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 import { EditEquipoComponent } from './edit-equipo/edit-equipo.component';
 import { InicioComponent } from './inicio/inicio.component';
-
+import { EditUserManageComponent } from './edit-user-manage/edit-user-manage.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { InicioComponent } from './inicio/inicio.component';
     EditTicketComponent,
     EditEquipoComponent,
     InicioComponent,
+    EditUserManageComponent,
   ],
   imports: [
     CommonModule,

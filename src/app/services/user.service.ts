@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,12 @@ export class UserService {
 
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  checkUserExistsByName(nombre: string): Observable<boolean> {
+    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/check-username?nombre=${nombre}`).pipe(
+      map(response => response.exists),
+      catchError(() => of(false))
+    );
   }
 }

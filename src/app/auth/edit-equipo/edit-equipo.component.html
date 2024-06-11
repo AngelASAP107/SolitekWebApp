@@ -1,26 +1,37 @@
 <div class="modal">
-    <div class="modal-content">
-      <span class="close-button" (click)="closeModal()">&times;</span>
-      <h2>Editar Equipo</h2>
-      <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="especificaciones">Especificaciones</label>
-          <input type="text" id="especificaciones" formControlName="especificaciones" required>
-        </div>
-        <div class="form-group">
-          <label for="estado_equipo">Estado</label>
-          <input type="text" id="estado_equipo" formControlName="estado_equipo" required>
-        </div>
-        <div class="form-group">
-          <label for="servicio">Servicio</label>
-          <input type="text" id="servicio" formControlName="servicio" required>
-        </div>
-        <div class="form-group">
-          <label for="observaciones">Observaciones</label>
-          <textarea id="observaciones" formControlName="observaciones"></textarea>
-        </div>
-        <button type="submit">Guardar</button>
-      </form>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" (click)="closeModal()">&times;</button>
+      <h2 class="modal-title">Editar Equipo</h2>
     </div>
+    <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()" class="ticket-form">
+      <div class="form-group">
+        <label for="especificaciones">Especificaciones</label>
+        <input type="text" id="especificaciones" formControlName="especificaciones" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="estado_equipo">Estado</label>
+        <select id="estado_equipo" formControlName="estado_equipo" class="form-input">
+          <option value="" disabled selected hidden>Estado</option>
+          <option value="nuevo">Nuevo</option>
+          <option value="usado">Usado</option>
+          <option value="reparado">Reparado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="servicio">Servicio</label>
+        <select id="servicio" formControlName="servicio" class="form-input">
+          <option value="" disabled selected hidden>Servicio</option>
+          <option value="mantenimiento">Mantenimiento</option>
+          <option value="reparacion">Reparación</option>
+          <option value="actualizacion">Actualización</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="observaciones">Observaciones</label>
+        <textarea id="observaciones" formControlName="observaciones" class="form-input"></textarea>
+      </div>
+      <button type="submit" class="submit-button">Guardar</button>
+    </form>
   </div>
-  
+</div>

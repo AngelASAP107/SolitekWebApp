@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,31 @@ export class AuthService {
   }
 
   register(usuario: any): Observable<any> {
-    return this.http.post<any>(`${this.usersApiUrl}/register`, usuario);
+    return this.http.post<any>(`${this.usersApiUrl}/register`, usuario).pipe(
+      tap(response => {
+        if (response.error) {
+          throw new Error(response.error);
+        }
+      })
+    );
+  }
+
+  updateProfile(id: number, userData: any): Observable<any> {
+    return this.http.put<any>(`${this.usersApiUrl}/${id}`, userData).pipe(
+      tap(response => {
+        if (response) {
+          this.updateUserInfo(response);
+        }
+      })
+    );
+  }
+
+  getUserProfile(): Observable<User> {
+    return this.http.get<User>(`${this.usersApiUrl}/profile`).pipe(
+      tap(user => {
+        this.updateUserInfo(user);
+      })
+    );
   }
 
   saveToken(token: string): void {
@@ -38,6 +63,12 @@ export class AuthService {
   }
 
   saveUserInfo(user: any): void {
+    if (this.isBrowser()) {
+      localStorage.setItem('user_info', JSON.stringify(user));
+    }
+  }
+
+  updateUserInfo(user: any): void {
     if (this.isBrowser()) {
       localStorage.setItem('user_info', JSON.stringify(user));
     }

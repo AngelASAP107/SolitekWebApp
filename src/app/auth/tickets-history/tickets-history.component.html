@@ -8,14 +8,22 @@
 </head>
 <body>
     <header>
-        <button class="logo-button">
+        <button class="logo-button" (click)="navigateToMenu()">
             <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
         </button>
         <div class="header-right">
             <span>{{ userName }}</span>
-            <button class="logo-button">
-                <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
-            </button>
+            <div class="menu-container">
+                <button class="logo-button" (click)="toggleMenu()">
+                    <img src="assets/images/usuario-de-perfil 1.png" alt="User Icon" class="user-icon">
+                </button>
+                <div class="dropdown-menu" *ngIf="menuVisible">
+                    <ul>
+                        <li (click)="navigateToUserProfile()">Perfil</li>
+                        <li (click)="logout()">Cerrar Sesión</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
     <div class="title-section">

@@ -16,11 +16,13 @@ export class ManageUsersComponent implements OnInit {
   menuVisible: boolean = false;
   filterRoles = { admin: false, tech: false, user: false };
   userName: string | null = '';
+  showEditModal: boolean = false;
+  selectedUser: User | null = null;
 
   constructor(
     private userService: UserService, 
     private router: Router,
-    private authService: AuthService,) {}
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -61,7 +63,8 @@ export class ManageUsersComponent implements OnInit {
   }
 
   editUser(user: User): void {
-    this.router.navigate(['/user-edit', user.usuario_id]);
+    this.selectedUser = user;
+    this.showEditModal = true;
   }
 
   deleteUser(id: number): void {
@@ -87,7 +90,20 @@ export class ManageUsersComponent implements OnInit {
     this.router.navigate(['/menu-admin']);
   }
 
+  navigateToUserProfile(): void {
+    if (this.authService.getUserInfo()) {
+      this.router.navigate(['/user-edit', this.authService.getUserInfo().usuario_id]);
+    }
+  }
+
   logout(): void {
+    this.authService.logout();
     this.menuVisible = false;
+    this.router.navigate(['/login']);
+  }
+
+  closeEditModal(): void {
+    this.showEditModal = false;
+    this.loadUsers();
   }
 }

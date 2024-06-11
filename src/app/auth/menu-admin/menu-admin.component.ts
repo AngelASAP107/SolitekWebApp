@@ -14,6 +14,10 @@ export class MenuAdminComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.loadUser();
+  }
+
+  loadUser(): void {
     this.user = this.authService.getUserInfo();
   }
 
@@ -40,7 +44,7 @@ export class MenuAdminComponent implements OnInit {
     this.router.navigate(['/manage-users']);
   }
 
-  navigateToManageComputers(){
+  navigateToManageComputers() {
     this.router.navigate(['/manage-computers']);
   }
 
@@ -54,5 +58,11 @@ export class MenuAdminComponent implements OnInit {
 
   navigateToCreateTickets() {
     this.router.navigate(['/manage-tickets-ad']);
+  }
+
+  navigateToUserProfile() {
+    if (this.user) {
+      this.router.navigate(['/user-edit', this.user.usuario_id]);
+    }
   }
 }

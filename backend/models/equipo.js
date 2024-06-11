@@ -8,7 +8,8 @@ const Equipo = sequelize.define('Equipo', {
     autoIncrement: true
   },
   especificaciones: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
+    unique: true // Restricción de unicidad
   },
   estado_equipo: {
     type: DataTypes.STRING

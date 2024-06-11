@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <button class="logo-button">
+        <button class="logo-button" (click)="navigateToMenu()">
             <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo Solitek">
         </button>
         <div class="header-right">
@@ -19,7 +19,7 @@
               </button>
               <div class="dropdown-menu" *ngIf="menuVisible">
                   <ul>
-                      <li (click)="navigateTo('/user-edit')">Perfil</li>
+                      <li (click)="navigateToUserProfile()">Perfil</li>
                       <li (click)="logout()">Cerrar Sesión</li>
                   </ul>
               </div>

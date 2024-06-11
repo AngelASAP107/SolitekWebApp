@@ -1,87 +1,172 @@
-/* Estilos para el modal de edición de tickets */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para el modal */
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modal-title {
-    margin: 0;
-  }
-  
-  .ticket-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 1000;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 880px;
+  max-width: 90%; /* Ancho máximo del contenido */
+}
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  color: #9DCAFF; /* Color de la X */
+  margin-right: 10px;
+  margin-top: -10px;
+  float: right;
+  background: transparent;
+  border: none;
+}
+
+/* Estilos para el título del modal */
+.modal-title {
+  margin-top: 0;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to right, #00B2FF, #368DD9);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  position: relative;
+}
+
+.modal-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, #00B2FF, #368DD9);
+}
+
+/* Estilos para el formulario dentro del modal */
+.ticket-form {
+  margin-top: 20px;
+}
+
+/* Estilos para las etiquetas y campos de entrada del formulario */
+.form-group {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background-color: #F1F0F4;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #000;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-group textarea {
+  height: 150px; /* Altura específica para el textarea */
+}
+
+/* Estilos específicos para los tamaños de los elementos */
+#cliente {
+  width: 350px;
+}
+
+#equipo {
+  width: 350px;
+}
+
+#tecnico {
+  width: 400px;
+}
+
+#fechaIngreso {
+  width: 300px;
+}
+
+#estado {
+  width: 230px;
+}
+
+#prioridad {
+  width: 230px;
+}
+
+#tipoServicio {
+  width: 230px;
+}
+
+.submit-button {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para las filas del formulario */
+.form-row {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
+@media screen and (max-width: 600px) {
   .form-group {
-    display: flex;
+    width: 100%;
+    margin-right: 0;
+  }
+  .form-row {
     flex-direction: column;
-    margin-bottom: 10px;
-    flex: 1;
-    margin-right: 10px;
+    align-items: center;
   }
-  
-  .form-input {
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .submit-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    align-self: flex-end;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
+}

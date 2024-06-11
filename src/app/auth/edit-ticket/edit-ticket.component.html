@@ -1,7 +1,7 @@
 <div class="modal">
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close" (click)="onClose()">X</span>
+      <button class="close" (click)="onClose()">X</button>
       <h2 class="modal-title">Editar ticket</h2>
     </div>
     <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">

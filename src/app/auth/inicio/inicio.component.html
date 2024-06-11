@@ -1,132 +1,121 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Inicio</title>
-    <link rel="stylesheet" href="inicio.component.css">
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="logo_solitek">
-            <button class="logo-button">
-                <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="img src">
-            </button>
+<header>
+    <div class="header-content">
+      <div class="logo_solitek">
+        <button class="logo-button">
+          <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo">
+        </button>
+      </div>
+      <nav>
+        <button class="logo-button2">
+          <a href="https://www.tiktok.com/@solitekco?_t=8n3nRLeaF3G&_r=1" target="_blank">
+            <img src="assets/images/img-inicio/tiktok.png" alt="TikTok">
+          </a>
+        </button>
+        <button class="logo-button2">
+          <a href="https://www.instagram.com/solitekco?igsh=MWQyaHkwaWpiemY3MQ==" target="_blank">
+            <img src="assets/images/img-inicio/instagram.png" alt="Instagram">
+          </a>
+        </button>
+        <button class="logo-button2">
+          <a href="https://www.facebook.com/solitekco?mibextid=LQQJ4d" target="_blank">
+            <img src="assets/images/img-inicio/facebook.png" alt="Facebook">
+          </a>
+        </button>
+      </nav>
+      <button class="cta-button" (click)="navigateToLogin()">COMIENZA AHORA</button>
+    </div>
+  </header>
+  <main>
+    <div class="social-media">
+      <img src="assets/images/img-inicio/portada.png" alt="Portada">
+    </div>
+    <section class="description">
+      <div class="texto">
+        <h1>Todo lo que necesitas en un solo lugar</h1>
+        <p>Nuestra aplicación está transformando el mantenimiento y reparación de computadoras, proporcionando a los usuarios acceso inmediato a diagnósticos precisos y procedimientos de reparación personalizados. Con nuestra herramienta, la eficiencia en la solución de problemas de hardware y software se maximiza, asegurando que cada computadora reciba la atención experta que necesita.</p>
+      </div>
+      <div class="foto">
+        <img src="assets/images/img-inicio/mantenimientos.png" alt="Mantenimientos">
+      </div>
+    </section>
+    <section class="benefits">
+      <h2>Beneficios</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <img src="assets/images/img-inicio/optimizacion.png" alt="Optimización de la Gestión de Mantenimiento">
+          <h3>Optimización de la Gestión de Mantenimiento</h3>
+          <p>Simplifica la gestión de registros de mantenimiento y la documentación técnica.</p>
         </div>
-        <nav>
-            <button class="logo-button2">
-                 <a href="https://www.tiktok.com/@solitekco?_t=8n3nRLeaF3G&_r=1" target="_blank">
-                <img src="assets/images/img-inicio/tiktok.png" alt="img src">
-            </a>
-            </button>
-            <button class="logo-button2">
-                <a href="https://www.instagram.com/solitekco?igsh=MWQyaHkwaWpiemY3MQ==" target="_blank">
-                    <img src="assets/images/img-inicio/instagram.png" alt="Instagram">
-                </a>
-            </button>
-            <button class="logo-button2">
-                <a href="https://www.facebook.com/solitekco?mibextid=LQQJ4d" target="_blank">
-                    <img src="assets/images/img-inicio/facebook.png" alt="Facebook">
-                </a>
-            </button>
-        </nav>
-        <button class="cta-button" (click)="navigateToLogin()">COMIENZA AHORA</button>
-            </div>
-    </header>
-    <main>
-                <div class="social-media">
-                    <img src="assets/images/img-inicio/portada.png" alt="Img src">
-                </div>
-        <section class="description">
-            <div class="texto">
-            <h1>Todo lo que necesitas en un solo lugar</h1>
-            <p>Nuestra aplicación está transformando el mantenimiento y reparación de computadoras, proporcionando a los usuarios acceso inmediato a diagnósticos precisos y procedimientos de reparación personalizados. Con nuestra herramienta, la eficiencia en la solución de problemas de hardware y software se maximiza, asegurando que cada computadora reciba la atención experta que necesita.
-            </p>
-            </div>
-            <div class="foto">
-            <img src="assets/images/img-inicio/mantenimientos.png" alt="img src">
+        <div class="benefit">
+          <img src="assets/images/img-inicio/planificacion.png" alt="Planificación de Mantenimiento Personalizada">
+          <h3>Planificación de Mantenimiento Personalizada</h3>
+          <p>Genera procedimientos de mantenimiento altamente personalizados en minutos.</p>
         </div>
-        </section>
-        <section class="benefits">
-            <h2>Beneficios</h2>
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <img src="assets/images/img-inicio/optimizacion.png" alt="Optimización de la Gestión de Mantenimiento">
-                    <h3>Optimización de la Gestión de Mantenimiento</h3>
-                    <p>Simplifica la gestión de registros de mantenimiento y la documentación técnica.</p>
-                </div>
-                <div class="benefit">
-                    <img src="assets/images/img-inicio/planificacion.png" alt="Planificación de Mantenimiento Personalizada">
-                    <h3>Planificación de Mantenimiento Personalizada</h3>
-                    <p>Genera procedimientos de mantenimiento altamente personalizados en minutos.</p>
-                </div>
-                <div class="benefit">
-                    <img src="assets/images/img-inicio/seguridad.png" alt="Seguridad y Privacidad en Mantenimiento de Computadoras">
-                    <h3>Seguridad y Privacidad en Mantenimiento de Computadoras</h3>
-                    <p>Garantiza la protección de datos y la privacidad durante los procesos de diagnóstico y reparación.</p>
-                </div>
-                <div class="benefit">
-                    <img src="assets/images/img-inicio/comunicacion.png" alt="Comunicación Eficiente y Colaboración en Soporte Técnico">
-                    <h3>Comunicación Eficiente y Colaboración en Soporte Técnico</h3>
-                    <p>Facilita la comunicación fluida entre técnicos de soporte y usuarios de computadoras.</p>
-                </div>
-                <div class="benefit">
-                    <img src="assets/images/img-inicio/resultados.png" alt="Resultados Tangibles para el Servicio Técnico">
-                    <h3>Resultados Tangibles para el Servicio Técnico</h3>
-                    <p>Ayuda a los técnicos de computadoras a tomar decisiones más informadas y precisas.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="logo-container">
-            <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="">
-            </div>
-            <div class="footer-content">
-                <div class="footer-section footer-section1">
-                    <h3>INFORMACIÓN LEGAL</h3>
-                    <div class="legal-info">
-                        <img src="assets/images/img-inicio/sitio.png" alt="">
-                        <label for="">Solitek.com</label>
-                    </div>
-                    <div class="legal-info">
-                        <img src="assets/images/img-inicio/llamada.png" alt="">
-                        <label for="">+57 314 882 69 99</label>
-                    </div>
-                    <p>Para cotizaciones y ventas de clientes institucionales dirigirse a solitekco#gmail.com</p>
-                </div>
-            <div class="footer-section">
-                <h3>CORPORATIVO</h3>
-                <p>Quiénes Somos</p>
-            </div>
-            <div class="footer-section">
-                <h3>CENTRO DE AYUDA</h3>
-                <p>Preguntas Frecuentes</p>
-                <p>Política de Tratamiento de Datos</p>
-            </div>
-            <div class="footer-section">
-                <img src="assets/images/img-inicio/pagos.png" alt="img-src">
-            </div>
+        <div class="benefit">
+          <img src="assets/images/img-inicio/seguridad.png" alt="Seguridad y Privacidad en Mantenimiento de Computadoras">
+          <h3>Seguridad y Privacidad en Mantenimiento de Computadoras</h3>
+          <p>Garantiza la protección de datos y la privacidad durante los procesos de diagnóstico y reparación.</p>
         </div>
-        <div class="social-media-icons">
-            <button class="logo-button2">
-                <a href="https://www.tiktok.com/@solitekco?_t=8n3nRLeaF3G&_r=1" target="_blank">
-               <img src="assets/images/img-inicio/tiktok.png" alt="img src">
-           </a>
-           </button>
-           <button class="logo-button2">
-               <a href="https://www.instagram.com/solitekco?igsh=MWQyaHkwaWpiemY3MQ==" target="_blank">
-                   <img src="assets/images/img-inicio/instagram.png" alt="Instagram">
-               </a>
-           </button>
-           <button class="logo-button2">
-               <a href="https://www.facebook.com/solitekco?mibextid=LQQJ4d" target="_blank">
-                   <img src="assets/images/img-inicio/facebook.png" alt="Facebook">
-               </a>
-           </button>
-            <p>© Solitek - Todos los derechos reservados® </p>
+        <div class="benefit">
+          <img src="assets/images/img-inicio/comunicacion.png" alt="Comunicación Eficiente y Colaboración en Soporte Técnico">
+          <h3>Comunicación Eficiente y Colaboración en Soporte Técnico</h3>
+          <p>Facilita la comunicación fluida entre técnicos de soporte y usuarios de computadoras.</p>
         </div>
-    </footer>
-</body>
-</html>
+        <div class="benefit">
+          <img src="assets/images/img-inicio/resultados.png" alt="Resultados Tangibles para el Servicio Técnico">
+          <h3>Resultados Tangibles para el Servicio Técnico</h3>
+          <p>Ayuda a los técnicos de computadoras a tomar decisiones más informadas y precisas.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="logo-container">
+      <img src="assets/images/LOGO-SOLITEK-2-PNG 6.png" alt="Logo">
+    </div>
+    <div class="footer-content">
+      <div class="footer-section footer-section1">
+        <h3>INFORMACIÓN LEGAL</h3>
+        <div class="legal-info">
+          <img src="assets/images/img-inicio/sitio.png" alt="Sitio">
+          <label>Solitek.com</label>
+        </div>
+        <div class="legal-info">
+          <img src="assets/images/img-inicio/llamada.png" alt="Llamada">
+          <label>+57 314 882 69 99</label>
+        </div>
+        <p>Para cotizaciones y ventas de clientes institucionales dirigirse a solitekco#gmail.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>CORPORATIVO</h3>
+        <p>Quiénes Somos</p>
+      </div>
+      <div class="footer-section">
+        <h3>CENTRO DE AYUDA</h3>
+        <p>Preguntas Frecuentes</p>
+        <p>Política de Tratamiento de Datos</p>
+      </div>
+      <div class="footer-section">
+        <img src="assets/images/img-inicio/pagos.png" alt="Pagos">
+      </div>
+    </div>
+    <div class="social-media-icons">
+      <button class="logo-button2">
+        <a href="https://www.tiktok.com/@solitekco?_t=8n3nRLeaF3G&_r=1" target="_blank">
+          <img src="assets/images/img-inicio/tiktok.png" alt="TikTok">
+        </a>
+      </button>
+      <button class="logo-button2">
+        <a href="https://www.instagram.com/solitekco?igsh=MWQyaHkwaWpiemY3MQ==" target="_blank">
+          <img src="assets/images/img-inicio/instagram.png" alt="Instagram">
+        </a>
+      </button>
+      <button class="logo-button2">
+        <a href="https://www.facebook.com/solitekco?mibextid=LQQJ4d" target="_blank">
+          <img src="assets/images/img-inicio/facebook.png" alt="Facebook">
+        </a>
+      </button>
+      <p>© Solitek - Todos los derechos reservados®</p>
+    </div>
+  </footer>
+  

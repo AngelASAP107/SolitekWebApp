@@ -102,4 +102,10 @@ export class ManageTicketsAdComponent implements OnInit {
   navigateToMenu(): void {
     this.router.navigate(['/menu-admin']);
   }
+
+  navigateToUserProfile(): void {
+    if (this.authService.getUserInfo()) {
+      this.router.navigate(['/user-edit', this.authService.getUserInfo().usuario_id]);
+    }
+  }
 }

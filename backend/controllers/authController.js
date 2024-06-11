@@ -18,6 +18,7 @@ exports.login = async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
+    console.log('Comparing passwords:', contrasena, usuario.contrasena);
     const isMatch = await bcrypt.compare(contrasena, usuario.contrasena);
     console.log('Contraseña correcta:', isMatch);
 
@@ -34,6 +35,9 @@ exports.login = async (req, res) => {
       user: { 
         usuario_id: usuario.usuario_id,  
         nombre: usuario.nombre,
+        correo_electronico: usuario.correo_electronico, // Asegúrate de que todos los datos del usuario se incluyan aquí
+        telefono: usuario.telefono,
+        direccion: usuario.direccion, // Incluye cualquier otro campo relevante
         role: usuario.id_rol 
       } 
     });

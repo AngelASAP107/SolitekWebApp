@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -16,15 +16,31 @@ export class UserEditComponent implements OnInit {
     nombre: false,
     correo_electronico: false,
     telefono: false,
-    direccion: false
+    contrasena: false
   };
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    const userId = this.route.snapshot.paramMap.get('id');
-    if (userId) {
-      this.loadUser(+userId);
+    this.loadUserInfo();
+  }
+
+  loadUserInfo(): void {
+    this.user = this.authService.getUserInfo();
+    if (this.user) {
+      this.userForm = { ...this.user };
+    } else {
+      // Si la información del usuario no está disponible, cargarla desde el backend
+      this.authService.getUserProfile().subscribe(
+        (user: User) => {
+          this.user = user;
+          this.userForm = { ...user };
+          this.authService.updateUserInfo(user);
+        },
+        error => {
+          console.error('Error al cargar la información del usuario', error);
+        }
+      );
     }
   }
 
@@ -38,28 +54,47 @@ export class UserEditComponent implements OnInit {
   }
 
   logout(): void {
-    this.menuVisible = false;
-  }
-
-  loadUser(id: number): void {
-    this.userService.getUser(id).subscribe(user => {
-      this.user = user;
-      this.userForm = { ...user };
-    });
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   toggleEdit(field: string): void {
     this.editing[field] = !this.editing[field];
     if (!this.editing[field]) {
-      this.saveChanges();
+      this.saveChanges(false);
     }
   }
 
-  saveChanges(): void {
+  saveChanges(navigate: boolean): void {
     if (this.user) {
-      this.userService.updateUser(this.user.usuario_id!, this.userForm).subscribe(() => {
-        this.router.navigate(['/manage-users']); // Redirigir a la gestión de usuarios después de guardar
+      this.authService.updateProfile(this.user.usuario_id!, this.userForm).subscribe(updatedUser => {
+        this.authService.updateUserInfo(updatedUser);
+        this.user = updatedUser;
+        this.userForm = { ...updatedUser };
+        if (navigate) {
+          this.navigateToMenu();
+        }
       });
+    }
+  }
+
+  goToMainMenu(): void {
+    this.navigateToMenu();
+  }
+
+  navigateToMenu(): void {
+    if (this.user) {
+      if (this.user.id_rol === 1) {
+        this.router.navigate(['/menu-admin']);
+      } else if (this.user.id_rol === 2) {
+        this.router.navigate(['/menu-tecnico']);
+      } else if (this.user.id_rol === 3) {
+        this.router.navigate(['/menu-cliente']);
+      } else {
+        console.error('Unknown role:', this.user.id_rol);
+      }
+    } else {
+      console.error('User information not found');
     }
   }
 }

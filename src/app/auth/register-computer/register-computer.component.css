@@ -121,3 +121,18 @@ h3 {
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: "Outfit", sans-serif;
+}
+
+.global-error {
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+}

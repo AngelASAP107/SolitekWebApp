@@ -14,6 +14,7 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
   tecnicos: any[] = [];
   clientes: any[] = [];
   equipos: any[] = [];
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -85,6 +86,8 @@ export class CreateTicketsComponent implements AfterViewInit, OnInit {
         console.log('Ticket created:', response);
         this.formClose.emit();
       });
+    } else {
+      this.errorMessage = 'Por favor complete todos los campos.';
     }
   }
 

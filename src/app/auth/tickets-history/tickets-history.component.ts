@@ -13,11 +13,12 @@ export class TicketsHistoryComponent implements OnInit {
   filteredTickets: any[] = [];
   searchText: string = '';
   userName: string | null = '';
+  menuVisible: boolean = false;
 
   constructor(
     private ticketService: TicketService, 
     private router: Router,
-    private authService: AuthService,) {}
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadTickets();
@@ -48,5 +49,22 @@ export class TicketsHistoryComponent implements OnInit {
 
   exportPDF(ticket: any): void {
     // Implementa la lógica para exportar el ticket a PDF
+  }
+
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  navigateToUserProfile(): void {
+    if (this.authService.getUserInfo()) {
+      this.router.navigate(['/user-edit', this.authService.getUserInfo().usuario_id]);
+    }
+    this.menuVisible = false;
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    this.menuVisible = false;
   }
 }

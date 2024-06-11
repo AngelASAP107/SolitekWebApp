@@ -1,7 +1,7 @@
 <div class="modal">
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close" (click)="onClose()">X</span>
+      <button class="close" (click)="onClose()">X</button>
       <h2 class="modal-title">Agregar nuevo ticket</h2>
     </div>
     <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">
@@ -57,6 +57,7 @@
         </div>
       </div>
       <button type="submit" class="submit-button">Agregar</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </form>
   </div>
 </div>

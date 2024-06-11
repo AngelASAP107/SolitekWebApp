@@ -10,21 +10,19 @@
   <div class="container">
     <div class="login-section">
       <img src="assets/images/LOGO-SOLITEK-2-PNG.png" width="303" height="110">
-      <p>¿Ya tienes cuenta?</p>
-      <button type="button" class="login-button" (click)="navigateToLogin()">Iniciar Sesión</button>
     </div>
     <div class="register-section">
       <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
         <h2>CREAR CUENTA</h2>
         <div class="form-group">
           <label for="nombre"><img src="assets/images/usuario 1.png" alt="Ícono Usuario"></label>
-          <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" placeholder="Usuario" required>
-          <div *ngIf="registerForm.submitted && !usuario.nombre" class="error-message">El nombre es obligatorio.</div>
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" placeholder="Usuario" required pattern="^[a-zA-Z\s\-]{2,50}$">
+          <div *ngIf="registerForm.submitted && (!usuario.nombre || !registerForm.controls['nombre'].valid)" class="error-message">El nombre es obligatorio y debe tener entre 2 y 50 caracteres, solo letras, espacios y guiones son permitidos.</div>
         </div>
         <div class="form-group">
           <label for="correo"><img src="assets/images/buzon 1.png" alt="Ícono Buzón"></label>
           <input type="email" id="correo" name="correo" [(ngModel)]="usuario.correo_electronico" placeholder="Correo Electrónico" required>
-          <div *ngIf="registerForm.submitted && !usuario.correo_electronico" class="error-message">El correo es obligatorio.</div>
+          <div *ngIf="registerForm.submitted && (!usuario.correo_electronico || !registerForm.controls['correo'].valid)" class="error-message">El correo es obligatorio y debe ser válido.</div>
         </div>
         <div class="form-group">
           <label for="contrasena"><img src="assets/images/cerrar-con-llave 1.png" alt="Ícono Cerrar con Llave"></label>
@@ -34,22 +32,24 @@
         <div class="form-group">
           <label for="confirmar-contrasena"></label>
           <input type="password" id="confirmar-contrasena" name="confirmar_contrasena" [(ngModel)]="usuario.confirmar_contrasena" placeholder="Confirmar Contraseña" required class="confirmar-contrasena">
-          <div *ngIf="registerForm.submitted && !usuario.confirmar_contrasena" class="error-message">Debe confirmar la contraseña.</div>
+          <div *ngIf="registerForm.submitted && (!usuario.confirmar_contrasena || usuario.contrasena !== usuario.confirmar_contrasena)" class="error-message">Las contraseñas no coinciden.</div>
         </div>
         <div class="form-group">
           <label for="telefono"><img src="assets/images/telefono 1.png" alt="Ícono Teléfono"></label>
-          <input type="tel" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" placeholder="Teléfono">
-          <div *ngIf="registerForm.submitted && !usuario.telefono" class="error-message">El teléfono es obligatorio.</div>
+          <input type="tel" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" placeholder="Teléfono" required pattern="[0-9]{10}">
+          <div *ngIf="registerForm.submitted && (!usuario.telefono || !registerForm.controls['telefono'].valid)" class="error-message">El teléfono es obligatorio y debe tener 10 dígitos.</div>
         </div>
         <div class="form-group">
           <label for="id_rol">Rol:</label>
           <select id="id_rol" name="id_rol" [(ngModel)]="usuario.id_rol" required>
+            <option value="" disabled selected>Seleccione un rol</option>
             <option value="2">Técnico</option>
             <option value="3">Usuario</option>
           </select>
           <div *ngIf="registerForm.submitted && !usuario.id_rol" class="error-message">Debe seleccionar un rol.</div>
         </div>
         <button type="submit" class="register-button">Registrar</button>
+        <div *ngIf="errorMessage" class="global-error">{{ errorMessage }}</div>
       </form>
     </div>
   </div>

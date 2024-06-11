@@ -18,28 +18,50 @@
         <div class="form-group">
           <label for="especificaciones"><img src="assets/images/img-register-computer/especificaciones.png" alt="Especificaciones"></label>
           <input type="text" id="especificaciones" formControlName="especificaciones" placeholder="Especificaciones">
+          <div *ngIf="equipoForm.controls['especificaciones'].invalid && (equipoForm.controls['especificaciones'].dirty || equipoForm.controls['especificaciones'].touched)" class="error-message">
+            Especificaciones son requeridas.
+          </div>
         </div>
         <div class="form-group">
           <label for="estado_equipo"><img src="assets/images/img-register-computer/estado.png" alt="Estado"></label>
           <select id="estado_equipo" formControlName="estado_equipo">
+            <option value="" disabled selected>Seleccione el estado</option>
             <option value="nuevo">Nuevo</option>
             <option value="usado">Usado</option>
             <option value="reparado">Reparado</option>
           </select>
+          <div *ngIf="equipoForm.controls['estado_equipo'].invalid && (equipoForm.controls['estado_equipo'].dirty || equipoForm.controls['estado_equipo'].touched)" class="error-message">
+            Estado del equipo es requerido.
+          </div>
         </div>
         <div class="form-group">
           <label for="servicio"><img src="assets/images/img-register-computer/servicio.png" alt="Servicio"></label>
           <select id="servicio" formControlName="servicio">
+            <option value="" disabled selected>Seleccione el servicio</option>
             <option value="mantenimiento">Mantenimiento</option>
             <option value="reparacion">Reparación</option>
             <option value="actualizacion">Actualización</option>
           </select>
+          <div *ngIf="equipoForm.controls['servicio'].invalid && (equipoForm.controls['servicio'].dirty || equipoForm.controls['servicio'].touched)" class="error-message">
+            Servicio es requerido.
+          </div>
         </div>
         <div class="form-group">
           <label for="observaciones"><img src="assets/images/img-register-computer/observaciones.png" alt="Observaciones"></label>
           <input type="text" id="observaciones" formControlName="observaciones" placeholder="Observaciones">
+          <div *ngIf="equipoForm.controls['observaciones'].invalid && (equipoForm.controls['observaciones'].dirty || equipoForm.controls['observaciones'].touched)" class="error-message">
+            Observaciones son requeridas.
+          </div>
         </div>
-        <button type="submit" class="bt-register">Registrar</button>
+        <button type="submit" class="bt-register" [disabled]="equipoForm.invalid">Registrar</button>
+        <div *ngIf="formErrors.length > 0" class="global-error">
+          <ul>
+            <li *ngFor="let error of formErrors">{{ error }}</li>
+          </ul>
+        </div>
+        <div *ngIf="errorMessage" class="global-error">
+          {{ errorMessage }}
+        </div>
       </div>
     </form>
   </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de equipo</title>
+  <title>Menu Admin</title>
   <link rel="stylesheet" href="menu-admin.component.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
           </button>
           <div class="dropdown-menu" *ngIf="menuVisible">
               <ul>
-                  <li (click)="navigateTo('/user-edit')">Perfil</li>
+                  <li (click)="navigateToUserProfile()">Perfil</li>
                   <li (click)="logout()">Cerrar Sesión</li>
               </ul>
           </div>
@@ -27,53 +27,53 @@
     </div>
   </header>
   <div class="container">
-      <div class="contenedor-resumen">
-        <h3>Tu resumen de actividad</h3>
-        <div class="formulario">
+    <div class="contenedor-resumen">
+      <h3>Tu resumen de actividad</h3>
+      <div class="formulario">
         <h3>Historias de tickets</h3>
         <div class="form-group">
-        <label for="num1" id="num1" name="num1">0.0</label>
-        <label>Creadas hoy</label>
+          <label id="num1">0.0</label>
+          <label>Creadas hoy</label>
         </div>
         <div class="form-group">
-        <label for="num2" id="num2" name="num2">0.0</label>
-        <label>Creadas esta semana</label>
+          <label id="num2">0.0</label>
+          <label>Creadas esta semana</label>
+        </div>
+        <div class="form-group">
+          <label id="num3">0.0</label>
+          <label>Creadas este mes</label>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="num3" id="num3" name="num3">0.0</label>
-        <label>Creadas este mes</label>
-      </div>
-    </div>
       <div class="cliente">
         <h3>Clientes creados</h3>
         <div class="form-group1">
-        <label for="num4" id="num4" name="num4">0.0</label>
-        <label for="clientes_c" id="clientes_c" name="clientes_c">Clientes totales</label>
-        <label for="clientes_c2"  id="clientes_c2" name="clientes_c2"><img src="assets/images/img-menu-admin/perfil.png" width="60" height="80" alt="imag-src"></label>
+          <label id="num4">0.0</label>
+          <label id="clientes_c">Clientes totales</label>
+          <label id="clientes_c2"><img src="assets/images/img-menu-admin/perfil.png" width="60" height="80" alt="img"></label>
+        </div>
       </div>
     </div>
-    </div>
-      <div class="panel">
-        <div class="form-group2">
-          <button (click)="navigateToManageTickets()" class="custom-button">
-            <span>
-              <img src="assets/images/img-menu-admin/gestion.png" alt="img-src">
-              historial de tickets
-            </span>
-          </button>
+    <div class="panel">
+      <div class="form-group2">
+        <button (click)="navigateToManageTickets()" class="custom-button">
+          <span>
+            <img src="assets/images/img-menu-admin/gestion.png" alt="historial de tickets">
+            Historial de tickets
+          </span>
+        </button>
       </div>
       <div class="form-group2">
         <button (click)="navigateToCreateTickets()" class="custom-button">
           <span>
-            <img src="assets/images/img-menu-admin/crear-ticket.png" alt="img-src">
-            gestionar tickets
+            <img src="assets/images/img-menu-admin/crear-ticket.png" alt="gestionar tickets">
+            Gestionar tickets
           </span>
         </button>
       </div>
       <div class="form-group2">
         <button (click)="navigateToEditUsers()" class="custom-button">
           <span>
-            <img src="assets/images/img-menu-admin/editar-u.png" alt="img-src">
+            <img src="assets/images/img-menu-admin/editar-u.png" alt="gestionar usuarios">
             Gestionar usuarios
           </span>
         </button>
@@ -81,15 +81,15 @@
       <div class="form-group2">
         <button (click)="navigateToManageComputers()" class="custom-button">
           <span>
-            <img src="assets/images/img-menu-admin/Pendiente.png" width="80" height="80" alt="img-src">
-            Gestionar Equipos
+            <img src="assets/images/img-menu-admin/Pendiente.png" width="80" height="80" alt="gestionar equipos">
+            Gestionar equipos
           </span>
         </button>
       </div>
       <div class="form-group2">
         <button (click)="navigateToCreateUser()" class="custom-button">
           <span>
-            <img src="assets/images/img-menu-admin/crear-u.png" width ="img-src">
+            <img src="assets/images/img-menu-admin/crear-u.png" alt="crear usuario">
             Crear usuario
           </span>
         </button>
@@ -97,12 +97,12 @@
       <div class="form-group2">
         <button (click)="navigateToRegisterComuter()" class="custom-button">
           <span>
-            <img src="assets/images/img-menu-admin/escritorio 1.png" alt="img-src">
-            Crear Equipo
+            <img src="assets/images/img-menu-admin/escritorio 1.png" alt="crear equipo">
+            Crear equipo
           </span>
         </button>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./login.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión</title>
+  <link rel="stylesheet" href="login.component.css">
 </head>
 <body>
-    <div class="contenedor">
-        <div class="register-section">
-          <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-            <h3>INICIAR SESION</h3>
-            <div class="form-group">
-              <img src="assets/images/buzon 1.png" alt="user-img">
-              <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre de usuario" required>
-            </div>
-            <div class="form-group">
-              <img src="assets/images/cerrar-con-llave 1.png" alt="user-img">
-              <input type="password" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" required>
-            </div>
-            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-            <div class="form-group">
-              <input type="checkbox" id="recordar">
-              <label for="recordar">Recordarme</label>
-              <a href="#" class="recuperar-contraseña">Recuperar contraseña</a>
-            </div>
-            <button type="submit" class="bt" [disabled]="!loginForm.form.valid">Ingresar</button>
-          </form>
-        </div>
-        <div class="logo-section">
-          <img src="assets/images/LOGO-SOLITEK-PNG.png" width="250" height="250" alt="user-img">
-        </div>
+<div class="contenedor">
+  <div class="register-section">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3>INICIAR SESION</h3>
+      <div class="form-group">
+        <img src="assets/images/buzon 1.png" alt="user-img">
+        <input 
+          type="text" 
+          formControlName="nombre" 
+          placeholder="Nombre de usuario" 
+          [ngClass]="{'is-invalid': loginForm.get('nombre')!.invalid && loginForm.get('nombre')!.touched}" 
+        />
       </div>
+      <div *ngIf="loginForm.get('nombre')!.invalid && loginForm.get('nombre')!.touched" class="invalid-feedback">
+        <small *ngIf="loginForm.get('nombre')!.errors!['required']">Nombre de usuario es obligatorio.</small>
+        <small *ngIf="loginForm.get('nombre')!.errors!['pattern']">Nombre de usuario no debe contener caracteres especiales.</small>
+      </div>
+      <div class="form-group">
+        <img src="assets/images/cerrar-con-llave 1.png" alt="user-img">
+        <input 
+          type="password" 
+          formControlName="contrasena" 
+          placeholder="Contraseña" 
+          [ngClass]="{'is-invalid': loginForm.get('contrasena')!.invalid && loginForm.get('contrasena')!.touched}" 
+        />
+      </div>
+      <div *ngIf="loginForm.get('contrasena')!.invalid && loginForm.get('contrasena')!.touched" class="invalid-feedback">
+        <small *ngIf="loginForm.get('contrasena')!.errors!['required']">Contraseña es obligatoria.</small>
+        <small *ngIf="loginForm.get('contrasena')!.errors!['minlength']">Contraseña debe tener al menos 6 caracteres.</small>
+      </div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div class="form-group">
+        <input type="checkbox" id="recordar">
+        <label for="recordar">Recordarme</label>
+        <a href="#" class="recuperar-contraseña">Recuperar contraseña</a>
+      </div>
+      <button type="submit" class="bt" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
+  </div>
+  <div class="logo-section">
+    <img src="assets/images/LOGO-SOLITEK-PNG.png" width="250" height="250" alt="user-img">
+  </div>
+</div>
 </body>
 </html>
