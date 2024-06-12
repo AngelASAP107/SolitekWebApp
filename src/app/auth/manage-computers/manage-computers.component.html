@@ -55,11 +55,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let equipo of filteredEquipos">
-                        <td>{{ equipo.id_equipo }}</td>
-                        <td>{{ equipo.especificaciones }}</td>
-                        <td>{{ equipo.estado_equipo }}</td>
-                        <td>{{ equipo.servicio }}</td>
-                        <td>{{ equipo.observaciones }}</td>
+                        <td data-label="Identificador">{{ equipo.id_equipo }}</td>
+                        <td data-label="Especificaciones">{{ equipo.especificaciones }}</td>
+                        <td data-label="Estado equipo">{{ equipo.estado_equipo }}</td>
+                        <td data-label="Servicio">{{ equipo.servicio }}</td>
+                        <td data-label="Observaciones">{{ equipo.observaciones }}</td>
                         <td>
                             <button class="edit-button" (click)="editEquipo(equipo)">Editar</button>
                             <button class="delete-button" (click)="deleteEquipo(equipo.id_equipo!)">Eliminar</button>

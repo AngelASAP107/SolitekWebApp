@@ -204,6 +204,7 @@ header {
 .table-container {
     max-height: 420px; /* Ajusta este valor según desees */
     overflow-y: auto; /* Habilita el desplazamiento vertical */
+    overflow-x: auto;
 }
 
 table {
@@ -300,4 +301,83 @@ table tbody tr:nth-child(even) {
 /* Color del cursor al pasar sobre la manija del scrollbar */
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #60B0FE;
+}
+
+
+@media (max-width: 768px) {
+    .search-input {
+        width: 50%;
+    }
+
+    .add-button-group {
+        width: 60%;
+    }
+    table{
+        width: 100%;
+    }
+    table thead{
+        display: none;
+    }
+
+    table tr{
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    table td{
+        display: block;
+        text-align: right;
+    }
+    table th, table td {
+        padding: 15px; /* Reducir el espacio entre celdas */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+
+    table td[data-label]::before{
+        content: attr(data-label);
+        float: left;
+    }
+    .table-container {
+        overflow-x: auto; /* Habilita el desplazamiento horizontal */
+        max-width: 100%; /* Asegura que el contenedor no se desborde horizontalmente */
+    }
+
+    .edit-button,.delete-button{
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección del flexbox a columnas */
+        justify-content: flex-start;
+        align-items: flex-start; /* Alinear los elementos al inicio */
+        padding: 20px;
+        margin-top: 10%;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+    .add-button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 10px;
+        width: 5%
+    }
+
+    .add-icon-button{
+        display: flex;
+    }
+
+    .add-text-button{
+        display: none;
+    }
+
 }

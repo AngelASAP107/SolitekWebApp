@@ -15,14 +15,13 @@ body {
 
 .logo_solitek {
     margin-right: auto; /* Esto empujará el logo hacia la izquierda */
-    
 }
 
 nav {
     margin-right: 100px; 
 }
 
-.logo-button2,.logo-button {
+.logo-button2, .logo-button {
     margin-left: 10px; /* Ajusta este valor según el espacio que desees entre los botones */
     margin-right: 10px;
     border: none; /* Eliminar el borde */
@@ -42,7 +41,6 @@ nav {
     margin-bottom: 7px;
 }
 
-
 .social-media {
     width: 100%; /* Ajusta el ancho al 100% del contenedor */
     height: 100%; /* Ajusta el alto al 100% del viewport (altura visible del navegador) */
@@ -53,7 +51,6 @@ nav {
     height: 100%; /* Ajusta el alto de la imagen al 100% del contenedor */
     object-fit: cover; /* Ajusta la imagen sin distorsionarla */
 }
-
 
 .description {
     display: flex;
@@ -93,6 +90,7 @@ nav {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .benefits h2 {
     text-align: center;
 }
@@ -142,7 +140,6 @@ nav {
 
 .footer-section {
     width: 20%;
-    
 }
 
 .social-media-icons {
@@ -156,3 +153,163 @@ nav {
     width: 30px;
     margin: 0 10px;
 }
+
+/* Media Queries para hacer la página responsive */
+@media (max-width: 1200px) {
+    .texto {
+        max-width: 40%;
+        margin-right: 100px;
+    }
+
+    .benefit {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    .cta-button {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    .description {
+        flex-direction: column;
+    }
+
+    .texto {
+        max-width: 80%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .foto {
+        max-width: 80%;
+    }
+
+    .benefit {
+        width: 50%;
+        margin: 10px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 80%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-content {
+        padding: 10px;
+    }
+.logo-button img{
+    width: 170px;
+    height: 80px;
+}
+    .logo-button2 img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cta-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .social-media img {
+        height: auto;
+    }
+
+    .description {
+        padding: 10px;
+    }
+
+    .texto {
+        max-width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .texto h1 {
+        font-size: 24px;
+    }
+
+    .texto p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .foto {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .foto img {
+        width: 100%;
+        height: auto;
+    }
+
+    .benefit {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .benefit img {
+        width: 80px;
+        height: auto;
+    }
+
+    .benefit h3 {
+        font-size: 16px;
+    }
+
+    .benefit p {
+        font-size: 14px;
+    }
+
+    .footer-content {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section, .footer-section1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-section1 img {
+        width: 24px;
+        height: 24px;
+    }
+   .pagos{
+    width: 180px;
+    height: 180px;
+    }
+    .social-media-icons {
+        padding: 5px;
+    }
+
+    .social-media-icons img {
+        width: 24px;
+    }
+
+    .social-media-icons p {
+        font-size: 14px;
+    }
+}
+

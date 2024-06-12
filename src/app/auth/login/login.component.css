@@ -149,3 +149,38 @@ body {
     margin-top: 5px;
     text-align: left; /* Para alinear el texto a la izquierda */
 }
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column; /* Cambia la dirección a columna para pantallas más pequeñas */
+        height: auto; /* Ajusta la altura automática */
+    }
+
+    .logo-section {
+        display: none; /* Oculta la sección de logo en pantallas pequeñas */
+    }
+    .register-section {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-section {
+        font-size: 12px; /* Reduce el tamaño de fuente para pantallas muy pequeñas */
+    }
+
+    .form-group img {
+        width: 24px; /* Ajusta el tamaño de la imagen */
+        height: 24px;
+    }
+
+    .bt {
+        width: 100px; /* Reduce el tamaño del botón */
+        height: 30px;
+        font-size: 12px;
+    }
+    .logo-section {
+        display: none; /* Oculta la sección de logo en pantallas pequeñas */
+    }
+}
