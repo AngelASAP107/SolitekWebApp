@@ -57,7 +57,7 @@ header {
     color: white;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -68,7 +68,7 @@ header {
 
 .dropdown-menu {
     position: absolute;
-    top: 50px; /* Ajustar según sea necesario */
+    top: 50px;
     right: 0;
     background-color: #e3f2fd;
     border: 1px solid #ccc;
@@ -76,7 +76,7 @@ header {
     border-radius: 5px;
     overflow: hidden;
     z-index: 1000;
-    margin-top: 10px; /* Ajusta la distancia desde el botón */
+    margin-top: 10px;
     color: black;
 }
 
@@ -94,15 +94,6 @@ header {
 
 .dropdown-menu li:hover {
     background-color: #f1f1f1;
-}
-
-.title-section {
-    background: linear-gradient(45deg, #60B0FE, #9DCAFF);
-    padding: 20px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }
 
 .menuback {
@@ -130,19 +121,23 @@ header {
     position: relative;
 }
 
+.table-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .contenedor2 {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    width: 48%; /* Ajustar el ancho según sea necesario */
 }
 
 .fotos {
     display: flex;
-    width: 100%;
-    height: 510px;
-    background-color: #ffffff; /* Eliminar fondo gris */
-    margin-right: 1%;
+    flex-direction: column;
+    width: 48%; /* Ajustar el ancho según sea necesario */
+    background-color: #ffffff;
     border-radius: 20px;
 }
 
@@ -173,15 +168,6 @@ header {
     margin-left: 1%;
 }
 
-.contenedor-panel {
-    display: flex;
-    height: 100px;
-    width: auto;
-    flex: 1; /* Para que ocupe el espacio restante */
-    margin-left: 2px; /* Espacio entre la tabla y los elementos adicionales */
-    margin-top: 60px;
-}
-
 .search-section {
     display: flex;
     justify-content: flex-start;
@@ -190,15 +176,15 @@ header {
     margin-top: 3%;
     position: relative;
     margin-bottom: 20px;
-    width: 700px;
+    width: 100%;
 }
 
 .search-bar {
     display: flex;
-    align-items: center;/* Distribuye los elementos a lo largo del contenedor */
+    align-items: center;
     background: transparent;
     padding: 10px;
-    width: 800px;
+    width: 100%;
 }
 
 .search-input {
@@ -210,10 +196,10 @@ header {
     border: none;
     border-radius: 50px;
     outline: none;
-    width: 620px;
+    width: 90%;
     background: transparent;
     box-shadow: none;
-    margin-right: 10px; /* Agregado para separar el input del botón */
+    margin-right: 10px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -227,40 +213,61 @@ header {
     margin-right: 5px;
 }
 
-table {
-    padding: 20px;
+.tickets-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    height: 100%;
+}
+
+table.tickets-table {
     width: 100%; /* Ajustar el ancho de la tabla */
-    margin-top: 10px;
+    margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.8);
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    overflow: hidden;
-    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.advances-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    height: 100%;
+}
+
+table.advances-table {
+    width: 100%; /* Ajustar el ancho de la tabla */
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 table thead {
     background-color: #9DCAFF;
     color: white;
-    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    border-radius: 10px 10px 0 0;
 }
 
 thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+    border-top-left-radius: 10px;
 }
 
 thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+    border-top-right-radius: 10px;
 }
 
-table td {
-    padding: 10px; /* Ajusta el padding para evitar que las celdas sean muy grandes */
+table td, table th {
+    padding: 10px;
     text-align: left;
-}
-
-table th {
-    padding: 20px;
+    word-break: break-all;
+    white-space: normal;
 }
 
 table tbody tr:nth-child(even) {
@@ -276,6 +283,32 @@ table tbody tr:nth-child(even) {
     cursor: pointer;
 }
 
+/* Tamaños de columna fijos */
+.spec-column {
+    width: 20%;
+}
+
+.status-column, .priority-column, .order-column {
+    width: 15%;
+}
+
+.small-column {
+    width: 10%;
+}
+
+.date-column {
+    width: 100%;
+}
+
+
+.description-column {
+    width: 100%;
+}
+
+.image-column {
+    width: 100%;
+}
+
 .modal {
     display: flex;
     justify-content: center;
@@ -287,8 +320,7 @@ table tbody tr:nth-child(even) {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -332,7 +364,7 @@ button {
     align-items: center;
     margin-top: 10px;
     width: 100%;
-    justify-content: space-between; /* Espaciado entre filtros y botón */
+    justify-content: space-between;
 }
 
 .priority-filters {
@@ -357,218 +389,183 @@ button {
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 
-/* Estilos para el modal */
 .modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Estilos para el contenido del modal */
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  width: 880px;
-  max-width: 90%; /* Ancho máximo del contenido */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 880px;
+    max-width: 90%;
 }
 
 .close {
-  cursor: pointer;
-  font-size: 24px;
-  color: #9DCAFF; /* Color de la X */
-  margin-right: 10px; 
-  margin-top: -10px; 
-  float: right; 
+    cursor: pointer;
+    font-size: 24px;
+    color: #9DCAFF;
+    margin-right: 10px;
+    margin-top: -10px;
+    float: right;
 }
 
-/* Estilos para el título del modal */
 .modal-title {
-  margin-top: 0;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background: linear-gradient(to right, #00B2FF, #368DD9);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-align: center;
-  position: relative; /* Para que la línea se posicione correctamente */
+    margin-top: 0;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(to right, #00B2FF, #368DD9);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    position: relative;
 }
 
 .modal-title::after {
-  content: ""; /* Agrega un elemento pseudo después del texto */
-  position: absolute; /* Posición absoluta relativa al elemento padre */
-  bottom: -5px; /* Ajusta la posición de la línea */
-  left: 10%; /* La línea comienza desde el borde izquierdo */
-  width: 80%; /* Ancho completo del texto */
-  height: 2px; /* Grosor de la línea */
-  background: linear-gradient(to right, #00B2FF, #368DD9); /* Degradado lineal */
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, #00B2FF, #368DD9);
 }
 
-/* Estilos para el formulario dentro del modal */
 .ticket-form {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
-/* Estilos para las etiquetas y campos de entrada del formulario */
 .form-group {
-  display: inline-block;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .form-group input,
 .form-group select,
 textarea {
-  background-color: #F1F0F4;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-family: "Outfit", sans-serif; /* Asegura que se use la misma fuente */
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  color: #000; /* Color del texto en el combobox */
-  box-sizing: border-box;
-  width: 100%; /* Asegura que los campos ocupen el 100% del contenedor */
+    background-color: #F1F0F4;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: #000;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 textarea {
-  height: 150px; /* Altura específica para el textarea */
+    height: 150px;
 }
 
 .char-counter {
-  text-align: right;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  color: #555;
+    text-align: right;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: #555;
 }
 
 .submit-button {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  background-color: #D1E4FF;
-  color: black;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 100px;
-  margin-top: 20px;
-  display: block; /* Convertir el botón en un bloque para centrarlo */
-  margin: 0 auto; /* Centrar horizontalmente */
-}
-
-.submit-button:hover {
-  background-color: #45a049;
-}
-
-/* Estilos para las filas del formulario */
-.form-row {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.error-message {
-  color: red; /* Estilo para el mensaje de error */
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
-@media screen and (max-width: 600px) {
-  .form-group {
-    width: 100%;
-    margin-right: 0;
-  }
-  .form-row {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Estilos para contenedor de tabla con scrollbar */
-.table-container {
-    max-height: 420px; /* Altura máxima deseada */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
-    position: relative;
-}
-
-/* Estilos de tabla */
-.fotos table {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    border-spacing: 0; /* Elimina el espacio entre celdas */
-    table-layout: fixed;
-    margin-top: 10px; /* Ajusta según sea necesario */
+    background-color: #D1E4FF;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
-.fotos table thead {
-    background-color: #9DCAFF;
-    color: white;
-    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+.submit-button:hover {
+    background-color: #45a049;
 }
 
-.fotos table thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+.form-row {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.fotos table thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.fotos table th,
-.fotos table td {
-    padding: 20px;
-    text-align: left;
+@media screen and (max-width: 600px) {
+    .form-group {
+        width: 100%;
+        margin-right: 0;
+    }
+    .form-row {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.fotos table tbody tr:nth-child(even) {
-    background-color: rgba(0, 123, 255, 0.1);
+.tickets-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    max-height: 420px; /* Ajustar la altura máxima según sea necesario */
+    overflow-y: auto; /* Permitir el desplazamiento vertical */
 }
 
-/* Personalización del scrollbar */
-/* Ancho y color del scrollbar */
-.table-container::-webkit-scrollbar {
+.advances-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    max-height: 420px; /* Ajustar la altura máxima según sea necesario */
+    overflow-y: auto; /* Permitir el desplazamiento vertical */
+}
+
+.tickets-table-container::-webkit-scrollbar,
+.advances-table-container::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5;
 }
 
-/* Agrega un riel alrededor del scrollbar */
-.table-container::-webkit-scrollbar-track {
+.tickets-table-container::-webkit-scrollbar-track,
+.advances-table-container::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
-/* Color de la manija del scrollbar */
-.table-container::-webkit-scrollbar-thumb {
+.tickets-table-container::-webkit-scrollbar-thumb,
+.advances-table-container::-webkit-scrollbar-thumb {
     background-color: #9DCAFF;
     border-radius: 10px;
 }
 
-/* Color del cursor al pasar sobre la manija del scrollbar */
-.table-container::-webkit-scrollbar-thumb:hover {
+.tickets-table-container::-webkit-scrollbar-thumb:hover,
+.advances-table-container::-webkit-scrollbar-thumb:hover {
     background-color: #60B0FE;
 }
 
-    
+.advances-table img {
+    max-width: 100%;
+    max-height: 200px; /* Ajustar según el tamaño deseado */
+    object-fit: contain;
+}
+

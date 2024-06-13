@@ -28,83 +28,84 @@
     </header>
 
     <div class="title-section">
+        <h1>Gestor del Tecnico.</h1>
         <button (click)="navigateToMenu()" class="menuback">Menú</button>
     </div>
 
     <div class="contenedor">
-        <div class="contenedor2">
-            <div class="search-section">
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="Buscar un Ticket..." [(ngModel)]="searchText" (input)="searchTickets()">
-                    <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
+        <div class="table-section">
+            <div class="contenedor2">
+                <div class="search-section">
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Buscar un Ticket..." [(ngModel)]="searchText" (input)="searchTickets()">
+                        <button class="search-button"><img src="assets/images/img-gestion-ticket/lupa 1.png" alt="Buscar"></button>
+                    </div>
                 </div>
+                <div class="filters-and-button">
+                    <div class="priority-filters">
+                        <span>Filtrar por prioridad:</span>
+                        <label>
+                            <input type="checkbox" [(ngModel)]="filterHigh" (change)="filterTickets()"> Alta
+                        </label>
+                        <label>
+                            <input type="checkbox" [(ngModel)]="filterMedium" (change)="filterTickets()"> Media
+                        </label>
+                        <label>
+                            <input type="checkbox" [(ngModel)]="filterLow" (change)="filterTickets()"> Baja
+                        </label>
+                    </div>
+                    <button class="add-advance-btn" (click)="openModal(selectedTicketId!)">Agregar Avance</button>
+                </div>
+                <main>
+                    <div class="tickets-table-container"> <!-- Mover el contenedor de la tabla aquí -->
+                        <table class="tickets-table">
+                            <thead> 
+                                <tr>
+                                    <th class="spec-column">Especificaciones</th>
+                                    <th class="status-column">Estado</th>
+                                    <th class="priority-column">Prioridad</th>
+                                    <th class="order-column">Numero de orden</th>
+                                    <th class="small-column">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ticket of filteredTickets">
+                                    <td>{{ ticket.equipo.especificaciones }}</td>
+                                    <td>{{ ticket.estado }}</td>
+                                    <td>{{ ticket.prioridad }}</td>
+                                    <td>{{ ticket.ticket_id }}</td>
+                                    <td class="small-column">
+                                        <button class="select-btn" (click)="selectTicket(ticket.ticket_id!)">Seleccionar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
             </div>
-            <div class="filters-and-button">
-                <div class="priority-filters">
-                    <span>Filtrar por prioridad:</span>
-                    <label>
-                        <input type="checkbox" [(ngModel)]="filterHigh" (change)="filterTickets()"> Alta
-                    </label>
-                    <label>
-                        <input type="checkbox" [(ngModel)]="filterMedium" (change)="filterTickets()"> Media
-                    </label>
-                    <label>
-                        <input type="checkbox" [(ngModel)]="filterLow" (change)="filterTickets()"> Baja
-                    </label>
+                <div class="fotos">
+                    <div class="advances-table-container">
+                        <table class="advances-table">
+                            <thead>
+                                <tr>
+                                    <th class="date-column">Fecha/Hora</th>
+                                    <th class="description-column">Descripción</th>
+                                    <th class="image-column">Imagen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let advance of advances">
+                                    <td>{{ advance.DescripcionTicket.fecha_notificacion | date:'medium' }}</td>
+                                    <td>{{ advance.DescripcionTicket.mensaje }}</td>
+                                    <td *ngIf="advance.imagen_url">
+                                        <img [src]="advance.imagen_url" width="300px" height="200px">
+                                    </td>
+                                    <td *ngIf="!advance.imagen_url">Sin imagen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <button class="add-advance-btn" (click)="openModal(selectedTicketId!)">Agregar Avance</button>
-            </div>
-            <main>
-                <div class="table-container"> <!-- Mover el contenedor de la tabla aquí -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Especificaciones</th>
-                                <th>Estado</th>
-                                <th>Prioridad</th>
-                                <th>Numero de orden</th>
-                                <th class="small-column"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let ticket of filteredTickets">
-                                <td>{{ ticket.equipo.especificaciones }}</td>
-                                <td>{{ ticket.estado }}</td>
-                                <td>{{ ticket.prioridad }}</td>
-                                <td>{{ ticket.ticket_id }}</td>
-                                <td class="small-column">
-                                    <button class="select-btn" (click)="selectTicket(ticket.ticket_id!)">Seleccionar</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-        </div>
-        <div class="contenedor-panel">
-            <div class="fotos">
-                <div class="table-container"> <!-- Mover el contenedor de la tabla aquí -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Fecha/Hora</th>
-                                <th>Descripción</th>
-                                <th>Imagen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let advance of advances">
-                                <td>{{ advance.DescripcionTicket.fecha_notificacion | date:'medium' }}</td>
-                                <td>{{ advance.DescripcionTicket.mensaje }}</td>
-                                <td *ngIf="advance.imagen_url">
-                                    <img [src]="advance.imagen_url" width="300px" height="200px">
-                                </td>
-                                <td *ngIf="!advance.imagen_url">Sin imagen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 

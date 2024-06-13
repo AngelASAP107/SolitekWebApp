@@ -61,17 +61,22 @@ header {
     font-style: normal;
 }
 
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-menu {
     position: absolute;
-    top: 50px; /* Ajustar según sea necesario */
-    right: 20px;
+    top: 50px;
+    right: 0;
     background-color: #e3f2fd;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     overflow: hidden;
     z-index: 1000;
-    margin-top: 20px; /* Ajusta la distancia desde el botón */
+    margin-top: 10px;
     color: black;
 }
 
@@ -94,8 +99,8 @@ header {
 #nombre {
     width: 150px;
     margin-right: 2%;
-    font-size: 16px; /* Cambia el tamaño de la fuente */
-    color: #FFFFFF; /* Cambia el color del texto */
+    font-size: 16px;
+    color: #FFFFFF;
 }
 
 .menuback {
@@ -157,19 +162,23 @@ header {
     position: relative;
 }
 
+.table-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .contenedor2 {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    width: 48%;
 }
 
 .fotos {
     display: flex;
-    width: 100%;
-    height: 510px;
-    background-color: #ffffff; /* Eliminar fondo gris */
-    margin-right: 1%;
+    flex-direction: column;
+    width: 48%;
+    background-color: #ffffff;
     border-radius: 20px;
 }
 
@@ -186,15 +195,6 @@ header {
     margin-left: 1%;
 }
 
-.contenedor-panel {
-    display: flex;
-    height: 100px;
-    width: auto;
-    flex: 1; /* Para que ocupe el espacio restante */
-    margin-left: 2px; /* Espacio entre la tabla y los elementos adicionales */
-    margin-top: 60px;
-}
-
 .search-section {
     display: flex;
     justify-content: flex-start;
@@ -203,15 +203,15 @@ header {
     margin-top: 3%;
     position: relative;
     margin-bottom: 20px;
-    width: 700px;
+    width: 100%;
 }
 
 .search-bar {
     display: flex;
-    align-items: center; /* Distribuye los elementos a lo largo del contenedor */
+    align-items: center;
     background: transparent;
     padding: 10px;
-    width: 800px;
+    width: 100%;
 }
 
 .search-input {
@@ -223,10 +223,10 @@ header {
     border: none;
     border-radius: 50px;
     outline: none;
-    width: 620px;
+    width: 90%;
     background: transparent;
     box-shadow: none;
-    margin-right: 10px; /* Agregado para separar el input del botón */
+    margin-right: 10px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -240,40 +240,63 @@ header {
     margin-right: 5px;
 }
 
-table {
-    padding: 20px;
-    width: 100%; /* Ajustar el ancho de la tabla */
-    margin-top: 10px;
+.tickets-table-container {
+    width: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+table.tickets-table {
+    width: 100%;
+    margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.8);
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    overflow: hidden;
-    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.advances-table-container {
+    width: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+table.advances-table {
+    width: 100%;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 table thead {
     background-color: #9DCAFF;
     color: white;
-    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    border-radius: 10px 10px 0 0;
 }
 
 thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+    border-top-left-radius: 10px;
 }
 
 thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+    border-top-right-radius: 10px;
 }
 
-table td {
-    padding: 10px; /* Ajusta el padding para evitar que las celdas sean muy grandes */
+table td, table th {
+    padding: 10px;
     text-align: left;
-}
-
-table th {
-    padding: 20px;
+    word-break: break-all;
+    white-space: normal;
 }
 
 table tbody tr:nth-child(even) {
@@ -290,39 +313,52 @@ table tbody tr:nth-child(even) {
 }
 
 .small-column {
-    width: 80px; /* Ajusta este valor según sea necesario */
-    white-space: nowrap; /* Evita que el contenido se expanda */
-    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 table th.small-column,
 table td.small-column {
-    width: 80px; /* Asegura que tanto los encabezados como las celdas del cuerpo tengan el mismo ancho */
+    width: 80px;
 }
 
-.table-container {
-    max-height: 420px; /* Establece la altura máxima */
-    overflow-y: auto; /* Agrega un scrollbar vertical si es necesario */
-    position: relative;
+.tickets-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    max-height: 420px; /* Ajustar la altura máxima según sea necesario */
+    overflow-y: auto; /* Permitir el desplazamiento vertical */
 }
 
-.table-container::-webkit-scrollbar {
-    width: 12px; /* Ancho de la barra de desplazamiento vertical */
-    height: 12px; /* Altura de la barra de desplazamiento horizontal */
-    border-radius: 10px; /* Redondea los bordes del scrollbar */
+.advances-table-container {
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
+    max-height: 420px; /* Ajustar la altura máxima según sea necesario */
+    overflow-y: auto; /* Permitir el desplazamiento vertical */
 }
 
-.table-container::-webkit-scrollbar-track {
-    background: #C6C6CA; /* Color de la pista */
-    border-radius: 10px; /* Redondea los bordes de la pista */
+.tickets-table-container::-webkit-scrollbar,
+.advances-table-container::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
 }
 
-.table-container::-webkit-scrollbar-thumb {
-    background: #60B0FE; /* Color del pulgar */
-    border-radius: 10px; /* Redondea los bordes del pulgar */
-    border: 3px solid #C6C6CA; /* Espacio alrededor del pulgar */
+.tickets-table-container::-webkit-scrollbar-track,
+.advances-table-container::-webkit-scrollbar-track {
+    border-radius: 10px;
 }
 
-.table-container::-webkit-scrollbar-thumb:hover {
-    background: #368DD9; /* Color del pulgar al pasar el cursor */
+.tickets-table-container::-webkit-scrollbar-thumb,
+.advances-table-container::-webkit-scrollbar-thumb {
+    background-color: #9DCAFF;
+    border-radius: 10px;
+}
+
+.tickets-table-container::-webkit-scrollbar-thumb:hover,
+.advances-table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #60B0FE;
+}
+
+.advances-table img {
+    max-width: 100%;
+    max-height: 200px; /* Ajustar según el tamaño deseado */
+    object-fit: contain;
 }

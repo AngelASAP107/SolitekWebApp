@@ -47,8 +47,8 @@
                 </div>
             </div>
             <main>
-                <div class="table-container"> <!-- Aquí se añade la clase "table-container" -->
-                    <table>
+                <div class="tickets-table-container"> <!-- Clase "tickets-table-container" -->
+                    <table class="tickets-table">
                         <thead>
                             <tr>
                                 <th>Especificaciones</th>
@@ -73,29 +73,27 @@
                 </div>
             </main>
         </div>
-        <div class="contenedor-panel">
-            <div class="fotos">
-                <div class="table-container"> <!-- Aquí se añade la clase "table-container" -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Fecha/Hora</th>
-                                <th>Descripción</th>
-                                <th>Imagen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let advance of advances">
-                                <td>{{ advance.DescripcionTicket.fecha_notificacion | date:'medium' }}</td>
-                                <td>{{ advance.DescripcionTicket.mensaje }}</td>
-                                <td *ngIf="advance.imagen_url">
-                                    <img [src]="advance.imagen_url" width="300px" height="200px">
-                                </td>
-                                <td *ngIf="!advance.imagen_url">Sin imagen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="fotos">
+            <div class="advances-table-container"> <!-- Clase "advances-table-container" -->
+                <table class="advances-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha/Hora</th>
+                            <th>Descripción</th>
+                            <th>Imagen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let advance of advances">
+                            <td>{{ advance.DescripcionTicket.fecha_notificacion | date:'medium' }}</td>
+                            <td>{{ advance.DescripcionTicket.mensaje }}</td>
+                            <td *ngIf="advance.imagen_url">
+                                <img [src]="advance.imagen_url" width="300px" height="200px">
+                            </td>
+                            <td *ngIf="!advance.imagen_url">Sin imagen</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ export class UserEditComponent implements OnInit {
     nombre: false,
     correo_electronico: false,
     telefono: false,
-    contrasena: false
+    direccion: false // Asegúrate de que todos los campos estén inicializados
   };
 
   constructor(private router: Router, private authService: AuthService) { }
@@ -79,7 +79,7 @@ export class UserEditComponent implements OnInit {
   }
 
   goToMainMenu(): void {
-    this.navigateToMenu();
+    this.saveChanges(true);
   }
 
   navigateToMenu(): void {
