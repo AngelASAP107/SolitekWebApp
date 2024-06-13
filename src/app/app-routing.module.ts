@@ -1,3 +1,4 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './auth/inicio/inicio.component';
@@ -15,24 +16,25 @@ import { ManageTicketsClComponent } from './auth/manage-tickets-cl/manage-ticket
 import { ManageUsersComponent } from './auth/manage-users/manage-users.component';
 import { ManageComputersComponent } from './auth/manage-computers/manage-computers.component';
 import { EditEquipoComponent } from './auth/edit-equipo/edit-equipo.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },  // Ruta predeterminada
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterUserComponent },
-  { path: 'menu-admin', component: MenuAdminComponent },
-  { path: 'menu-cliente', component: MenuClientComponent },
-  { path: 'menu-tecnico', component: MenuTechnicalComponent },
-  { path: 'manage-tickets-ad', component: ManageTicketsAdComponent },
-  { path: 'tickets-history', component: TicketsHistoryComponent },
-  { path: 'user-edit/:id', component: UserEditComponent },
-  { path: 'gestion-tecnico', component: ManageTicketsTeComponent },
-  { path: 'gestion-cliente', component: ManageTicketsClComponent },
-  { path: 'manage-users', component: ManageUsersComponent },
-  { path: 'manage-computers', component: ManageComputersComponent },
-  { path: 'register-computer', component: RegisterComputerComponent },
-  { path: 'edit-equipo', component: EditEquipoComponent },
+  { path: 'menu-admin', component: MenuAdminComponent, canActivate: [AuthGuard] },
+  { path: 'menu-cliente', component: MenuClientComponent, canActivate: [AuthGuard] },
+  { path: 'menu-tecnico', component: MenuTechnicalComponent, canActivate: [AuthGuard] },
+  { path: 'manage-tickets-ad', component: ManageTicketsAdComponent, canActivate: [AuthGuard] },
+  { path: 'tickets-history', component: TicketsHistoryComponent, canActivate: [AuthGuard] },
+  { path: 'user-edit/:id', component: UserEditComponent, canActivate: [AuthGuard] },
+  { path: 'gestion-tecnico', component: ManageTicketsTeComponent, canActivate: [AuthGuard] },
+  { path: 'gestion-cliente', component: ManageTicketsClComponent, canActivate: [AuthGuard] },
+  { path: 'manage-users', component: ManageUsersComponent, canActivate: [AuthGuard] },
+  { path: 'manage-computers', component: ManageComputersComponent, canActivate: [AuthGuard] },
+  { path: 'register-computer', component: RegisterComputerComponent, canActivate: [AuthGuard] },
+  { path: 'edit-equipo', component: EditEquipoComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

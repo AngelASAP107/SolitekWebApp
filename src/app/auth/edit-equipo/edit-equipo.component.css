@@ -27,6 +27,7 @@
   border-radius: 5px;
   width: 80%; /* Ajustado para un mejor control del ancho */
   max-width: 880px; /* Ancho máximo del contenido */
+  overflow: hidden; /* Evita el desbordamiento */
 }
 
 .close {
@@ -105,6 +106,9 @@
 
 .form-group textarea {
   height: 150px; /* Altura específica para el textarea */
+  resize: vertical; /* Permite solo el redimensionamiento vertical */
+  max-width: 100%; /* Asegura que no se expanda más allá del contenedor */
+  overflow: auto; /* Agrega scroll si es necesario */
 }
 
 /* Ajusta el ancho de las entradas de formulario para dispositivos pequeños */
@@ -113,4 +117,25 @@
     width: 100%;
     margin-right: 0;
   }
+}
+
+.submit-button {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
 }

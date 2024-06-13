@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
 import { catchError, map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 export class UserService {
   private apiUrl = 'http://localhost:3000/api/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
@@ -25,7 +26,16 @@ export class UserService {
   }
 
   updateUser(id: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+    return this.http.put<User>(`${this.apiUrl}/${id}`, user).pipe(
+      map(updatedUser => {
+        // Si el usuario editado es el usuario logueado, actualizar la información en el AuthService
+        const currentUser = this.authService.getUserInfo();
+        if (currentUser && currentUser.usuario_id === updatedUser.usuario_id) {
+          this.authService.updateUserInfo(updatedUser);
+        }
+        return updatedUser;
+      })
+    );
   }
 
   deleteUser(id: number): Observable<void> {

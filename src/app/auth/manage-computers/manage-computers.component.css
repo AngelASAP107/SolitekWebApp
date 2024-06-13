@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -41,13 +39,13 @@ header {
 }
 
 .user-icon {
-    width: 40x;
+    width: 40px;
     height: 24px;
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 50px; /* Ajustar según sea necesario */
+    top: 50px;
     right: 0;
     background-color: #e3f2fd;
     border: 1px solid #ccc;
@@ -55,7 +53,7 @@ header {
     border-radius: 5px;
     overflow: hidden;
     z-index: 1000;
-    margin-top: 10px; /* Ajusta la distancia desde el botón */
+    margin-top: 10px;
     color: black;
 }
 
@@ -78,8 +76,8 @@ header {
 #nombre {
     width: 150px;
     margin-right: 2%;
-    font-size: 16px; /* Cambia el tamaño de la fuente */
-    color: #FFFFFF; /* Cambia el color del texto */
+    font-size: 16px;
+    color: #FFFFFF;
 }
 
 .title-section {
@@ -100,7 +98,7 @@ header {
     font-style: normal;
 }
 
-.menuback{
+.menuback {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -130,11 +128,11 @@ header {
 .search-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    justify-content: space-between;
     background: transparent;
     padding: 10px;
-    width: 800%;
-    max-width: 100%;
+    width: 100%;
+    max-width: 800px;
 }
 
 .search-input {
@@ -149,7 +147,7 @@ header {
     width: 550px;
     background: transparent;
     box-shadow: none;
-    margin-right: 10px; /* Agregado para separar el input del botón */
+    margin-right: 10px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -167,7 +165,7 @@ header {
     display: flex;
     align-items: center;
     margin-left: 10px;
-    width: 90%; 
+    width: 100%;
 }
 
 .add-icon-button, .add-text-button {
@@ -190,10 +188,12 @@ header {
     height: 20px;
     width: 20px;
 }
-.add-icon-button{
+
+.add-icon-button {
     border-radius: 50px 0px 0px 50px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
+
 .add-text-button {
     margin-left: 10px;
     border-radius: 0px 50px 50px 0px;
@@ -202,8 +202,8 @@ header {
 }
 
 .table-container {
-    max-height: 420px; /* Ajusta este valor según desees */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    max-height: 420px;
+    overflow-y: auto;
     overflow-x: auto;
 }
 
@@ -216,54 +216,41 @@ table {
     font-weight: 100;
     font-style: normal;
     overflow: hidden;
-    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border-spacing: 0;
     table-layout: fixed;
+    word-wrap: break-word;
 }
 
 table thead {
     background-color: #9DCAFF;
     color: white;
-    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    border-radius: 10px 10px 0 0;
     width: 100%;
 }
 
 thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+    border-top-left-radius: 10px;
 }
 
 thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+    border-top-right-radius: 10px;
 }
 
 table th, table td {
     padding: 30px;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table td {
+    white-space: normal; /* Permitir que el texto se ajuste a varias líneas */
 }
 
 table tbody tr:nth-child(even) {
     background-color: rgba(0, 123, 255, 0.1);
 }
-
-.edit-button{
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    background-color: #D1E4FF;
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100px;
-    margin-bottom: 10px;
-}
-
-.edit-button {
-    margin-right: 5px;
-}
-
-/* Add your styles here */
 
 .edit-button, .delete-button {
     font-family: "Outfit", sans-serif;
@@ -278,31 +265,31 @@ table tbody tr:nth-child(even) {
     border-radius: 5px;
     width: 100px;
     margin-bottom: 10px;
+    white-space: nowrap; /* Evitar que el texto se ajuste en varias líneas */
+}
+
+.edit-button {
+    margin-right: 5px;
 }
 
 /* Personalización del scrollbar */
-/* Ancho y color del scrollbar */
 .table-container::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5;
 }
 
-/* Agrega un riel alrededor del scrollbar */
 .table-container::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
-/* Color de la manija del scrollbar */
 .table-container::-webkit-scrollbar-thumb {
     background-color: #9DCAFF;
     border-radius: 10px;
 }
 
-/* Color del cursor al pasar sobre la manija del scrollbar */
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #60B0FE;
 }
-
 
 @media (max-width: 768px) {
     .search-input {
@@ -312,38 +299,42 @@ table tbody tr:nth-child(even) {
     .add-button-group {
         width: 60%;
     }
-    table{
+
+    table {
         width: 100%;
     }
-    table thead{
+
+    table thead {
         display: none;
     }
 
-    table tr{
+    table tr {
         margin-bottom: 8px;
         display: flex;
         flex-direction: column;
     }
 
-    table td{
+    table td {
         display: block;
         text-align: right;
     }
+
     table th, table td {
-        padding: 15px; /* Reducir el espacio entre celdas */
-        font-size: 14px; /* Tamaño de fuente más pequeño */
+        padding: 15px;
+        font-size: 14px;
     }
 
-    table td[data-label]::before{
+    table td[data-label]::before {
         content: attr(data-label);
         float: left;
     }
+
     .table-container {
-        overflow-x: auto; /* Habilita el desplazamiento horizontal */
-        max-width: 100%; /* Asegura que el contenedor no se desborde horizontalmente */
+        overflow-x: auto;
+        max-width: 100%;
     }
 
-    .edit-button,.delete-button{
+    .edit-button, .delete-button {
         width: 50%;
     }
 }
@@ -351,9 +342,9 @@ table tbody tr:nth-child(even) {
 @media (max-width: 480px) {
     .search-section {
         display: flex;
-        flex-direction: column; /* Cambiar la dirección del flexbox a columnas */
+        flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start; /* Alinear los elementos al inicio */
+        align-items: flex-start;
         padding: 20px;
         margin-top: 10%;
         position: relative;
@@ -369,15 +360,14 @@ table tbody tr:nth-child(even) {
         flex-direction: column;
         align-items: center;
         margin-left: 10px;
-        width: 5%
+        width: 100%;
     }
 
-    .add-icon-button{
+    .add-icon-button {
         display: flex;
     }
 
-    .add-text-button{
+    .add-text-button {
         display: none;
     }
-
 }

@@ -11,7 +11,6 @@ exports.register = async (req, res) => {
   try {
     console.log('Datos recibidos:', req.body);
 
-    // Verificar si el usuario ya existe por nombre
     const existingUser = await Usuario.findOne({ where: { nombre } });
     if (existingUser) {
       return res.status(400).json({ error: 'El nombre de usuario ya existe.' });
@@ -61,7 +60,7 @@ exports.getUsers = async (req, res) => {
 
 exports.getTechnicians = async (req, res) => {
   try {
-    const tecnicos = await Usuario.findAll({ where: { id_rol: 2 } }); // Asumiendo que el rol 2 es de técnicos
+    const tecnicos = await Usuario.findAll({ where: { id_rol: 2 } });
     res.status(200).json(tecnicos);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener técnicos', details: error.message });
@@ -70,7 +69,7 @@ exports.getTechnicians = async (req, res) => {
 
 exports.getClients = async (req, res) => {
   try {
-    const clientes = await Usuario.findAll({ where: { id_rol: 3 } }); // Asumiendo que el rol 3 es de clientes
+    const clientes = await Usuario.findAll({ where: { id_rol: 3 } });
     res.status(200).json(clientes);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener clientes', details: error.message });
@@ -95,19 +94,25 @@ exports.updateUser = async (req, res) => {
     const { id } = req.params;
     const { nombre, correo_electronico, contrasena, telefono, id_rol } = req.body;
     const user = await Usuario.findByPk(id);
+
     if (!user) {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
 
-    const hashedPassword = contrasena ? await bcrypt.hash(contrasena, 10) : user.contrasena;
-
-    await user.update({
+    // Preparar solo los campos que se deben actualizar
+    const updatedFields = {
       nombre,
       correo_electronico,
-      contrasena: hashedPassword,
       telefono,
       id_rol
-    });
+    };
+
+    // Solo actualizar la contraseña si se proporciona
+    if (contrasena) {
+      updatedFields.contrasena = await bcrypt.hash(contrasena, 10);
+    }
+
+    await user.update(updatedFields);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });

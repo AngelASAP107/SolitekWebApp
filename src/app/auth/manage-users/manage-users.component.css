@@ -41,7 +41,7 @@ header {
 }
 
 .user-icon {
-    width: 40x;
+    width: 40px;
     height: 24px;
 }
 
@@ -63,7 +63,7 @@ header {
     font-style: normal;
 }
 
-.menuback{
+.menuback {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -82,7 +82,7 @@ header {
 
 .dropdown-menu {
     position: absolute;
-    top: 50px; /* Ajustar según sea necesario */
+    top: 50px;
     right: 0;
     background-color: #e3f2fd;
     border: 1px solid #ccc;
@@ -90,7 +90,7 @@ header {
     border-radius: 5px;
     overflow: hidden;
     z-index: 1000;
-    margin-top: 10px; /* Ajusta la distancia desde el botón */
+    margin-top: 10px;
     color: black;
 }
 
@@ -112,18 +112,18 @@ header {
 
 .search-section {
     display: flex;
-    flex-direction: column; /* Cambiado para hacer que los elementos estén en columna */
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
     margin-top: 10%;
     margin-bottom: 20px;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    width: 100%;
 }
 
 .search-bar {
     display: flex;
     align-items: center;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    width: 100%;
 }
 
 .search-input {
@@ -138,7 +138,7 @@ header {
     width: 550px;
     background: transparent;
     box-shadow: none;
-    margin-right: 10px; /* Agregado para separar el input del botón */
+    margin-right: 10px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -156,7 +156,7 @@ header {
     display: flex;
     align-items: center;
     margin-left: 10px;
-    width: 90%; 
+    width: 90%;
 }
 
 .add-icon-button, .add-text-button {
@@ -179,10 +179,12 @@ header {
     height: 20px;
     width: 20px;
 }
-.add-icon-button{
+
+.add-icon-button {
     border-radius: 50px 0px 0px 50px;
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
+
 .add-text-button {
     margin-left: 10px;
     border-radius: 0px 50px 50px 0px;
@@ -196,12 +198,17 @@ header {
     font-weight: 100;
     font-style: normal;
     display: flex;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    width: 100%;
     padding-top: 10px;
 }
 
+.table-container {
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
 table {
-    padding: 20px;
     width: 100%;
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -210,26 +217,32 @@ table {
     font-weight: 100;
     font-style: normal;
     overflow: hidden;
-    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word; /* Para envolver palabras largas */
 }
 
 table thead {
     background-color: #9DCAFF;
     color: white;
-    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    border-radius: 10px 10px 0 0;
 }
 
 thead th:first-child {
-    border-top-left-radius: 10px; /* Redondea solo la esquina superior izquierda */
+    border-top-left-radius: 10px;
 }
 
 thead th:last-child {
-    border-top-right-radius: 10px; /* Redondea solo la esquina superior derecha */
+    border-top-right-radius: 10px;
 }
 
 table th, table td {
     padding: 30px;
     text-align: left;
+    overflow: hidden; /* Ocultar el contenido desbordado */
+    text-overflow: ellipsis; /* Añadir puntos suspensivos al texto desbordado */
+    word-wrap: break-word; /* Para envolver palabras largas */
+    word-break: break-word; /* Para romper palabras largas */
 }
 
 table tbody tr:nth-child(even) {
@@ -255,29 +268,98 @@ table tbody tr:nth-child(even) {
     margin-right: 5px;
 }
 
-.table-container {
-    max-height: 420px; /* Ajusta este valor según desees */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
-}
-
-
 .table-container::-webkit-scrollbar {
-    width: 12px; /* Ancho de la barra de desplazamiento vertical */
-    height: 12px; /* Altura de la barra de desplazamiento horizontal */
-    border-radius: 10px; /* Redondea los bordes del scrollbar */
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
 }
 
 .table-container::-webkit-scrollbar-track {
-    background: #C6C6CA; /* Color de la pista */
-    border-radius: 10px; /* Redondea los bordes de la pista */
+    background: #C6C6CA;
+    border-radius: 10px;
 }
 
 .table-container::-webkit-scrollbar-thumb {
-    background: #60B0FE; /* Color del pulgar */
-    border-radius: 10px; /* Redondea los bordes del pulgar */
-    border: 3px solid #C6C6CA; /* Espacio alrededor del pulgar */
+    background: #60B0FE;
+    border-radius: 10px;
+    border: 3px solid #C6C6CA;
 }
 
 .table-container::-webkit-scrollbar-thumb:hover {
-    background: #368DD9; /* Color del pulgar al pasar el cursor */
+    background: #368DD9;
+}
+
+@media (max-width: 768px) {
+    .search-input {
+        width: 50%;
+    }
+
+    .add-button-group {
+        width: 60%;
+    }
+    
+    table {
+        width: 100%;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+    }
+
+    table td[data-label]::before {
+        content: attr(data-label);
+        float: left;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .edit-button, .delete-button {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        margin-top: 10%;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+    .add-button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 10px;
+        width: 5%;
+    }
+
+    .add-icon-button {
+        display: flex;
+    }
+
+    .add-text-button {
+        display: none;
+    }
 }

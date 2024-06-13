@@ -41,7 +41,7 @@ header {
 }
 
 .user-icon {
-    width: 40x;
+    width: 40px;
     height: 24px;
 }
 
@@ -75,7 +75,6 @@ header {
 .dropdown-menu li:hover {
     background-color: #f1f1f1;
 }
-
 
 .title-section {
     background: linear-gradient(45deg, #60B0FE, #9DCAFF);
@@ -128,7 +127,7 @@ header {
     justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
     background: transparent;
     padding: 10px;
-    width: 800%;
+    width: 100%;
     max-width: 100%;
 }
 
@@ -196,8 +195,12 @@ header {
     box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
+.table-container {
+    max-height: 420px; /* Ajusta este valor según desees */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
 table {
-    padding: 20px;
     width: 100%;
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -207,8 +210,8 @@ table {
     font-style: normal;
     overflow: hidden;
     border-spacing: 0; /* Elimina el espacio entre celdas */
-    max-height: 420px; /* Ajusta este valor según desees */
-    overflow-y: auto;
+    table-layout: fixed;
+    word-wrap: break-word; /* Para envolver palabras largas */
 }
 
 table thead {
@@ -228,6 +231,10 @@ thead th:last-child {
 table th, table td {
     padding: 30px;
     text-align: left;
+    overflow: hidden; /* Ocultar el contenido desbordado */
+    text-overflow: ellipsis; /* Añadir puntos suspensivos al texto desbordado */
+    word-wrap: break-word; /* Para envolver palabras largas */
+    word-break: break-word; /* Para romper palabras largas */
 }
 
 table tbody tr:nth-child(even) {
@@ -249,14 +256,8 @@ table tbody tr:nth-child(even) {
     margin-bottom: 10px;
 }
 
-
 .edit-button {
     margin-right: 5px;
-}
-
-.table-container {
-    max-height: 420px; /* Ajusta este valor según desees */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
 }
 
 .table-container::-webkit-scrollbar {
@@ -280,3 +281,77 @@ table tbody tr:nth-child(even) {
     background: #368DD9; /* Color del pulgar al pasar el cursor */
 }
 
+@media (max-width: 768px) {
+    .search-input {
+        width: 50%;
+    }
+
+    .add-button-group {
+        width: 60%;
+    }
+    
+    table {
+        width: 100%;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+    }
+
+    table td[data-label]::before {
+        content: attr(data-label);
+        float: left;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .edit-button, .finish-button {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        margin-top: 10%;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+    .add-button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 10px;
+        width: 5%;
+    }
+
+    .add-icon-button {
+        display: flex;
+    }
+
+    .add-text-button {
+        display: none;
+    }
+}
