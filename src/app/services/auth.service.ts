@@ -52,6 +52,11 @@ export class AuthService {
     );
   }
 
+  changePassword(currentPassword: string, newPassword: string): Observable<any> {
+    const userId = this.getUserInfo()?.usuario_id;
+    return this.http.post<any>(`${this.apiUrl}/change-password`, { userId, currentPassword, newPassword });
+  }
+
   saveToken(token: string): void {
     if (this.isBrowser()) {
       localStorage.setItem('auth_token', token);

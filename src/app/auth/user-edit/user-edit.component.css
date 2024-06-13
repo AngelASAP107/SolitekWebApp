@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -25,8 +31,6 @@ header {
   height: 40px;
 }
 
-
-
 .header-right {
   display: flex;
   align-items: center;
@@ -42,7 +46,7 @@ header {
 }
 
 .user-icon {
-  width: 40x;
+  width: 40px;
   height: 24px;
 }
 
@@ -182,7 +186,7 @@ header {
 .input-group input {
   flex-grow: 1;
   padding: 10px;
-  background-color: transparent;
+  background-color: #F1F0F4;
   color: #000;
   border: none;
   border-radius: 5px;
@@ -191,21 +195,21 @@ header {
 }
 
 .input-group button {
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    width: 130px;
-    height: 30px;
-    font-family: "Outfit", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 100;
-      font-style: normal;
-      background-color: #D1E4FF;
-      color: black;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 130px;
+  height: 30px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .password-change {
@@ -217,7 +221,6 @@ header {
 .password-change .password {
   width: auto; /* Ajusta automáticamente el tamaño del botón */
   margin-right: 10px;
-  
 }
 
 .password-change {
@@ -228,16 +231,16 @@ header {
   transition: background-color 0.3s;
   width: 200px;
   font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    background-color: #D1E4FF;
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .save-btn {
@@ -246,16 +249,16 @@ header {
   width: 130px;
   height: 60px;
   font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    background-color: #D1E4FF;
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .input-group button:hover {
@@ -271,4 +274,75 @@ header {
   border-bottom: 1px solid #00B2FF;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.password-form {
+  margin-top: 20px;
+}
+
+.password-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.password-form .form-group input {
+  background-color: #F1F0F4;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #000;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.password-form button {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  background-color: #D1E4FF;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 130px;
+  height: 60px;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.password-form button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.error-message {
+  color: red;
+  font-family: "Outfit", sans-serif;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .form-group {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .password-change {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .password-change .password,
+  .save-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

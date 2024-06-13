@@ -16,8 +16,12 @@ export class UserEditComponent implements OnInit {
     nombre: false,
     correo_electronico: false,
     telefono: false,
-    direccion: false // Asegúrate de que todos los campos estén inicializados
   };
+  showPasswordChange: boolean = false;
+  currentPassword: string = '';
+  newPassword: string = '';
+  confirmNewPassword: string = '';
+  passwordError: string = '';
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -96,5 +100,31 @@ export class UserEditComponent implements OnInit {
     } else {
       console.error('User information not found');
     }
+  }
+
+  togglePasswordChange(): void {
+    this.showPasswordChange = !this.showPasswordChange;
+  }
+
+  changePassword(): void {
+    if (this.newPassword !== this.confirmNewPassword) {
+      this.passwordError = 'Las nuevas contraseñas no coinciden';
+      return;
+    }
+
+    this.authService.changePassword(this.currentPassword, this.newPassword).subscribe(
+      response => {
+        console.log('Contraseña cambiada con éxito');
+        this.showPasswordChange = false;
+        this.currentPassword = '';
+        this.newPassword = '';
+        this.confirmNewPassword = '';
+        this.passwordError = '';
+      },
+      error => {
+        console.error('Error al cambiar la contraseña:', error);
+        this.passwordError = 'Contraseña actual incorrecta';
+      }
+    );
   }
 }

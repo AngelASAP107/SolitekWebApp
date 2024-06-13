@@ -46,3 +46,30 @@ exports.login = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.changePassword = async (req, res) => {
+  const { userId, currentPassword, newPassword } = req.body;
+
+  try {
+    const user = await Usuario.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    const passwordMatch = await bcrypt.compare(currentPassword, user.contrasena);
+
+    if (!passwordMatch) {
+      return res.status(400).json({ error: 'Contraseña actual incorrecta' });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    user.contrasena = await bcrypt.hash(newPassword, salt);
+    await user.save();
+
+    res.json({ message: 'Contraseña actualizada con éxito' });
+  } catch (error) {
+    console.error('Error al cambiar la contraseña:', error);
+    res.status(500).json({ error: 'Error del servidor' });
+  }
+};

@@ -62,9 +62,25 @@
         <div class="form-group">
           <label>Contraseña:</label>
           <div class="password-change">
-            <button class="password">Cambiar Contraseña</button>
+            <button class="password" (click)="togglePasswordChange()">Cambiar Contraseña</button>
             <button class="save-btn" (click)="goToMainMenu()">Ir al Menú Principal</button>
           </div>
+        </div>
+        <div *ngIf="showPasswordChange" class="password-form">
+          <div class="form-group">
+            <label for="currentPassword">Contraseña Actual:</label>
+            <input type="password" id="currentPassword" [(ngModel)]="currentPassword">
+          </div>
+          <div class="form-group">
+            <label for="newPassword">Nueva Contraseña:</label>
+            <input type="password" id="newPassword" [(ngModel)]="newPassword">
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirmar Nueva Contraseña:</label>
+            <input type="password" id="confirmNewPassword" [(ngModel)]="confirmNewPassword">
+          </div>
+          <div *ngIf="passwordError" class="error-message">{{ passwordError }}</div>
+          <button class="save-btn" (click)="changePassword()">Guardar Cambios</button>
         </div>
       </div>
   </div>
