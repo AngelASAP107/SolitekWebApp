@@ -320,6 +320,7 @@ table tbody tr:nth-child(even) {
     table td[data-label]::before {
         content: attr(data-label);
         float: left;
+        font-weight: bold;
     }
 
     .table-container {

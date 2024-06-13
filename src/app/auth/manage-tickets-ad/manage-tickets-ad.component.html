@@ -61,15 +61,15 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let ticket of filteredTickets">
-                        <td>{{ ticket.cliente.nombre }}</td>
-                        <td>{{ ticket.cliente.correo_electronico }}</td>
-                        <td>{{ ticket.fecha_ingreso | date }}</td>
-                        <td>{{ ticket.cliente.telefono }}</td>
-                        <td>{{ ticket.ticket_id }}</td>
-                        <td>{{ ticket.tipo_servicio }}</td>
-                        <td>{{ ticket.equipo.especificaciones }}</td>
-                        <td>{{ ticket.estado }}</td>
-                        <td>
+                        <td data-label="Nombre">{{ ticket.cliente.nombre }}</td>
+                        <td data-label="N° Documento">{{ ticket.cliente.correo_electronico }}</td>
+                        <td data-label="Fecha de ingreso">{{ ticket.fecha_ingreso | date }}</td>
+                        <td data-label="Teléfono">{{ ticket.cliente.telefono }}</td>
+                        <td data-label="N° Orden">{{ ticket.ticket_id }}</td>
+                        <td data-label="Servicio">{{ ticket.tipo_servicio }}</td>
+                        <td data-label="Especificaciones">{{ ticket.equipo.especificaciones }}</td>
+                        <td data-label="Estado">{{ ticket.estado }}</td>
+                        <td data-label="Acciones">
                             <button class="edit-button" (click)="editTicket(ticket)">Editar</button>
                             <button class="finish-button" (click)="completarTicket(ticket.ticket_id)">Finalizar</button>
                         </td>
